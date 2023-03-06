@@ -1,0 +1,28 @@
+{
+    "beariorIcon": "images/icon/bearior.png",
+    "foxsterIcon": "images/icon/foxster.png",
+    "raccoonIcon": "images/icon/raccoon.png",
+
+    "rapterIcon": "images/icon/rapter.png",
+
+    "Foxster": "images/character/foxster.gif",
+    "Bearior":"images/character/bearior.gif", 
+    "Raccoon": "images/character/raccoon.gif",
+    "monster": "images/monster/%monster%.gif",
+    "mainGameBg": "images/bg/main-map.png",
+    
+    "howToPlayBg":"images/image/how-to-play-bg.png",
+    "animal_battle":"images/image/animal_battle.png",
+    "howToPlay": "images/button/how-to.png",
+    "mainimages": "images/bg/menu-map.png",
+    "gameOver" : "images/image/gameover.png",
+    "card": "images/card/%card%.png",
+    "bgCard1": "images/image/card1.png",
+    "bgCard2": "images/image/card2.png",
+    "bgCard3": "images/image/card3.png",
+    
+    "play":"images/button/start.png",
+    "back":"images/button/back.png",
+    "pause": "images/button/pause.png"
+ 
+}
