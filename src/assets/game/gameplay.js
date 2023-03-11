@@ -56,23 +56,17 @@ function getLoser() {
     return wins[win.value === 0 ? win.value+1 : win.value-1] // 0 PLAYER : 1 MONSTER
 }
 function getLoserCard() {
-    return win.value === 0 ? getMonsterCard() : getPlayerCard()
-}
-function getPlayerCard() {
-    return player.value.cardName
-}
-function getMonsterCard() {
-    return monster.value.cardName
-}
-function getCard() {
-    if (turn.value === 0) return getPlayerCard() //PLAYER
-    else if (turn.value === 1) return getMonsterCard() //MONSTER
-    else { //SUMMARY 
-        if (win.value === 0) return getPlayerCard() //IF PLAYER WIN
-        else return getMonsterCard() //IF MONSTER WIN
-    }
+    return win.value === 0 ? monster.value.getCardName() : player.value.getCardName()
 }
 
+function getCard() {
+    if (turn.value === 0) return player.value.getCardName() //PLAYER
+    else if (turn.value === 1) return monster.value.getCardName() //MONSTER
+    else { //SUMMARY 
+        if (win.value === 0) return player.value.getCardName() //IF PLAYER WIN
+        else return monster.value.getCardName() //IF MONSTER WIN
+    }
+}
 
 function randomMonsterCard() {
     const randomCard = Math.floor(Math.random()*cards.length) //0-12

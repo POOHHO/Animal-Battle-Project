@@ -52,18 +52,6 @@ init()
   letter-spacing: 0.12em;
 }
 
-.character-turn {
-  filter: drop-shadow(0.3rem 0 0 rgba(255, 255, 255, 0.5)) drop-shadow(0 0.3rem 0 rgba(255, 255, 255, 0.5)) drop-shadow(-0.3rem 0 0 rgba(255, 255, 255, 0.5)) drop-shadow(0 -0.3rem 0 rgba(255, 255, 255, 0.5));
-}
-
-.on-damage {
-  filter: drop-shadow(0.3rem 0 0 rgb(239, 68, 68)) drop-shadow(0 0.3rem 0 rgb(239, 68, 68)) drop-shadow(-0.3rem 0 0 rgb(239, 68, 68)) drop-shadow(0 -0.3rem 0 rgb(239, 68, 68));
-}
-
-.stroke-text {
-  filter: drop-shadow(0.5px 0 0 white) drop-shadow(0 0.5px 0 white) drop-shadow(-0.5px 0 0 white) drop-shadow(0 -0.5px 0 white);
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -71,16 +59,15 @@ init()
 ::-webkit-scrollbar-thumb {
   background: black;
 }
-
-.choose-character {
-  filter: drop-shadow(1px 0 0 black) drop-shadow(0 1px 0 black) drop-shadow(-1px 0 0 black) drop-shadow(0 -1px 0 black);
-}
-
 .shadow-table {
   filter: drop-shadow(3px 0 0 black) drop-shadow(0 3px 0 black) drop-shadow(-3px 0 0 black) drop-shadow(0 -3px 0 black);
 }
-
-.character-name {
-  filter: drop-shadow(4px 0 0 black) drop-shadow(0 4px 0 black) drop-shadow(-4px 0 0 black) drop-shadow(0 -4px 0 black);
+.stroke-text {
+  filter: drop-shadow(0.5px 0 0 white) drop-shadow(0 0.5px 0 white) drop-shadow(-0.5px 0 0 white) drop-shadow(0 -0.5px 0 white);
 }
+.stroke-black-text {
+  filter: drop-shadow(2.5px 0 0 black) drop-shadow(0 2.5px 0 black) drop-shadow(-2.5px 0 0 black) drop-shadow(0 -2.5px 0 black);
+}
+
+
 </style>

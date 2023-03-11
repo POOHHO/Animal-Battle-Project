@@ -3,8 +3,6 @@
     "foxsterIcon": "images/icon/foxster.png",
     "raccoonIcon": "images/icon/raccoon.png",
 
-    "rapterIcon": "images/icon/rapter.png",
-
     "Foxster": "images/character/foxster.gif",
     "Bearior":"images/character/bearior.gif", 
     "Raccoon": "images/character/raccoon.gif",
@@ -24,5 +22,5 @@
     "play":"images/button/start.png",
     "back":"images/button/back.png",
     "pause": "images/button/pause.png"
- 
+    
 }

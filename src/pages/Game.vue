@@ -1,14 +1,22 @@
 <script setup>
-import { show,backtoMain, backtogame, pause, tryagain } from "../main.js"
+import { show, pause } from "../main.js"
 import path from "../assets/path_data.json"
-import {
-  player, monster, level, turn, turns, win, wins,
-  playerTurn, getCard, nextTurn, getLoser, getLoserCard
-} from "../assets/game/gameplay.js"
+import { player, monster, level, turn, turns } from "../assets/game/gameplay.js"
+import ActionBar from "../components/ActionBar.vue";
+import GamblingCard from "../components/GamblingCard.vue";
+import Menu from "../components/Menu.vue";
+import { computed } from "vue";
 
-function getCardSource(card) {
-  return path.card.replace("%card%", card)
-}
+const computedPlayerDamaged = computed(() => {
+    if (show.value.monsterAttack) return 'on-damage'
+    else if (turn.value === 0) return 'character-turn'
+    else return ''
+})
+const computedMonsterDamaged = computed(() => {
+    if (show.value.playerAttack) return 'on-damage'
+    else if (turn.value === 1) return 'character-turn'
+    else return ''
+})
 </script>
 <template>
     <!-- HEADER TAB -->
@@ -25,120 +33,30 @@ function getCardSource(card) {
         </button>
     </div>
     <!-- BODY GAME -->
-    <div class="flex-1 flex justify-between items-center bg-contain bg-repeat-x bg-center bg-[#18181b] max-lg:-my-32"
+    <div class="flex-1 flex justify-between items-center bg-contain bg-repeat-x bg-center bg-[#18181b] lg:h-1/2 max-lg:-my-16 max-lg:bg-cover"
         :style="`background-image: url('${path.mainGameBg}')`">
-        <img class="h-1/2 ml-14 -scale-x-100 max-lg:h-1/4"
-            :class="show.monsterAttack ? 'on-damage' : (turn === 0 ? 'character-turn' : '')" :src="player.getImage()"
+        <img class="h-1/2 ml-12 -scale-x-100 max-lg:h-1/4" :class="computedPlayerDamaged" :src="player.getImage()"
             alt="player-idle">
-        <img class="h-1/3 mr-14 max-lg:h-1/5"
-            :class="show.playerAttack ? 'on-damage' : (turn === 1 ? 'character-turn' : '')" :src="monster.getImage()"
-            :alt="monster.getImage()">
-    </div>
-    <!-- ACTION BAR -->
-    <div class="flex flex-wrap items-center justify-center p-5 bg-zinc-900 max-lg:flex-col text-2xl">
-        <!-- ATTACK BTN -->
-        <button :disabled="!show.attackButton" @click="playerTurn()"
-            class="flex-1 py-8 mr-5 w-full bg-emerald-500 text-white shadow-md spacing disabled:bg-zinc-600 hover:bg-teal-600"
-            disabled>ATTACK</button>
-        <!-- PLAYER -->
-        <div class="flex flex-1 w-full py-3">
-            <div class="shadow-md w-32 h-32 bg-zinc-800">
-                <img class="opacity-85" :src="player.getIcon()" alt="player-icon">
+        <div class="flex flex-col justify-center items-center h-1/3 mr-12 max-lg:h-1/5 space-y-1">
+            <p class="text-white stroke-black-text text-xl">{{ monster.name }}</p>
+            <div class="flex items-center bg-zinc-800 h-3 w-24 border-[3px]">
+                <div class="bg-red-500 h-3 w-24 border-y-[3px]" :style="`width: ${monster.getPercentHealth()}%`"></div>
             </div>
-            <div class="flex-1 grid space-y-1 items-center ml-5">
-                <p class="flex flex-col">
-                    <span class="font-bold text-emerald-500 drop-shadow-lg" v-text="player.name"></span>
-                <div>
-                    <span>{{ `HP: ${player.health}` }}</span>
-                    <span v-show="show.monsterAttack" class="text-red-600">{{ `-${monster.damage}` }}</span>
-                    <span>{{ `/${player.maxHealth} (${player.character.character})` }} </span>
-                </div>
-                </p>
-                <!-- HEALTH BAR -->
-                <div class="bg-zinc-800 h-7 shadow-md mr-3">
-                    <div class="bg-emerald-400 h-7 mr-3" :style="`width: ${player.getPercentHealth()}%`"></div>
-                </div>
-            </div>
-        </div>
-        <!-- VS -->
-        <p>VS</p>
-        <!-- MONSTER -->
-        <div class="flex flex-1 py-3 w-full md:ml-5">
-            <div class="shadow-md w-32 h-32  bg-zinc-800 flex justify-center items-end">
-                <img class="opacity-85 w-32 h-20" :src="path.rapterIcon" alt="monster-icon">
-            </div>
-            <div class="flex-1 grid space-y-1 items-center ml-5">
-                <p class="flex flex-col">
-                    <span class="font-bold text-red-500 drop-shadow-lg" v-text="monster.name"></span>
-                <div>
-                    <span>{{ `HP: ${monster.health}` }}</span>
-                    <span v-show="show.playerAttack" class="text-red-600">{{ `-${player.damage}` }}</span>
-                    <span>{{ `/${monster.maxHealth}` }} </span>
-                </div>
-                </p>
-                <!-- HEALTH BAR -->
-                <div class=" bg-zinc-800 h-7 shadow-md mr-3">
-                    <div class="bg-red-500 h-7 mr-3" :style="`width: ${monster.getPercentHealth()}%`"></div>
-                </div>
-            </div>
+            <img class="h-full" :class="computedMonsterDamaged" :src="monster.getImage()"
+                :alt="monster.getImage()">
         </div>
     </div>
+    <!-- ACTIONBAR -->
+    <ActionBar />
     <!-- CARD -->
-    <div class="flex">
-        <div v-show="show.cardAttack || show.summaryAttack"
-            class="absolute inset-0 flex items-center justify-center bg-zinc-700 bg-opacity-20 space-x-3 z-20">
-            <div class="flex flex-col space-y-3">
-                <div class="flex text-2xl shadow-xl bg-zinc-900 p-5 items-center justify-center">
-                    <!-- SUMMARY WIN -->
-                    <div v-show="show.summaryAttack">
-                        <span :class="win === 0 ? 'text-emerald-500' : (win === 2 ? 'text-emerald-500' : 'text-red-500')">{{
-                            wins[win] }}</span><span v-show="win !== 2">&nbsp;WIN</span>
-                    </div>
-                    <!-- TURN -->
-                    <div v-show="!show.summaryAttack">
-                        <!-- turns[0] -->
-                        <span :class="turn === 0 ? 'text-emerald-500' : 'text-red-500'">{{ turns[turn] }}</span>&nbsp;CARD
-                    </div>
-                </div>
-                <div class="flex justify-between w-53 max-w-2xl bg-gray shadow-xl text-3xl bg-white text-zinc-700">
-                    <img class="w-full h-full" :src="getCardSource(getCard())" :alt="getCard()">
-                </div>
-                <button
-                    class="p-2 text-white spacing bg-emerald-600 shadow-lg text-2xl hover:-translate-y-1 hover:bg-teal-400 duration-300"
-                    @click="nextTurn()">NEXT TURN</button>
-            </div>
-            <!-- SUMMARY LOSE -->
-            <div class="flex flex-col space-y-3" v-show="show.summaryAttack && win !== 2">
-                <div class="flex text-sm shadow-xl bg-zinc-900 p-5 items-center justify-center ">
-                    <span :class="win === 0 ? 'text-red-500' : 'text-emerald-500'">{{ getLoser() }}</span>&nbsp;LOSE
-                </div>
-                <div class="flex justify-between max-w-2xl w-24 bg-white shadow-xl text-md text-zinc-700">
-                    <img class="w-full h-full" :src="getCardSource(getLoserCard())" :alt="getLoserCard()">
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col justify-center items-center absolute inset-0 bg-zinc-700 bg-opacity-90 w-screen h-screen"
-            v-show="show.playerDead">
-            <div>
-                <img :src="path.gameOver" alt="" class="w-96">
-            </div>
-            <div class="flex justify-center m-8 space-x-5">
-                <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4 text-xl"
-                    @click="tryagain()">TRY
-                    AGAIN</button>
-                <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4 text-xl"
-                    @click="backtoMain()">BACK TO MAIN</button>
-            </div>
-        </div>
-        <div class="flex  justify-center items-center absolute inset-0 bg-zinc-700 bg-opacity-90 w-screen h-screen"
-            v-show="show.pause">
-            <div class="justify-center space-y-5 flex flex-col items-center w-96">
-                <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4  text-xl w-1/2"
-                    @click="backtogame()">RESUME</button>
-                <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4 text-xl w-1/2"
-                    @click="backtoMain()">BACK TO MAIN</button>
-            </div>
-        </div>
-    </div>
+    <GamblingCard />
+    <Menu />
 </template>
-<style scoped></style>
+<style scoped>
+.on-damage {
+    filter: drop-shadow(0.3rem 0 0 rgb(239, 68, 68)) drop-shadow(0 0.3rem 0 rgb(239, 68, 68)) drop-shadow(-0.3rem 0 0 rgb(239, 68, 68)) drop-shadow(0 -0.3rem 0 rgb(239, 68, 68));
+}
+.character-turn {
+    filter: drop-shadow(0.3rem 0 0 rgba(255, 255, 255, 0.5)) drop-shadow(0 0.3rem 0 rgba(255, 255, 255, 0.5)) drop-shadow(-0.3rem 0 0 rgba(255, 255, 255, 0.5)) drop-shadow(0 -0.3rem 0 rgba(255, 255, 255, 0.5));
+}
+</style>
