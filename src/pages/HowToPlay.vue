@@ -1,5 +1,4 @@
 <script setup>
-import { backtoMain } from "../main.js"
 import path from "../assets/path_data.json"
 import Back from "../components/button/Back.vue";
 </script>
