@@ -38,14 +38,14 @@ const computedMonsterDamaged = computed(() => {
         
         <img class="h-1/2 ml-12 -scale-x-100 max-lg:h-1/4" :src="player.getImage()" :class="computedPlayerDamaged"
             alt="player-idle">
-        <div class="flex flex-col justify-center items-center h-1/3 mr-12 max-lg:h-1/5">
+        <div v-show="show.monsterImg" class="flex flex-col justify-center items-center h-1/3 mr-12 max-lg:h-1/5">
             <div class="flex stroke-black-text text-white text-2xl">
                 <p class="stroke-red-text">{{ monster.name }}</p>
-                <p class="text-red-500" v-show="show.playerAttack">&nbsp;{{ `-${monster.damage}` }}</p>
+                <p class="text-red-500" v-show="show.playerAttack">&nbsp;{{ `-${player.damage}` }}</p>
             </div>
             <div class="border-white border-[3px] rounded-sm">
                 <div class="flex items-center bg-zinc-800 h-3 w-24 border-[3.5px] border-zinc-800">
-                    <div class="bg-red-500 h-3 w-24 border-y-[3.5px] border-zinc-800" :style="`width: ${monster.getPercentHealth()}%`"></div>
+                    <div class="bg-red-500 h-3 w-24 border-y-[3.5px] border-zinc-800" :style="`width: ${monster.getPercentHealth()}%`"></div>                   
                 </div>
             </div>
             <img class="h-full my-2 py-2" :class="computedMonsterDamaged" :src="monster.getImage()" :alt="monster.getImage()">

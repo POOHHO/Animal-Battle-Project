@@ -1,8 +1,8 @@
-import { popup } from "../../main.js"
+import { popup, monsters, randomMonster, respawnDelay } from "../../main.js"
 import path from "../path_data.json"
-import { player } from "../game/gameplay.js"
+import { player, level, monster } from "../game/gameplay.js"
 class Monster {
-    constructor(name,health,image = "") {
+    constructor(name,health,image = "",coin = 0) {
       this.name = name
       this.health = health
       this.maxHealth = health
@@ -12,6 +12,7 @@ class Monster {
 
       this.cardName = ""
       this.cardDamage = ""
+      this.coin = coin
     }
     monsterAttack() {
         this.damage = this.cardDamage
@@ -34,9 +35,17 @@ class Monster {
     }
     dead() {
       if ( this.health <= 0) {
-        this.health = 0
-        popup("monsterDead")
+        // this.health = 0
+        this.respawn()
+        // popup("monsterDead")
+        respawnDelay()
       }
+    }
+
+    respawn() {
+      randomMonster()
+      this.health = this.maxHealth
+      level.value++
     }
 }
 export { Monster }

@@ -1,5 +1,5 @@
 import { Player } from "../entity/player.js"
-import { popup,unpopup } from "../../main.js"
+import { popup, unpopup } from "../../main.js"
 import { ref } from 'vue'
 
 //DEFAULT DYNAMIC VALUE
@@ -79,11 +79,12 @@ function randomMonsterCard() {
 function randomPlayerCard(){
     const random = Math.floor(Math.random() * 100)
     const luck = player.value.luck
-    const breakpoint = cards.length-4
+    const cardSize = cards.length
+    const breakpoint = cardSize-4
 
     let randomCard = ""
     if (random < luck) randomCard = Math.floor(Math.random() * 4) + breakpoint
-    else randomCard = Math.floor(Math.random() * breakpoint)
+    else randomCard = Math.floor(Math.random() * cardSize)
 
     const playerData = player.value
     playerData.cardName = cards[randomCard]

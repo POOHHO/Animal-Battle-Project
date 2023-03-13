@@ -15,6 +15,7 @@ const show = ref({
     playerDamage: false,
     playerDead: false,
     pause:false,
+    monsterImg: true,
     //BG
     mainBackground: true,
     howToPlay: false,
@@ -32,7 +33,6 @@ function playBtn() {
     setShow("characterSelect",true)
     setShow("mainMenu",false)
 }
-
 
 function howToPlayBtn() {
     setShow("howToPlay",true)
@@ -75,7 +75,6 @@ function tryagain(){
     setShow("pause",false)
     player.value.name = ""
 
-    
 }
 
 function pause(){
@@ -86,19 +85,25 @@ function emptyName() {
     popup("nameEmptyAlert",3000)
 }
 
+function respawnDelay() {
+    unpopup("monsterImg", 1500)
+}
+
 function unpopup(id,delay) {
     setShow(id,false)
     if (delay) setTimeout(() => setShow(id,true),delay)
 }
 function popup(id,delay) {
     setShow(id,true)
-    if (delay)  setTimeout(() => setShow(id,false),delay)
+    if (delay) setTimeout(() => setShow(id,false),delay)
 }
 
 function init() {
     monsters = [
-        new Monster("Rapter",100,"rapter"),
-        new Monster("Rapter",100,"rapter")
+        new Monster("Rapter",50,"rapter",10),
+        new Monster("Amadilo",50,"amadilo",15),
+        new Monster("Lionking",50,"lionKing",20) 
+
     ]
     characters = [
         new Character(0,"Foxster",250,3,99,path.bgCard1,path.foxsterIcon,path.Foxster),
@@ -106,9 +111,16 @@ function init() {
         new Character(2,"Raccoon",250,99,3,path.bgCard3,path.raccoonIcon,path.Raccoon)
     ]
 
-    monster.value = monsters[0]
+    randomMonster()
+}
+
+function randomMonster() {
+    const randomIndex = Math.floor(Math.random()*monsters.length)
+    monster.value = monsters[randomIndex]
 }
 
 export { 
-    unpopup,popup, init,characters,monsters,show,playBtn,howToPlayBtn,backtoMain,mainGame,emptyName,backtogame,pause, tryagain
+    unpopup, popup, init, characters, monsters, show, playBtn, 
+    howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
+    tryagain, randomMonster, respawnDelay
 }

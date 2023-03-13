@@ -6,7 +6,7 @@ import { player, monster, playerTurn } from "../assets/game/gameplay.js"
      <div class="flex flex-wrap justify-between p-5 bg-zinc-900 max-lg:flex-col text-2xl gap-y-2">
         <!-- ATTACK BTN -->
         <div class="flex flex-1">
-            <button :disabled="!show.attackButton" @click="playerTurn()"
+            <button :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"
                 class="flex-1 py-6 w-full bg-emerald-500  text-white shadow-md spacing disabled:bg-zinc-600 disabled:text-zinc-400 hover:bg-teal-600 lg:mr-5"
                 disabled>ATTACK</button>
             <button disabled class="flex-1 py-6 w-full bg-emerald-500  text-white shadow-md spacing disabled:bg-zinc-600 disabled:text-zinc-400 hover:bg-teal-600 lg:mr-5">

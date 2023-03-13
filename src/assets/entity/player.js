@@ -11,7 +11,7 @@ class Player {
         this.damage = 0
         this.luck = 0
         this.crit = 0
-
+        
         this.cardName = ""
         this.cardDamage = 0
     }  
@@ -20,6 +20,7 @@ class Player {
         monster.value.health -= this.damage
         monster.value.dead()
         popup("playerAttack",1500)
+
     }
     getImage() {
         return this.character.idle
