@@ -11,9 +11,19 @@ class Player {
         this.damage = 0
         this.luck = 0
         this.crit = 0
+        this.weapon = ""
+        this.armor = ""
+        this.accessory = ""
         
         this.cardName = ""
         this.cardDamage = 0
+        this.inventory = [{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        }]
     }  
     playerAttack() {
         this.randomCritical()

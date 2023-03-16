@@ -5,7 +5,11 @@ import CharacterSelector from "./pages/CharacterSelector.vue"
 import Game from "./pages/Game.vue"
 import MainMenu from "./pages/MainMenu.vue"
 import path from "./assets/path_data.json"
+import AdventureCamp from "./pages/AdventureCamp.vue"
+
+
 init()
+
 </script>
 
 <template>
@@ -17,9 +21,11 @@ init()
       <HowToPlay v-if="show.howToPlay" />
     </div>
   </div>
-  <div v-show="show.mainGame" class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
-    <Game />
+  <div v-show="show.mainGame"
+    class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
+    <Game/>
   </div>
+  <AdventureCamp />
 </template>
 
 <style>
@@ -59,15 +65,16 @@ init()
 ::-webkit-scrollbar-thumb {
   background: black;
 }
+
 .shadow-table {
   filter: drop-shadow(3px 0 0 black) drop-shadow(0 3px 0 black) drop-shadow(-3px 0 0 black) drop-shadow(0 -3px 0 black);
 }
+
 .stroke-text {
   filter: drop-shadow(0.5px 0 0 white) drop-shadow(0 0.5px 0 white) drop-shadow(-0.5px 0 0 white) drop-shadow(0 -0.5px 0 white);
 }
+
 .stroke-black-text {
   filter: drop-shadow(2.5px 0 0 black) drop-shadow(0 2.5px 0 black) drop-shadow(-2.5px 0 0 black) drop-shadow(0 -2.5px 0 black);
 }
-
-
 </style>

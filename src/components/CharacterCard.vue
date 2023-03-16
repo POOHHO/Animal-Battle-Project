@@ -1,13 +1,13 @@
 <script setup>
-import { characters, mainGame, emptyName } from "../main.js"
+import { characters, mainGame, emptyName , campGame  } from "../main.js"
 import { player } from "../assets/game/gameplay.js"
 const props = defineProps({ charId: Number })
 
-const enterMainGame = (id) => player.value.name.trim() === '' ? emptyName() : mainGame(id)
+const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : campGame(id)
 
 </script>
 <template>
-    <div @click="enterMainGame(charId)"
+    <div @click="enterCamp(charId)"
         class="px-2 py-[3.25rem] space-y-2 items-center justify-center flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 cursor-pointer bg-center bg-contain bg-no-repeat"
         :style="`background-image: url('${characters[charId].bg}')`">
         <h2 class="m04b text-l character-name text-white">{{ characters[charId].character }}</h2>

@@ -1,0 +1,125 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "HealthPotion",
+            "price": 50,
+            "type": "potion"
+        },
+        {
+            "id": 2,
+            "name": "ManaPotion",
+            "price": 50,
+            "type": "potion"
+        },
+        {
+            "id": 3,
+            "name": "NoobSword",
+            "additionalValue": 10,
+            "type": "weapon"
+        },
+        {
+            "id": 4,
+            "name": "TeenoiSword",
+            "additionalValue": 20,
+            "type": "weapon"
+        },
+        {
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },
+        {
+            "id": 6,
+            "name": "HolyStick",
+            "additionalValue": 15,
+            "type": "weapon"
+        },
+        {
+            "id": 99,
+            "name": "SuperHeavyAtomicUniversalAllOfLivingRewLegendarySword",
+            "additionalValue": 90,
+            "type": "weapon"
+        },
+        {
+            "id": 7,
+            "name": "LeatherArmor",
+            "additionalValue": 20,
+            "type": "armor"
+        },
+        {
+            "id": 8,
+            "name": "ChainArmor",
+            "additionalValue": 30,
+            "type": "armor"
+        },
+        {
+            "id": 9,
+            "name": "IronArmor",
+            "additionalValue": 50,
+            "type": "armor"
+        },
+        {
+            "id": 10,
+            "name": "GoldenArmor",
+            "additionalValue": 80,
+            "type": "armor"
+        },
+        {
+            "id": 11,
+            "name": "DiamondArmor",
+            "additionalValue": 120,
+            "type": "armor"
+        },
+        {
+            "id": 12,
+            "name": "GoldenRing",
+            "additionalValue": 2,
+            "type": "armor"
+        },
+        {
+            "id": 13,
+            "name": "JadeNecklace",
+            "additionalValue": 3.5,
+            "type": "accessory"
+        },
+        {
+            "id": 14,
+            "name": "EmeraldBraclet",
+            "additionalValue": 4.5,
+            "type": "accessory"
+        },
+        {
+            "id": 15,
+            "name": "PureSilverNecklace",
+            "additionalValue": 6,
+            "type": "accessory"
+        },
+        {
+            "id": 16,
+            "name": "CloverLeaves",
+            "additionalValue": 10,
+            "type": "accessory"
+        }
+    ],
+    "skills": [
+        {
+            "id": 1,
+            "name": "HealingSpell"
+        },
+        {
+            "id": 2,
+            "name": "ThunderBolt"
+        },
+        {
+            "id": 3,
+            "name": "FireBall"
+        },
+        {
+            "id": 4,
+            "name": "ManaRegenaration"
+        }
+    ]
+}

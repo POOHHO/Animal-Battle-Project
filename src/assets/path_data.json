@@ -8,6 +8,7 @@
     "Raccoon": "images/character/raccoon.gif",
     "monster": "images/monster/%monster%.gif",
     "mainGameBg": "images/bg/main-map.png",
+    "adventure": "images/bg/adventure-map.png",
     
     "howToPlayBg":"images/image/how-to-play-bg.png",
     "animal_battle":"images/image/animal_battle.png",
@@ -21,6 +22,9 @@
     
     "play":"images/button/start.png",
     "back":"images/button/back.png",
-    "pause": "images/button/pause.png"
+    "pause": "images/button/pause.png",
+    "coin": "images/image/coin.gif"
+
+    
     
 }
