@@ -1,6 +1,8 @@
 import { popup, monsters, randomMonster, respawnDelay } from "../../main.js"
 import path from "../path_data.json"
-import { player, level, monster } from "../game/gameplay.js"
+import { player, level, monster, coin } from "../game/gameplay.js"
+
+
 class Monster {
     constructor(name,health,image = "",coin = 0) {
       this.name = name
@@ -39,6 +41,7 @@ class Monster {
         this.respawn()
         // popup("monsterDead")
         respawnDelay()
+        coin.value.add(this.coin)
       }
     }
 

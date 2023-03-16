@@ -1,3 +1,4 @@
+import { ref } from 'vue'
 
 const coin = ref(0)
 
@@ -8,6 +9,10 @@ class Currency {
     }
     substract(amount) {
         coin.value -= amount
+    }
+
+    getCoin() {
+        return coin
     }
 }
 export default Currency
