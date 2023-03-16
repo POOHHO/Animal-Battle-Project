@@ -1,10 +1,12 @@
 import { Player } from "../entity/player.js"
+import Currency from "../game/currency.js"
 import { popup, unpopup } from "../../main.js"
 import { ref } from 'vue'
 
 //DEFAULT DYNAMIC VALUE
 const player = ref(new Player()) 
 const monster = ref("")
+const coin = ref(new Currency())
 const level = ref(1)
 const turn = ref(0) //0 = PLAYER, 1 = MONSTER, 2 = SUMMARY
 const win = ref(0)  //0 = PLAYER, 1 = MONSTER, 2 = DRAW
@@ -92,7 +94,7 @@ function randomPlayerCard(){
 }
 
 export { 
-    monster,player,level,turn,turns,cards,wins,win,
+    monster,player,level,turn,turns,cards,wins,win,coin,
     monsterTurn,playerTurn,getCard
     ,nextTurn,getLoserCard,getLoser
 }

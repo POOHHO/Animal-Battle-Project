@@ -1,7 +1,7 @@
 <script setup>
 import { show, pause } from "../main.js"
 import path from "../assets/path_data.json"
-import { player, monster, level, turn, turns } from "../assets/game/gameplay.js"
+import { player, monster, level, turn, turns, coin } from "../assets/game/gameplay.js"
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
@@ -29,6 +29,7 @@ const props = defineProps({
         <div class="flex flex-col">
             <p>LEVEL: {{ level }}</p>
             <p>TURN: {{ turns[turn] }}</p>
+            <p>COIN: {{ coin.getCoin() }}</p>
         </div>
         <!-- pause -->
         <button :disabled="show.playerDead"
