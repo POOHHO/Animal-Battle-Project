@@ -133,8 +133,20 @@ function randomMonster() {
     monster.value = monsters[randomIndex]
 }
 
+import db from "../data/db.json"
+function randomGachaItem(){
+    const randomIndex = Math.floor(Math.random() * db.items.length);
+    const items = db.items[randomIndex]
+    player.value.inventory.push(items.id)
+    return items
+
+}
+function randomGachaSkill(){
+    let randomIndex = Math.floor(Math.random() * db.skills.length);
+    return db.skills[randomIndex]
+}
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame
+    tryagain, randomMonster, respawnDelay,campGame,randomGachaItem,randomGachaSkill
 }

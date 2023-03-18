@@ -24,9 +24,9 @@ init()
     class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
     <Game/>
   </div>
-  <div v-show="show.adventureCamp" class="w-screen h-screen bg-cover"
+  <div v-show="show.adventureCamp" class="screen w-screen h-screen bg-cover"
     :style="`background-image: url('${path.adventure}');`">
-        <AdventureCamp />
+        <AdventureCamp/>
   </div>
 </template>
 

@@ -23,8 +23,11 @@
     "play":"images/button/play.png",
     "back":"images/button/back.png",
     "pause": "images/button/pause.png",
-    "coin": "images/image/coin.gif"
-
+    "coin": "images/image/coin.gif",
+    
+    "gachapon1": "images/button/gashapon-1.png",
+    "gachapon2": "images/button/gashapon-2.png",
+    "gachaponIcon": "images/image/gachapon-icon.png"
     
     
 }
