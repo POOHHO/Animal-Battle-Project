@@ -4,7 +4,7 @@ import path from "../assets/path_data.json"
 </script>
 <template>
     <div class="flex justify-center m-5">
-        <img :src="path.animal_battle" alt="animal-battle" class="w-full h-full">
+        <img :src="path.animalBattle" alt="animal-battle" class="w-full h-full">
     </div>
     <div class="mb-4 w-52 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 cursor-pointer"
         @click="playBtn()">

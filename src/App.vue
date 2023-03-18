@@ -7,7 +7,6 @@ import MainMenu from "./pages/MainMenu.vue"
 import path from "./assets/path_data.json"
 import AdventureCamp from "./pages/AdventureCamp.vue"
 
-
 init()
 
 </script>
@@ -25,7 +24,10 @@ init()
     class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
     <Game/>
   </div>
-  <AdventureCamp />
+  <div v-show="show.adventureCamp" class="w-screen h-screen bg-cover"
+    :style="`background-image: url('${path.adventure}');`">
+        <AdventureCamp />
+  </div>
 </template>
 
 <style>

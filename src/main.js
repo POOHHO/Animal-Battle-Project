@@ -3,7 +3,6 @@ import { Monster } from "./assets/entity/monster.js"
 import { player,monster } from "./assets/game/gameplay.js"
 import { ref } from "vue"
 import path from "./assets/path_data.json"
-import db from "../data/db.json"
 let monsters = []
 let characters = []
 
@@ -134,22 +133,8 @@ function randomMonster() {
     monster.value = monsters[randomIndex]
 }
 
-function useItem(item) {
-    const itemObj = getItemById(item.id)
-    console.log(itemObj.imgPath)
-    player.value.weapon = itemObj
-    console.log(item.id);
-    // console.log(player.value.weapon);
-    // console.log(db.items.find((i) => {i.id === item.id}));
-
-}
-function getItemById(itemId) {
-    return db.items.find((item) => item.id === itemId)[0]
-}
-
-
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame,useItem
+    tryagain, randomMonster, respawnDelay,campGame
 }
