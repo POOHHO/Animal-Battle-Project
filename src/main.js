@@ -133,10 +133,13 @@ function randomMonster() {
     const randomIndex = Math.floor(Math.random()*monsters.length)
     monster.value = monsters[randomIndex]
 }
-
+const nameitem = ref("")
+const imgitem = ref("")
 function useItem(item) {
     const itemObj = getItemById(item.id)
-    console.log(itemObj.imgPath)
+    imgitem.value = item.imgPath
+    nameitem.value = item.name
+    // console.log(item.imgPath)
     player.value.weapon = itemObj
     console.log(item.id);
     // console.log(player.value.weapon);
@@ -146,10 +149,30 @@ function useItem(item) {
 function getItemById(itemId) {
     return db.items.find((item) => item.id === itemId)[0]
 }
+const itemimg = ref("")
+const itemname = ref("")
+function randomGashaItem(){
+    let randomIndexi = Math.floor(Math.random() * db.items.length);
+    console.log(randomIndexi);
+    itemimg.value = db.items[randomIndexi].imgPath;
+    itemname.value = db.items[randomIndexi].name;
+    player.value.inventory.push(db.items[randomIndexi])
+    console.log(db.items[randomIndexi]);
 
+}
+
+const skillimg = ref("")
+const skillname = ref("")
+function randomGashaSkill(){
+    let randomIndexs = Math.floor(Math.random() * db.skills.length);
+    console.log(randomIndexs);
+    skillimg.value = db.skills[randomIndexs].imgPath;
+    skillname.value = db.skills[randomIndexs].name;
+    
+}
 
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame,useItem
+    tryagain, randomMonster, respawnDelay,campGame,useItem,randomGashaItem,randomGashaSkill,skillimg,skillname,itemimg,itemname,imgitem
 }

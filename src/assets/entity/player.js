@@ -23,7 +23,95 @@ class Player {
             "additionalValue": 30,
             "type": "weapon",
             "imgPath": "../public/images/item/DimonSword.png"
-        }]
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        }
+        ,{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        }
+        ,{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        }
+        ,{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        },{
+            "id": 5,
+            "name": "NigirinSword",
+            "additionalValue": 30,
+            "type": "weapon",
+            "imgPath": "../public/images/item/DimonSword.png"
+        }
+    ]
     }  
     playerAttack() {
         this.randomCritical()

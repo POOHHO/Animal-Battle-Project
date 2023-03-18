@@ -2,7 +2,10 @@
 import { show, mainGame } from "../main.js"
 import path from "../assets/path_data.json"
 import InventoryVue from "../components/Inventory.vue";
+
 import { player, coin } from "../assets/game/gameplay";
+import Gachapon from "../components/Gachapon.vue";
+
 
 
 
@@ -14,8 +17,9 @@ import { player, coin } from "../assets/game/gameplay";
         <p class="p-3 font-bold text-4xl">COIN : {{ coin.getCoin() }}</p>
         <div class="flex flex-row w-screen h-screen">
             <div class="w-1/3 flex items-center justify-center">
-                <button
-                    class="bg-gray-700 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-gray-500 hover:border-blue-500 rounded">Gachapon</button>
+              <Gachapon/>
+                <!-- <label
+                    class="bg-gray-700 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-gray-500 hover:border-blue-500 rounded " >Gachapon</label> -->
             </div>
             <div class="w-1/3 flex items-center justify-center">
                 <button
