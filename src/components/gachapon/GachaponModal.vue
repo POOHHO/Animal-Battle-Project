@@ -1,17 +1,18 @@
 <script setup>
 const props = defineProps({
-    output: {type: Object, require: true},
+    output: {require: true},
     modalId: {type: String,require: true}
 })
 </script>
 <template>
     <input type="checkbox" :id="modalId" class="modal-toggle" />
     <div class="modal">
-        <div class="modal-box w-1/4">
-            <h1 class="text-center text-3xl text-cyan-200 textarea-bordered"> {{ output.name }}</h1>
-            <img :src="output.imgPath">
+        <div class="modal-box break-all">
+            <div class="text-white text-center text-4xl pb-5">YOU GET THIS!!</div>
+            <h1 class="text-center text-3xl text-cyan-200"> {{ output.name }}</h1>
+            <img :src="output.imgPath" :alt="output.name">
             <div class="modal-action">
-                <label :for="modalId" class="btn">Yay!</label>
+                <label :for="modalId" class="btn w-full">CLOSE</label>
             </div>
         </div>
     </div>

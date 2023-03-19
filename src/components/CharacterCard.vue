@@ -1,5 +1,5 @@
 <script setup>
-import { characters, mainGame, emptyName , campGame  } from "../main.js"
+import { characters, emptyName , campGame  } from "../main.js"
 import { player } from "../assets/game/gameplay.js"
 const props = defineProps({ charId: Number })
 

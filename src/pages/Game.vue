@@ -55,7 +55,7 @@ const props = defineProps({
                 </div>
             </div>
             <img v-show="show.monsterImg" class="h-full my-2 py-2" :class="computedMonsterDamaged" :src="monster.getImage()" :alt="monster.getImage()">
-            <img v-show="show.dropcoin" class="h-full my-2 py-2 animate-bounce"  :src="path.coin" :alt="path.coin">
+            <img v-show="show.dropCoin" class="h-full animate-bounce"  :src="path.coin" :alt="path.coin">
         </div>
     </div>
     <!-- ACTIONBAR -->

@@ -9,14 +9,15 @@ const outputSkill = ref('')
 const randomItem = (output) => { outputItem.value = output }
 const randomSkill = (output) => { outputSkill.value = output }
 
-const itemModal = "my-modal-4"
-const skillModal = "my-modal-5"
+const itemModal = "item-modal"
+const skillModal = "skill-modal"
+const gachaponModal = "gachapon-modal"
 </script>
  
 <template>
-  <label for="my-modal-3" class="btn">GACHAPON</label>
+  <label :for="gachaponModal" class="btn">GACHAPON</label>
 
-  <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+  <input type="checkbox" :id="gachaponModal" class="modal-toggle" />
 
   <div class="modal">
     <div class="modal-box">
@@ -29,7 +30,7 @@ const skillModal = "my-modal-5"
         </div>
       </div>
       <div class="flex">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <label :for="gachaponModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
       </div>
     </div>
   </div>

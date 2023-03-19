@@ -1,26 +1,21 @@
 <script setup>
 import { show } from "../main.js"
 import { player, monster, playerTurn } from "../assets/game/gameplay.js"
+import Action from "./button/Action.vue";
+import GamblingCard from "./GamblingCard.vue";
 </script>
 <template>
+    <GamblingCard />
      <div class="flex flex-wrap justify-between p-5 bg-zinc-900 max-lg:flex-col text-2xl gap-y-2">
-        <!-- ATTACK BTN -->
+        <!-- ACTION BTN -->
         <div class="flex flex-1">
-            <button :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"
-                class="flex-1 py-6 w-full bg-emerald-500  text-white shadow-md spacing disabled:bg-zinc-600 disabled:text-zinc-400 hover:bg-teal-600 lg:mr-5"
-                disabled>ATTACK</button>
-            <button disabled class="flex-1 py-6 w-full bg-emerald-500  text-white shadow-md spacing disabled:bg-zinc-600 disabled:text-zinc-400 hover:bg-teal-600 lg:mr-5">
-                SKILL
-            </button>
-            <button disabled class="flex-1 py-6 w-full bg-emerald-500 text-white shadow-md spacing disabled:bg-zinc-600 disabled:text-zinc-400 hover:bg-teal-600 lg:mr-5">
-                ITEM
-            </button>
+            <Action :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"  >ATTACK</Action>
+            <Action disabled>SKILL</Action>
+            <Action disabled>ITEM</Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">
-            <div class="shadow-md w-24 h-24 bg-zinc-800">
-                <img class="opacity-85" :src="player.getIcon()" alt="player-icon">
-            </div>
+            <img class="shadow-md w-24 h-24 bg-zinc-800 opacity-85" :src="player.getIcon()" alt="player-icon">
             <div class="flex-1 ml-5">
                 <div class="flex flex-col">
                     <span class="font-bold text-emerald-500 drop-shadow-lg">{{ `${player.name} ( ${player.character.character} )` }}</span>

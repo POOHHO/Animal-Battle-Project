@@ -23,7 +23,7 @@ const show = ref({
     characterSelect: false,
     mainGame: false,
     nameEmptyAlert: false,
-    dropcoin: false,
+    dropCoin: false,
     adventureCamp: false
 })
 
@@ -99,7 +99,7 @@ function emptyName() {
 }
 
 function respawnDelay() {
-    popup("dropcoin",1500)
+    popup("dropCoin",1500)
     unpopup("monsterImg", 2000)
 }
 
@@ -133,20 +133,8 @@ function randomMonster() {
     monster.value = monsters[randomIndex]
 }
 
-import db from "../data/db.json"
-function randomGachaItem(){
-    const randomIndex = Math.floor(Math.random() * db.items.length);
-    const items = db.items[randomIndex]
-    player.value.inventory.push(items.id)
-    return items
-
-}
-function randomGachaSkill(){
-    let randomIndex = Math.floor(Math.random() * db.skills.length);
-    return db.skills[randomIndex]
-}
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame,randomGachaItem,randomGachaSkill
+    tryagain, randomMonster, respawnDelay,campGame
 }

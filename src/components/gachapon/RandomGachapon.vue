@@ -1,14 +1,23 @@
 <script setup>
-import { randomGachaItem, randomGachaSkill } from "../../main.js"
+import db from "../../../data/db.json"
+import { player } from "../../assets/game/gameplay.js"
 const props = defineProps({
     randomSkill: { type: Boolean, default: false },
     randomItem: { type: Boolean, default: false },
     iconPath: { type: String },
     modalId: {type: String,require: true}
 })
+
 const random = () => {
-    if (props.randomSkill) return randomGachaSkill()
-    else if (props.randomItem) return randomGachaItem()
+    if (props.randomItem) {
+        const randomIndex = Math.floor(Math.random() * db.items.length);
+        const items = db.items[randomIndex]
+        player.value.inventory.push(items.id)
+        return items
+    } else if (props.randomSkill) {
+        const randomIndex = Math.floor(Math.random() * db.skills.length);
+        return db.skills[randomIndex]
+    }
 }
 </script>
 <template>
