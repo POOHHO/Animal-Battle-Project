@@ -1,18 +1,26 @@
 <script setup>
 import { init, show } from "./main.js"
-import HowToPlay from "./pages/HowToPlay.vue"
-import CharacterSelector from "./pages/CharacterSelector.vue"
-import Game from "./pages/Game.vue"
-import MainMenu from "./pages/MainMenu.vue"
+import { RouterView, RouterLink } from "vue-router";
+import MainMenu from "./views/MainMenu.vue";
+// import HowToPlay from "./pages/HowToPlay.vue"
+// import CharacterSelector from "./pages/CharacterSelector.vue"
+// import Game from "./pages/Game.vue"
 import path from "./assets/path_data.json"
-import AdventureCamp from "./pages/AdventureCamp.vue"
+// import AdventureCamp from "./pages/AdventureCamp.vue"
 
 init()
 
 </script>
 
 <template>
-  <div v-show="show.mainBackground" class="w-screen h-screen bg-cover"
+  <div class="w-screen h-screen bg-cover" :style="`background-image: url('${path.mainimages}');`">
+    <div class="flex-col flex items-center w-full h-full justify-center">
+      <!-- <router-view name="MainMenu"></router-view> -->
+      <router-view></router-view>
+    </div>
+      <!-- <RouterView></RouterView> -->
+  </div>
+  <!-- <div v-show="show.mainBackground" class="w-screen h-screen bg-cover"
     :style="`background-image: url('${path.mainimages}');`">
     <CharacterSelector v-if="show.characterSelect" />
     <div v-show="show.mainMenu || show.howToPlay" class="flex-col flex items-center w-full h-full justify-center">
@@ -27,7 +35,7 @@ init()
   <div v-show="show.adventureCamp" class="screen w-screen h-screen bg-cover"
     :style="`background-image: url('${path.adventure}');`">
         <AdventureCamp/>
-  </div>
+  </div> -->
 </template>
 
 <style>

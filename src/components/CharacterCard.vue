@@ -1,7 +1,15 @@
 <script setup>
-import { characters, emptyName , campGame  } from "../main.js"
-import { player } from "../assets/game/gameplay.js"
+import { characters, emptyName  } from "../main.js"
+import { player,monster } from "../assets/game/gameplay.js"
+import router from "../router/index.js";
+
 const props = defineProps({ charId: Number })
+
+function campGame(characterId){
+    const character = player.value.selectCharacter(characterId)
+    monster.value.setMaxHealth()
+    router.push({ name: 'Camp', params: { character: `${character.character}` } })
+}
 
 const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : campGame(id)
 

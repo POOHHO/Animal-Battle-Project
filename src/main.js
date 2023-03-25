@@ -51,15 +51,6 @@ function backtoMain(){
     player.value.name = ""
 }
 
-function campGame(character){
-    setShow("characterSelect",false)
-    setShow("mainMenu",false)
-    setShow("howToPlay",false)
-    setShow("mainBackground",false)
-    setShow("adventureCamp",true)
-    player.value.selectCharacter(character)
-    monster.value.setMaxHealth()
-}
 
 function mainGame(character){
     setShow("characterSelect",false)
@@ -78,6 +69,14 @@ function backtogame(){
     setShow("mainGame",true)  
     setShow("pause",false)
     
+}
+
+function backtocamp(){
+    setShow("characterSelect",false)
+    setShow("playerDead",false)
+    setShow("mainGame",false)  
+    setShow("pause",false)
+    setShow("adventureCamp",true)
 }
 
 function tryagain(){
@@ -136,5 +135,5 @@ function randomMonster() {
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame
+    tryagain, randomMonster, respawnDelay,backtocamp
 }
