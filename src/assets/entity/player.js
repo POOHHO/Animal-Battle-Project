@@ -1,6 +1,8 @@
 import { popup,characters } from "../../main.js"
-import path from "../path_data.json"
 import { monster } from "../game/gameplay.js"
+import { getItemById, getItems } from "../game/data-handler.js"
+
+
 class Player {
 
     constructor() {
@@ -17,13 +19,7 @@ class Player {
         
         this.cardName = ""
         this.cardDamage = 0
-        this.inventory = [{
-            "id": 5,
-            "name": "NigirinSword",
-            "additionalValue": 30,
-            "type": "weapon",
-            "imgPath": "../public/images/item/DimonSword.png"
-        }]
+        this.inventory = []
     }  
     playerAttack() {
         this.randomCritical()
@@ -32,6 +28,9 @@ class Player {
         popup("playerAttack",1500)
 
     }
+    getWeapon() { return this.weapon }
+    getArmor() { return this.armor }
+    getAccessory() { return this.accessory }
     getImage() {
         return this.character.idle
     }
@@ -53,6 +52,16 @@ class Player {
         this.maxHealth = character["health"]
         this.luck = character["luck"]
         this.crit = character["crit"]
+    }
+    useItem(item) {
+        this[item.type] = item
+        this.crit += (!item.crit ? 0 : item.crit)
+        this.maxHealth += (!item.health ? 0 : item.health)
+        this.health = this.maxHealth
+        this.luck += (!item.luck ? 0 : item.luck)
+    }
+    getInventory(index) {
+        return this.inventory[index]
     }
     randomCritical() {
         const percentage = Math.floor(Math.random() * 100)

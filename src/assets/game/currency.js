@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const coin = ref(0)
+const coin = ref(50000)
 
 class Currency {
 
@@ -12,7 +12,12 @@ class Currency {
     }
 
     getCoin() {
-        return coin
+        return coin.value
     }
+
+    hasCoin(amount) {
+        return coin.value >= amount
+    }
+    
 }
 export default Currency

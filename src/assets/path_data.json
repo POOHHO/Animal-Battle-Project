@@ -11,7 +11,7 @@
     "adventure": "images/bg/adventure-map.png",
     
     "howToPlayBg":"images/image/how-to-play-bg.png",
-    "animal_battle":"images/image/animal_battle.png",
+    "animalBattle":"images/image/animal-battle.png",
     "howToPlay": "images/button/how-to.png",
     "mainimages": "images/bg/menu-map.png",
     "gameOver" : "images/image/gameover.png",
@@ -20,11 +20,14 @@
     "bgCard2": "images/image/card2.png",
     "bgCard3": "images/image/card3.png",
     
-    "play":"images/button/start.png",
+    "play":"images/button/play.png",
     "back":"images/button/back.png",
     "pause": "images/button/pause.png",
-    "coin": "images/image/coin.gif"
-
+    "coin": "images/image/coin.gif",
+    
+    "gachapon1": "images/button/gashapon-1.png",
+    "gachapon2": "images/button/gashapon-2.png",
+    "gachaponIcon": "images/image/gachapon-icon.png"
     
     
 }

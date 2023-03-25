@@ -1,58 +1,66 @@
 <script setup>
 
-import { useItem } from "../main.js"
+import InventorySlot from "./inventory/InventorySlot.vue";
+import { player } from "../assets/game/gameplay";
 const props = defineProps({
     player: { type: Object }
 })
-
-
+// const items = ref('')
+// const loadItems = async () => {
+//     items.value = await getItems()
+// }
+// loadItems()
+const getInventory = (itemIndex) => player.value.getInventory(itemIndex-1)
+const hasItem = (itemIndex) => itemIndex <= props.player.inventory.length
+const itemTypes = ["weapon","armor","accessory"]
 </script>
  
 <template>
     <!-- The button to open modal -->
-    <label for="my-modal-5" class="btn">Inventory</label>
+    <label for="my-modal-6" class="btn">Inventory</label>
 
     <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-    <div class="modal w-screen h-screen">
-        <div class="modal-box w-11/12 relative max-w-5xl ">
-            <div class="flex-cols space-y-5">
-                <h3 class="font-bold text-4xl flex justify-center">Inventory</h3>
-                <div class="flex justify-center space-x-5 ">
-                    <div class="flex-cols border border-black rounded-xl justify-center px-2 w-1/3 h-auto">
-                        <div class="flex justify-center">
-                            <h1 class="text-4xl font-bold">{{ props.player.name }}</h1>
-                        </div>
-                        <img class="scale-75" :src="props.player.getImage()" alt="">
-                        <div class="grid grid-cols-3 gap-1 w-full space-x-2 px-2 text-center">
-                            <div class="border rounded-xl py-10">
-                                <!-- <img :src="props.player.weapon.imgPath" > -->
-                                <span>Weapon</span>
-                            </div>
-                            <div class="border rounded-xl py-10">
-                                <span>Armor</span>
-                            </div>
-                            <div class="border rounded-xl py-10">
-                                <span>Accessories</span>
-                            </div>
-                        </div>
+    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box p-3 bg-base-100 overflow-x-hidden">
+            <p class="font-bold text-3xl text-center pb-3 text-white">Inventory</p>
+            <div class="flex gap-x-2">
+                <div class="flex flex-col items-center justify-evenly rounded-md w-1/3">
+                    <div class="flex justify-center ">
+                        <h1 class="text-3xl font-bold break-all">{{ player.name }}</h1>
                     </div>
-                    <div class="h-auto p-10 border border-black rounded-xl overflow-y-scroll w-1/2 grid grid-rows-3">
-                        <div v-for="item in props.player.inventory" class="border rounded-xl text-center w-1/3">
-                            <!-- <p>{{ item.name }}</p> -->
-                            <img :src="item.imgPath" :alt="item.name" class="">
-                            <button class="btn btn-success" @click="useItem(item)">Use Item</button>
-                        </div>
+                    <img class="w-2/3" :src="player.getImage()" alt="PLAYER">
+                    <div class="flex flex-wrap justify-evenly w-full gap-y-2 ">
+                        <InventorySlot v-for="itemType of itemTypes" :key="itemType" :width="16" :height="16">
+                            <template v-if="player[itemType]">
+                                <img :src="player[itemType].imgPath"
+                                    class="w-1/2" alt="W">
+                                <button class="text-xs rounded-sm w-3/4 bg-red-400 text-white">REMOVE</button>
+    
+                            </template>
+                        </InventorySlot>
                     </div>
                 </div>
+                <div class="grid grid-cols-4 place-items-center gap-1 py-1 border border-white rounded-md w-2/3 " >
+                    <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" class="group relative">
+                        <template v-if="hasItem(itemIndex)">
+                            <img :src="getInventory(itemIndex).imgPath"
+                                    class="w-1/2" :alt="itemIndex">
+
+                            <button class="text-xs rounded-sm w-3/4 bg-emerald-400 text-white "
+                                    @click="player.useItem(getInventory(itemIndex))">EQUIP</button>    
+                            <div class="hidden group-hover:block absolute z-[1000] top-2/3 p-1 bg-slate-700 text-white rounded text-xs">
+                                    {{ getInventory(itemIndex).name }}
+                            </div>
+                        </template>
+                    </InventorySlot>
+                </div>
             </div>
-
-
-
-
-
-            <div class="modal-action">
-                <label for="my-modal-5" class="btn">back</label>
+            <div class="modal-action mt-3 space-x-6 text-white">
+                <p>HP {{ player.maxHealth }}</p>
+                <p>CRIT {{ player.crit }}</p>
+                <p>LUCK {{ player.luck }}</p>
+                <label for="my-modal-6" class="btn">BACK</label>
             </div>
         </div>
     </div>

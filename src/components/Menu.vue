@@ -1,5 +1,5 @@
 <script setup>
-import { show, backtoMain, tryagain, backtogame } from "../main.js"
+import { show, backtoMain, tryagain, backtogame ,backtocamp } from "../main.js"
 import path from "../assets/path_data.json"
 </script>
 <template>
@@ -21,7 +21,7 @@ import path from "../assets/path_data.json"
             <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4  text-xl w-1/2"
                 @click="backtogame()">RESUME</button>
             <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4 text-xl w-1/2"
-                @click="backtoMain()">BACK TO MAIN</button>
+                @click="backtocamp()">BACK TO CHAMP</button>
         </div>
     </div>
 </template>

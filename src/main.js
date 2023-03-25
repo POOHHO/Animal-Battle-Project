@@ -3,7 +3,6 @@ import { Monster } from "./assets/entity/monster.js"
 import { player,monster } from "./assets/game/gameplay.js"
 import { ref } from "vue"
 import path from "./assets/path_data.json"
-import db from "../data/db.json"
 let monsters = []
 let characters = []
 
@@ -24,7 +23,7 @@ const show = ref({
     characterSelect: false,
     mainGame: false,
     nameEmptyAlert: false,
-    dropcoin: false,
+    dropCoin: false,
     adventureCamp: false
 })
 
@@ -52,15 +51,6 @@ function backtoMain(){
     player.value.name = ""
 }
 
-function campGame(character){
-    setShow("characterSelect",false)
-    setShow("mainMenu",false)
-    setShow("howToPlay",false)
-    setShow("mainBackground",false)
-    setShow("adventureCamp",true)
-    player.value.selectCharacter(character)
-    monster.value.setMaxHealth()
-}
 
 function mainGame(character){
     setShow("characterSelect",false)
@@ -79,6 +69,14 @@ function backtogame(){
     setShow("mainGame",true)  
     setShow("pause",false)
     
+}
+
+function backtocamp(){
+    setShow("characterSelect",false)
+    setShow("playerDead",false)
+    setShow("mainGame",false)  
+    setShow("pause",false)
+    setShow("adventureCamp",true)
 }
 
 function tryagain(){
@@ -100,7 +98,7 @@ function emptyName() {
 }
 
 function respawnDelay() {
-    popup("dropcoin",1500)
+    popup("dropCoin",1500)
     unpopup("monsterImg", 2000)
 }
 
@@ -134,22 +132,8 @@ function randomMonster() {
     monster.value = monsters[randomIndex]
 }
 
-function useItem(item) {
-    const itemObj = getItemById(item.id)
-    console.log(itemObj.imgPath)
-    player.value.weapon = itemObj
-    console.log(item.id);
-    // console.log(player.value.weapon);
-    // console.log(db.items.find((i) => {i.id === item.id}));
-
-}
-function getItemById(itemId) {
-    return db.items.find((item) => item.id === itemId)[0]
-}
-
-
 export { 
     unpopup, popup, init, characters, monsters, show, playBtn, 
     howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,campGame,useItem
+    tryagain, randomMonster, respawnDelay,backtocamp
 }
