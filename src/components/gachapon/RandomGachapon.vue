@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted } from "vue";
 import { player, coin } from "../../assets/game/gameplay.js"
 import { getItems, getSkill } from "../../assets/game/data-handler.js"
 const props = defineProps({

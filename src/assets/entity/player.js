@@ -1,7 +1,5 @@
 import { popup,characters } from "../../main.js"
 import { monster } from "../game/gameplay.js"
-import { getItemById, getItems } from "../game/data-handler.js"
-
 
 class Player {
 
@@ -21,6 +19,7 @@ class Player {
         this.cardDamage = 0
         this.inventory = []
     }  
+    maxHeal() { this.health = this.maxHealth }
     playerAttack() {
         this.randomCritical()
         monster.value.health -= this.damage
@@ -46,12 +45,13 @@ class Player {
     }
     selectCharacter(characterIndex = 0) {
         const character = characters?.[characterIndex]
-        if (!character) return
+        if (!character) return undefined
         this.character = character
         this.health = character["health"]
         this.maxHealth = character["health"]
         this.luck = character["luck"]
         this.crit = character["crit"]
+        return character
     }
     useItem(item) {
         this[item.type] = item

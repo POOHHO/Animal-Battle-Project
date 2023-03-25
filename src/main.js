@@ -1,6 +1,6 @@
 import { Character } from "./assets/entity/character.js"
 import { Monster } from "./assets/entity/monster.js"
-import { player,monster } from "./assets/game/gameplay.js"
+import { monster } from "./assets/game/gameplay.js"
 import { ref } from "vue"
 import path from "./assets/path_data.json"
 let monsters = []
@@ -15,100 +15,19 @@ const show = ref({
     playerDamage: false,
     playerDead: false,
     pause:false,
-    monsterImg: true,
-    //BG
-    mainBackground: true,
-    howToPlay: false,
-    mainMenu: true,
-    characterSelect: false,
-    mainGame: false,
-    nameEmptyAlert: false,
     dropCoin: false,
-    adventureCamp: false
+    monsterImg: true,
+    nameEmptyAlert: false,
 })
 
-function setShow(id,isShow) {
-    show.value[id] = isShow
-}
 
-function playBtn() {
-    setShow("characterSelect",true)
-    setShow("mainMenu",false)
+function unpopup(showId,delay) {
+    show.value[showId] = false
+    if (delay) setTimeout(() => show.value[showId] = true,delay)
 }
-
-function howToPlayBtn() {
-    setShow("howToPlay",true)
-    setShow("mainMenu",false)
-}
-function backtoMain(){
-    setShow("howToPlay",false)
-    setShow("characterSelect",false)
-    setShow("playerDead",false)
-    setShow("mainGame",false)
-    setShow("mainMenu",true)
-    setShow("mainBackground",true)
-    setShow("pause",false)
-    player.value.name = ""
-}
-
-
-function mainGame(character){
-    setShow("characterSelect",false)
-    setShow("mainMenu",false)
-    setShow("howToPlay",false)
-    setShow("mainBackground",false)
-    setShow("adventureCamp",false)
-    setShow("mainGame",true)
-    player.value.selectCharacter(character)
-    monster.value.setMaxHealth()
-}
-
-function backtogame(){
-    setShow("characterSelect",false)
-    setShow("playerDead",false)
-    setShow("mainGame",true)  
-    setShow("pause",false)
-    
-}
-
-function backtocamp(){
-    setShow("characterSelect",false)
-    setShow("playerDead",false)
-    setShow("mainGame",false)  
-    setShow("pause",false)
-    setShow("adventureCamp",true)
-}
-
-function tryagain(){
-    setShow("mainBackground",true)
-    setShow("characterSelect",true)
-    setShow("playerDead",false)
-    setShow("mainGame",false)
-    setShow("pause",false)
-    player.value.name = ""
-
-}
-
-function pause(){
-    setShow("pause",true)
-}
-
-function emptyName() {
-    popup("nameEmptyAlert",3000)
-}
-
-function respawnDelay() {
-    popup("dropCoin",1500)
-    unpopup("monsterImg", 2000)
-}
-
-function unpopup(id,delay) {
-    setShow(id,false)
-    if (delay) setTimeout(() => setShow(id,true),delay)
-}
-function popup(id,delay) {
-    setShow(id,true)
-    if (delay) setTimeout(() => setShow(id,false),delay)
+function popup(showId,delay) {
+    show.value[showId] = true
+    if (delay) setTimeout(() => show.value[showId] = false,delay)
 }
 
 function init() {
@@ -133,7 +52,5 @@ function randomMonster() {
 }
 
 export { 
-    unpopup, popup, init, characters, monsters, show, playBtn, 
-    howToPlayBtn, backtoMain, mainGame, emptyName, backtogame, pause, 
-    tryagain, randomMonster, respawnDelay,backtocamp
+    unpopup, popup, init, characters, monsters, show, randomMonster
 }

@@ -1,41 +1,12 @@
 <script setup>
-import { init, show } from "./main.js"
-import { RouterView, RouterLink } from "vue-router";
-import MainMenu from "./views/MainMenu.vue";
-// import HowToPlay from "./pages/HowToPlay.vue"
-// import CharacterSelector from "./pages/CharacterSelector.vue"
-// import Game from "./pages/Game.vue"
-import path from "./assets/path_data.json"
-// import AdventureCamp from "./pages/AdventureCamp.vue"
-
+import { init } from "./main.js"
+import { RouterView } from "vue-router";
 init()
 
 </script>
 
 <template>
-  <div class="w-screen h-screen bg-cover" :style="`background-image: url('${path.mainimages}');`">
-    <div class="flex-col flex items-center w-full h-full justify-center">
-      <!-- <router-view name="MainMenu"></router-view> -->
-      <router-view></router-view>
-    </div>
-      <!-- <RouterView></RouterView> -->
-  </div>
-  <!-- <div v-show="show.mainBackground" class="w-screen h-screen bg-cover"
-    :style="`background-image: url('${path.mainimages}');`">
-    <CharacterSelector v-if="show.characterSelect" />
-    <div v-show="show.mainMenu || show.howToPlay" class="flex-col flex items-center w-full h-full justify-center">
-      <MainMenu v-if="show.mainMenu" />
-      <HowToPlay v-if="show.howToPlay" />
-    </div>
-  </div>
-  <div v-show="show.mainGame"
-    class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
-    <Game/>
-  </div>
-  <div v-show="show.adventureCamp" class="screen w-screen h-screen bg-cover"
-    :style="`background-image: url('${path.adventure}');`">
-        <AdventureCamp/>
-  </div> -->
+    <router-view></router-view>
 </template>
 
 <style>

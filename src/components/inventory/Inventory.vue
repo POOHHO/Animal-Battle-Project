@@ -1,15 +1,11 @@
 <script setup>
 
-import InventorySlot from "./inventory/InventorySlot.vue";
-import { player } from "../assets/game/gameplay";
+import InventorySlot from "./InventorySlot.vue";
+import { player } from "../../assets/game/gameplay";
 const props = defineProps({
     player: { type: Object }
 })
-// const items = ref('')
-// const loadItems = async () => {
-//     items.value = await getItems()
-// }
-// loadItems()
+
 const getInventory = (itemIndex) => player.value.getInventory(itemIndex-1)
 const hasItem = (itemIndex) => itemIndex <= props.player.inventory.length
 const itemTypes = ["weapon","armor","accessory"]

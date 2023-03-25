@@ -1,6 +1,5 @@
 <script setup>
 import path from "../../assets/path_data.json"
-import { backtoMain } from "../../main.js"
 
 const props = defineProps(["height","width"])
 </script>

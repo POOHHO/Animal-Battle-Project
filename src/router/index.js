@@ -24,14 +24,14 @@ const router = createRouter({
             component: CharacterSelector        
         },
         {
-            path: '/camp/:character',
+            path: '/camp',
             name: 'Camp',
             component: AdventureCamp        
         },
         {
-            path: '/game/:character',
+            path: '/game',
             name: 'Game',
-            components: Game,
+            component: Game,
         }
 
     ]

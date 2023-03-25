@@ -1,17 +1,18 @@
 <script setup>
-import { characters, emptyName  } from "../main.js"
-import { player,monster } from "../assets/game/gameplay.js"
+import { characters, popup } from "../main.js"
+import { player, monster } from "../assets/game/gameplay.js"
 import router from "../router/index.js";
 
 const props = defineProps({ charId: Number })
 
-function campGame(characterId){
-    const character = player.value.selectCharacter(characterId)
+const camp = (characterId) => {
+    player.value.selectCharacter(characterId)
     monster.value.setMaxHealth()
-    router.push({ name: 'Camp', params: { character: `${character.character}` } })
+    router.push({ name: 'Camp' });
 }
 
-const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : campGame(id)
+const emptyName = () => popup("nameEmptyAlert",3000)
+const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : camp(id)
 
 </script>
 <template>
@@ -36,10 +37,10 @@ const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : campGa
                 </tr>
             </table>
         </div>
-    </div>    
+    </div>
 </template>
 <style scoped>
 .character-name {
-  filter: drop-shadow(4px 0 0 black) drop-shadow(0 4px 0 black) drop-shadow(-4px 0 0 black) drop-shadow(0 -4px 0 black);
+    filter: drop-shadow(4px 0 0 black) drop-shadow(0 4px 0 black) drop-shadow(-4px 0 0 black) drop-shadow(0 -4px 0 black);
 }
 </style>
