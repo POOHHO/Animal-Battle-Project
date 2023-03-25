@@ -8,6 +8,9 @@ const props = defineProps({
     modalId: {type: String,require: true}
 })
 
+
+defineEmits(['random'])
+
 const random = () => {
     if (props.randomItem) {
         const randomIndex = Math.floor(Math.random() * db.items.length);
