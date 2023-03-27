@@ -1,18 +1,28 @@
 <script setup>
 import { characters, popup } from "../main.js"
 import { player, monster } from "../assets/game/gameplay.js"
+import { createPlayer } from "../assets/game/data-handler";
 import router from "../router/index.js";
+import { players } from "../assets/game/gameplay.js";
 
-const props = defineProps({ charId: Number })
+const props = defineProps({ charId: Number, name: String})
 
-const camp = (characterId) => {
+const camp =  (characterId) => {
     player.value.selectCharacter(characterId)
     monster.value.setMaxHealth()
-    router.push({ name: 'Camp' });
+    createPlayer(player.value)
+    player.value.name = ""
+    router.push({ name: 'Camp' })
+    
 }
 
-const emptyName = () => popup("nameEmptyAlert",3000)
-const enterCamp = (id) => player.value.name.trim() === '' ? emptyName() : camp(id)
+const enterCamp = (id) => {
+    // NAME EMPTY
+    if (player.value.name.trim() === '') popup("nameEmptyAlert",3000) 
+    // PLAYER NAME EXISTS
+    else if (players.value.filter((item) => item.name === player.value.name).length) popup("existsAlert",3000) 
+    else camp(id)
+}
 
 </script>
 <template>

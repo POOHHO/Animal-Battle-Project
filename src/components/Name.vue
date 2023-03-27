@@ -14,18 +14,19 @@ const paddingRemY = `${props.paddingNameY / 4}rem`
 </script>
 <template>
     <div class="flex flex-col items-center space-y-4">
-        <div class="text-center text-black m04b absolute z-10 top-8" v-show="show.nameEmptyAlert">
+        <div class="text-center text-black m04b absolute z-10 top-8" v-show="show.nameEmptyAlert || show.existsAlert">
             <div class="p-2 bg-red-600 items-center text-white leading-none rounded-full flex" role="alert">
                 <span
                     :class="`text-${textErrorSize} flex rounded-full bg-white uppercase px-2 font-bold mr-3 text-black`">Error!</span>
-                <span class="font-semibold mr-2 text-left flex-auto">Enter Your Name</span>
+                <span class="font-semibold mr-2 text-left flex-auto">{{ show.nameEmptyAlert ? 'Enter Your Name' : 'Account Exists' }}</span>
             </div>
         </div>
-        <h1 class="justify-center flex text-center m04b choose-character " :class="`text-${textHeaderSize}`">Choose
-            Character</h1>
+        <h1 class="justify-center flex text-center m04b choose-character text-black" :class="`text-${textHeaderSize}`">
+            Choose Character
+        </h1>
         <label class="text-white shadow-table m04b" for="YOURNAME" :class="`text-${textLabelSize}`">Your Name</label>
         <input v-model="player.name"
-            class="`bg-slate-50 border-4 border-slate-600 bg-opacity-65 text-center m04b paddingX paddingY`" type="text"
+            class="`bg-white border-4 border-slate-600 text-slate-900 bg-white text-center m04b paddingX paddingY`" type="text"
             placeholder="ENTER YOUR NAME" maxlength="18">
     </div>
 </template>
@@ -36,10 +37,10 @@ const paddingRemY = `${props.paddingNameY / 4}rem`
 }
 
 .paddingY {
-    padding-top: v-bind(paddingRemY);
+    padding-top: v-bind(padingRemY);
     padding-bottom: v-bind(paddingRemY);
 }
 
 .choose-character {
     filter: drop-shadow(1px 0 0 black) drop-shadow(0 1px 0 black) drop-shadow(-1px 0 0 black) drop-shadow(0 -1px 0 black);
-}</style>
+}</style>d

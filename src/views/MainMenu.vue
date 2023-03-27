@@ -8,7 +8,7 @@ import Background from "../components/Background.vue";
         <div class="flex justify-center m-5">
             <img :src="path.animalBattle" alt="animal-battle" class="w-full h-full">
         </div>
-        <router-link to="/character-selector"
+        <router-link to="/PlayerSlot"
             class="mb-4 w-52 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 cursor-pointer">
             <img :src="path.play" alt="play-btn" class="w-full h-full">
         </router-link>

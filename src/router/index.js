@@ -4,6 +4,7 @@ import HowToPlay from '../views/HowToPlay.vue'
 import CharacterSelector from '../views/CharacterSelector.vue'
 import AdventureCamp from '../views/AdventureCamp.vue'
 import Game from '../views/Game.vue'
+import PlayerSlot from '../views/PlayerSlot.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -32,6 +33,11 @@ const router = createRouter({
             path: '/game',
             name: 'Game',
             component: Game,
+        },
+        {
+            path: '/playerslot',
+            name: 'PlayerSlot',
+            component: PlayerSlot
         }
 
     ]

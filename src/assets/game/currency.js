@@ -1,22 +1,22 @@
-import { ref } from 'vue'
-
-const coin = ref(50000)
-
 class Currency {
 
+    constructor(coin=10000) {
+        this.coin = coin
+    }
+
     add(amount) {
-        coin.value += amount
+        this.coin += amount
     }
     substract(amount) {
-        coin.value -= amount
+        this.coin -= amount
     }
 
     getCoin() {
-        return coin.value
+        return this.coin
     }
 
     hasCoin(amount) {
-        return coin.value >= amount
+        return this.coin >= amount
     }
     
 }

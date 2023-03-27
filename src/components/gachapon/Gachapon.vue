@@ -21,7 +21,7 @@ const gachaponModal = "gachapon-modal"
   <input type="checkbox" :id="gachaponModal" class="modal-toggle" />
 
   <div class="modal">
-    <div class="modal-box">
+    <div class="modal-box bg-neutral-focus">
       <div class="flex flex-col items-center">
         <!-- <img class="w-5/6 pb-5" :src="path.gachaponIcon"> -->
         <div class="text-white text-5xl pb-5">GACHAPON SHOP</div>
@@ -31,7 +31,7 @@ const gachaponModal = "gachapon-modal"
         </div>
       </div>
       <div class="flex">
-        <label :for="gachaponModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <label :for="gachaponModal" class="btn btn-sm absolute right-2 top-2 bg-neutral hover:bg-red-500">✕</label>
       </div>
     </div>
   </div>

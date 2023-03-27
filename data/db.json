@@ -4,13 +4,15 @@
       "id": 1,
       "name": "HealthPotion",
       "price": 50,
-      "type": "potion"
+      "type": "potion",
+      "imgPath": "images/item/potion-1.png"
     },
     {
       "id": 2,
       "name": "ManaPotion",
       "price": 50,
-      "type": "potion"
+      "type": "potion",
+      "imgPath": "images/item/potion-1.png"
     },
     {
       "id": 3,
@@ -120,6 +122,98 @@
     {
       "id": 4,
       "name": "ManaRegenaration"
+    }
+  ],
+  "players": [
+    {
+      "name": "rew",
+      "character": {
+        "id": 2,
+        "character": "Raccoon",
+        "health": 250,
+        "luck": 99,
+        "crit": 3,
+        "bg": "images/image/card3.png",
+        "icon": "images/icon/raccoon.png",
+        "idle": "images/character/raccoon.gif"
+      },
+      "health": 250,
+      "maxHealth": 250,
+      "damage": 0,
+      "luck": 99,
+      "crit": 3,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "coin": {
+        "coin": 10000
+      },
+      "cardName": "",
+      "cardDamage": 0,
+      "inventory": [
+        {
+          "id": 5,
+          "name": "NigirinSword",
+          "crit": 30,
+          "type": "weapon",
+          "imgPath": "images/item/DiamondSword.png"
+        }
+      ],
+      "potions": [
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion"
+        }
+      ],
+      "level": 1,
+      "id": 1
+    },
+    {
+      "name": "rew2",
+      "character": {
+        "id": 1,
+        "character": "Bearior",
+        "health": 1,
+        "luck": 1,
+        "crit": 1,
+        "bg": "images/image/card2.png",
+        "icon": "images/icon/bearior.png",
+        "idle": "images/character/bearior.gif"
+      },
+      "health": 1,
+      "maxHealth": 1,
+      "damage": 0,
+      "luck": 1,
+      "crit": 1,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "coin": {
+        "coin": 10000
+      },
+      "cardName": "",
+      "cardDamage": 0,
+      "inventory": [
+        {
+          "id": 5,
+          "name": "NigirinSword",
+          "crit": 30,
+          "type": "weapon",
+          "imgPath": "images/item/DiamondSword.png"
+        }
+      ],
+      "potions": [
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion"
+        }
+      ],
+      "level": 1,
+      "id": 2
     }
   ]
 }

@@ -13,7 +13,7 @@ import Background from "../components/Background.vue"
         <div class="flex flex-col items-center w-screen h-screen justify-center max-lg:hidden">
             <Name :padding-name-x="20" :padding-name-y="1" />
             <div class="w-full flex justify-center overflow-x-scroll items-center space-x-4 p-5">
-                <CharacterCard v-for="(item, index) in characters" :key="index" :char-id="item.id" />
+                <CharacterCard v-for="(item, index) in characters" :key="index" :char-id="item.id"/>
             </div>
             <Back />
         </div>

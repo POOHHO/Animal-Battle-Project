@@ -1,5 +1,6 @@
 import { popup,characters } from "../../main.js"
 import { monster } from "../game/gameplay.js"
+import Currency from "../game/currency.js"
 
 class Player {
 
@@ -14,11 +15,37 @@ class Player {
         this.weapon = ""
         this.armor = ""
         this.accessory = ""
-        
+        this.coin = new Currency()
         this.cardName = ""
         this.cardDamage = 0
-        this.inventory = []
+        this.inventory = [ {
+                "id": 5,
+                "name": "NigirinSword",
+                "crit": 30,
+                "type": "weapon",
+                "imgPath": "images/item/DiamondSword.png"
+              }
+            ]
+        this.potions = [
+            {
+                "id": 1,
+                "name": "HealthPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-2.png"
+              },
+              {
+                "id": 2,
+                "name": "ManaPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-1.png"
+              },
+        ]    
+        this.level = 1
     }  
+    
+    isMaxInventory() { return this.inventory.length >= 24 }
     maxHeal() { this.health = this.maxHealth }
     playerAttack() {
         this.randomCritical()
@@ -27,6 +54,8 @@ class Player {
         popup("playerAttack",1500)
 
     }
+   
+    getEquipment(type) { return this[type] }
     getWeapon() { return this.weapon }
     getArmor() { return this.armor }
     getAccessory() { return this.accessory }
@@ -53,12 +82,25 @@ class Player {
         this.crit = character["crit"]
         return character
     }
+    removeItem(item){
+        console.log(item);
+        this[item.type] = undefined
+        this.crit -= (!item.crit ? 0 : item.crit)
+        this.maxHealth -= (!item.health ? 0 : item.health)
+        this.health = this.maxHealth
+        this.luck -= (!item.luck ? 0 : item.luck)
+        this.inventory.push(item)
+    }
     useItem(item) {
         this[item.type] = item
         this.crit += (!item.crit ? 0 : item.crit)
         this.maxHealth += (!item.health ? 0 : item.health)
         this.health = this.maxHealth
         this.luck += (!item.luck ? 0 : item.luck)
+
+    }
+    removeItemFromIndex(index){
+        this.inventory.splice(index-1,1)
     }
     getInventory(index) {
         return this.inventory[index]

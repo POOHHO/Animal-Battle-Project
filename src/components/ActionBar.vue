@@ -2,6 +2,7 @@
 import { show } from "../main.js"
 import { player, monster, playerTurn } from "../assets/game/gameplay.js"
 import Action from "./button/Action.vue";
+import ItemVue from "./inventory/Item.vue";
 import GamblingCard from "./GamblingCard.vue";
 </script>
 <template>
@@ -11,7 +12,7 @@ import GamblingCard from "./GamblingCard.vue";
         <div class="flex flex-1">
             <Action :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"  >ATTACK</Action>
             <Action disabled>SKILL</Action>
-            <Action disabled>ITEM</Action>
+            <Action><ItemVue/></Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">

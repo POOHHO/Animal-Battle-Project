@@ -6,14 +6,14 @@ const props = defineProps({
 </script>
 
 <template>
-    <input type="checkbox" :id="modalId" class="modal-toggle bg-neutral" />
-    <div class="modal">
-        <div class="modal-box break-all bg-base-100">
+
+    <div class="modal" :id="modalId">
+        <div class="modal-box break-all bg-neutral">
             <div class="text-white text-center  text-4xl pb-5">YOU GET THIS!!</div>
-            <h1 class="text-center text-3xl text-cyan-200" > {{ output.name }}</h1>
+            <h1 class="text-center text-3xl text-emerald-500" > {{ output.name }}</h1>
             <img :src="output.imgPath" :alt="output.name">
             <div class="modal-action">
-                <label :for="modalId" class="btn w-full">CLOSE</label>
+                <label :for="modalId" class="btn border-0 w-full bg-neutral-focus hover:bg-red-500">CLOSE</label>
             </div>
         </div>
     </div>

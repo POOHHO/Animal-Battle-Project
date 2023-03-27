@@ -1,6 +1,6 @@
 import { popup, unpopup, randomMonster } from "../../main.js"
 import path from "../path_data.json"
-import { player, level, coin } from "../game/gameplay.js"
+import { player, level } from "../game/gameplay.js"
 
 
 class Monster {
@@ -40,7 +40,7 @@ class Monster {
         this.respawn()
         popup("dropCoin",1500)
         unpopup("monsterImg", 2000)
-        coin.value.add(this.coin)
+        player.value.coin.add(this.coin)
       }
     }
 
