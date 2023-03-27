@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-
+    <input type="checkbox" :id="modalId" class="modal-toggle bg-neutral-focus" />
     <div class="modal" :id="modalId">
         <div class="modal-box break-all bg-neutral">
             <div class="text-white text-center  text-4xl pb-5">YOU GET THIS!!</div>
