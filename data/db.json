@@ -214,6 +214,259 @@
       ],
       "level": 1,
       "id": 2
+    },
+    {
+      "name": "PAWARIS PONGRAT",
+      "character": {
+        "id": 1,
+        "character": "Bearior",
+        "health": 1,
+        "luck": 1,
+        "crit": 1,
+        "bg": "images/image/card2.png",
+        "icon": "images/icon/bearior.png",
+        "idle": "images/character/bearior.gif"
+      },
+      "health": 1,
+      "maxHealth": 1,
+      "damage": 0,
+      "luck": 1,
+      "crit": 1,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "coin": {
+        "coin": 10000
+      },
+      "cardName": "",
+      "cardDamage": 0,
+      "inventory": [
+        {
+          "id": 5,
+          "name": "NigirinSword",
+          "crit": 30,
+          "type": "weapon",
+          "imgPath": "images/item/DiamondSword.png"
+        }
+      ],
+      "potions": [
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        }
+      ],
+      "level": 1,
+      "amount": 0,
+      "id": 3
+    },
+    {
+      "name": "pawaris pongrat",
+      "character": {
+        "id": 1,
+        "character": "Bearior",
+        "health": 1,
+        "luck": 1,
+        "crit": 1,
+        "bg": "images/image/card2.png",
+        "icon": "images/icon/bearior.png",
+        "idle": "images/character/bearior.gif"
+      },
+      "health": 1,
+      "maxHealth": 1,
+      "damage": 0,
+      "luck": 1,
+      "crit": 1,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "coin": {
+        "coin": 10000
+      },
+      "cardName": "",
+      "cardDamage": 0,
+      "inventory": [
+        {
+          "id": 5,
+          "name": "NigirinSword",
+          "crit": 30,
+          "type": "weapon",
+          "imgPath": "images/item/DiamondSword.png"
+        }
+      ],
+      "potions": [
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        }
+      ],
+      "level": 1,
+      "amount": 0,
+      "id": 4
+    },
+    {
+      "name": "rew21",
+      "character": {
+        "id": 1,
+        "character": "Bearior",
+        "health": 1,
+        "luck": 1,
+        "crit": 1,
+        "bg": "images/image/card2.png",
+        "icon": "images/icon/bearior.png",
+        "idle": "images/character/bearior.gif"
+      },
+      "health": 1,
+      "maxHealth": 1,
+      "damage": 0,
+      "luck": 1,
+      "crit": 1,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "coin": {
+        "coin": 10000
+      },
+      "cardName": "",
+      "cardDamage": 0,
+      "inventory": [
+        {
+          "id": 5,
+          "name": "NigirinSword",
+          "crit": 30,
+          "type": "weapon",
+          "imgPath": "images/item/DiamondSword.png"
+        }
+      ],
+      "potions": [
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 1,
+          "name": "HealthPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-2.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        },
+        {
+          "id": 2,
+          "name": "ManaPotion",
+          "price": 50,
+          "type": "potion",
+          "imgPath": "images/item/potion-1.png"
+        }
+      ],
+      "level": 1,
+      "amount": 0,
+      "id": 5
     }
   ]
 }

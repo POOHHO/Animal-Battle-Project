@@ -35,6 +35,41 @@ class Player {
                 "imgPath": "images/item/potion-2.png"
               },
               {
+                "id": 1,
+                "name": "HealthPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-2.png"
+              },
+              {
+                "id": 1,
+                "name": "HealthPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-2.png"
+              },
+              {
+                "id": 2,
+                "name": "ManaPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-1.png"
+              },
+              {
+                "id": 2,
+                "name": "ManaPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-1.png"
+              },
+              {
+                "id": 2,
+                "name": "ManaPotion",
+                "price": 50,
+                "type": "potion",
+                "imgPath": "images/item/potion-1.png"
+              },
+              {
                 "id": 2,
                 "name": "ManaPotion",
                 "price": 50,
@@ -43,6 +78,7 @@ class Player {
               },
         ]    
         this.level = 1
+        this.amount = 0
     }  
     
     isMaxInventory() { return this.inventory.length >= 24 }
@@ -52,9 +88,33 @@ class Player {
         monster.value.health -= this.damage
         monster.value.dead()
         popup("playerAttack",1500)
-
     }
-   
+    getImageHealth(){
+      for (let i = 0; i < this.potions.length; i++) {
+        if(this.potions[i].name === "HealthPotion"){
+         return this.potions[i].imgPath
+      } }
+    }
+    duplicateHealth(){
+      let health = 0
+       for (let i = 0; i < this.potions.length; i++) {
+       if(this.potions[i].name === "HealthPotion"){
+        health++ } }
+       return health
+    }
+    getImageMana(){
+      for (let i = 0; i < this.potions.length; i++) {
+        if(this.potions[i].name === "ManaPotion"){
+         return this.potions[i].imgPath
+      } }
+    }
+    duplicateMana(){
+      let mana = 0
+       for (let i = 0; i < this.potions.length; i++) {
+       if(this.potions[i].name === "ManaPotion"){
+        mana++ } }
+       return mana
+    }
     getEquipment(type) { return this[type] }
     getWeapon() { return this.weapon }
     getArmor() { return this.armor }
