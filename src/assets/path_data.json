@@ -27,8 +27,9 @@
     
     "gachapon1": "images/button/gashapon-1.png",
     "gachapon2": "images/button/gashapon-2.png",
-    "gachaponIcon": "images/image/gachapon-icon.png"
-    
+    "gachaponIcon": "images/image/gachapon-icon.png",
+    "potionHealth": "images/item/potion-2.png",
+    "potionMana": "images/item/potion-1.png"
     
     
 }

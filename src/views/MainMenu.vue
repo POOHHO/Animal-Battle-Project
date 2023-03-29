@@ -1,7 +1,18 @@
 <script setup>
+import { ref } from "vue";
 import { RouterLink } from "vue-router";
 import path from "../assets/path_data.json"
 import Background from "../components/Background.vue";
+// const audio = new Audio("music/Undertale_sans.mp3")
+// const isPlaying = ref(false)
+// const playPuauseSong = () => {
+//     console.log(audio);
+//     audio.volume = 0.2
+//     audio.loop = true
+//     isPlaying.value = !isPlaying.value
+//     if (isPlaying.value) audio.play()
+//     else audio.pause()
+// }
 </script>
 <template>
     <Background :background-image="path.mainimages" :center="true">

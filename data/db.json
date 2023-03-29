@@ -16,28 +16,31 @@
     },
     {
       "id": 3,
-      "name": "NoobSword",
+      "name": "NoobStick",
       "crit": 10,
-      "type": "weapon"
+      "type": "weapon",
+      "imgPath": "images/item/weapon/noob-stick.png"
     },
     {
       "id": 4,
       "name": "TeenoiSword",
       "crit": 20,
-      "type": "weapon"
+      "type": "weapon",
+      "imgPath": "images/item/weapon/teenoi-sword.png"
     },
     {
       "id": 5,
-      "name": "NigirinSword",
+      "name": "NichirinSword",
       "crit": 30,
       "type": "weapon",
-      "imgPath": "images/item/DiamondSword.png"
+      "imgPath": "images/item/weapon/nichirin-sword.png"
     },
     {
       "id": 6,
-      "name": "HolyStick",
+      "name": "FishSword",
       "crit": 15,
-      "type": "weapon"
+      "type": "weapon",
+      "imgPath": "images/item/weapon/fish-sword.png"
     },
     {
       "id": 99,
@@ -126,94 +129,387 @@
   ],
   "players": [
     {
-      "name": "rew",
-      "character": {
-        "id": 2,
-        "character": "Raccoon",
-        "health": 250,
-        "luck": 99,
-        "crit": 3,
-        "bg": "images/image/card3.png",
-        "icon": "images/icon/raccoon.png",
-        "idle": "images/character/raccoon.gif"
-      },
+      "name": "BASKEEHEE",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
       "health": 250,
-      "maxHealth": 250,
       "damage": 0,
-      "luck": 99,
-      "crit": 3,
+      "luck": 3,
+      "crit": 99,
       "weapon": "",
       "armor": "",
       "accessory": "",
-      "coin": {
-        "coin": 10000
-      },
-      "cardName": "",
-      "cardDamage": 0,
       "inventory": [
-        {
-          "id": 5,
-          "name": "NigirinSword",
-          "crit": 30,
-          "type": "weapon",
-          "imgPath": "images/item/DiamondSword.png"
-        }
+        5
       ],
       "potions": [
-        {
-          "id": 1,
-          "name": "HealthPotion",
-          "price": 50,
-          "type": "potion"
-        }
+        1,
+        2
       ],
-      "level": 1,
-      "id": 1
+      "id": 5
     },
     {
-      "name": "rew2",
-      "character": {
-        "id": 1,
-        "character": "Bearior",
-        "health": 1,
-        "luck": 1,
-        "crit": 1,
-        "bg": "images/image/card2.png",
-        "icon": "images/icon/bearior.png",
-        "idle": "images/character/bearior.gif"
-      },
+      "name": "a",
+      "character": 1,
+      "coin": 10000,
+      "level": 1,
       "health": 1,
-      "maxHealth": 1,
       "damage": 0,
       "luck": 1,
       "crit": 1,
       "weapon": "",
       "armor": "",
       "accessory": "",
-      "coin": {
-        "coin": 10000
-      },
-      "cardName": "",
-      "cardDamage": 0,
       "inventory": [
-        {
-          "id": 5,
-          "name": "NigirinSword",
-          "crit": 30,
-          "type": "weapon",
-          "imgPath": "images/item/DiamondSword.png"
-        }
+        5
       ],
       "potions": [
-        {
-          "id": 1,
-          "name": "HealthPotion",
-          "price": 50,
-          "type": "potion"
-        }
+        1,
+        2
       ],
+      "id": 7
+    },
+    {
+      "name": "polpolKung",
+      "password": "17141215",
+      "character": 2,
+      "coin": 9999999,
+      "level": 999,
+      "health": 99999,
+      "damage": 0,
+      "luck": 99999,
+      "crit": 99999,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        99,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 88
+    },
+    {
+      "name": "PSTUPID",
+      "character": 2,
+      "coin": 9000,
       "level": 1,
-      "id": 2
+      "health": 250,
+      "damage": 0,
+      "luck": 99,
+      "crit": 3,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        5,
+        16,
+        11,
+        3,
+        8,
+        15,
+        13,
+        13,
+        11,
+        13
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 8
+    },
+    {
+      "name": "githubzzx",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "n123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 89
+    },
+    {
+      "name": "AAA",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "AAA",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 90
+    },
+    {
+      "name": "TEST",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "TEST",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 91
+    },
+    {
+      "name": "githubzzx,",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "n123",
+      "health": 250,
+      "damage": 11,
+      "luck": 3,
+      "crit": 99,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 92
+    },
+    {
+      "name": "sdssdasd",
+      "character": 0,
+      "coin": 9999999,
+      "level": 999,
+      "password": "123456789",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "weapon": "",
+      "armor": "",
+      "accessory": "",
+      "inventory": [
+        99,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 93
+    },
+    {
+      "name": "123",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 94
+    },
+    {
+      "name": "1234",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 95
+    },
+    {
+      "name": "REWA",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "REWA",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 97
+    },
+    {
+      "name": "mm",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "n123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 98
+    },
+    {
+      "name": "TESTT",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "TESTT",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 99
     }
   ]
 }

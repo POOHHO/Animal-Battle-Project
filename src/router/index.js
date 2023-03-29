@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainMenu from '../views/MainMenu.vue'
+import PlayerSlot from '../views/PlayerSlot.vue'
 import HowToPlay from '../views/HowToPlay.vue'
 import CharacterSelector from '../views/CharacterSelector.vue'
 import AdventureCamp from '../views/AdventureCamp.vue'
 import Game from '../views/Game.vue'
-import PlayerSlot from '../views/PlayerSlot.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,7 +13,17 @@ const router = createRouter({
         {
             path: '/',
             name: 'MainMenu',
-            component: MainMenu        
+            component: MainMenu     
+        },
+        {
+            path: '/:notfoundpath(.*)',
+            name: 'PageNotFound',
+            component: PageNotFound        
+        },
+        {
+            path: '/playerslot',
+            name: 'PlayerSlot',
+            component: PlayerSlot
         },
         {
             path: '/how-to-play',
@@ -33,11 +44,6 @@ const router = createRouter({
             path: '/game',
             name: 'Game',
             component: Game,
-        },
-        {
-            path: '/playerslot',
-            name: 'PlayerSlot',
-            component: PlayerSlot
         }
 
     ]

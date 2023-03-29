@@ -1,0 +1,464 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "HealthPotion",
+            "price": 50,
+            "type": "potion",
+            "imgPath": "images/item/potion-1.png"
+        },
+        {
+            "id": 2,
+            "name": "ManaPotion",
+            "price": 50,
+            "type": "potion",
+            "imgPath": "images/item/potion-1.png"
+        },
+        {
+            "id": 3,
+            "name": "NoobStick",
+            "crit": 10,
+            "type": "weapon",
+            "imgPath": "images/item/weapon/noob-stick.png"
+        },
+        {
+            "id": 4,
+            "name": "TeenoiSword",
+            "crit": 20,
+            "type": "weapon",
+            "imgPath": "images/item/weapon/teenoi-sword.png"
+        },
+        {
+            "id": 5,
+            "name": "NichirinSword",
+            "crit": 30,
+            "type": "weapon",
+            "imgPath": "images/item/weapon/nichirin-sword.png"
+        },
+        {
+            "id": 6,
+            "name": "FishSword",
+            "crit": 15,
+            "type": "weapon",
+            "imgPath": "images/item/weapon/fish-sword.png"
+        },
+        {
+            "id": 99,
+            "name": "SuperHeavyAtomicUniversalAllOfLivingRewLegendarySword",
+            "crit": 90,
+            "type": "weapon"
+        },
+        {
+            "id": 7,
+            "name": "LeatherArmor",
+            "health": 20,
+            "type": "armor"
+        },
+        {
+            "id": 8,
+            "name": "ChainArmor",
+            "health": 30,
+            "type": "armor"
+        },
+        {
+            "id": 9,
+            "name": "IronArmor",
+            "health": 50,
+            "type": "armor"
+        },
+        {
+            "id": 10,
+            "name": "GoldenArmor",
+            "health": 80,
+            "type": "armor"
+        },
+        {
+            "id": 11,
+            "name": "DiamondArmor",
+            "health": 120,
+            "type": "armor"
+        },
+        {
+            "id": 12,
+            "name": "GoldenRing",
+            "luck": 2,
+            "type": "armor"
+        },
+        {
+            "id": 13,
+            "name": "JadeNecklace",
+            "luck": 3.5,
+            "type": "accessory"
+        },
+        {
+            "id": 14,
+            "name": "EmeraldBraclet",
+            "luck": 4.5,
+            "type": "accessory"
+        },
+        {
+            "id": 15,
+            "name": "PureSilverNecklace",
+            "luck": 6,
+            "type": "accessory"
+        },
+        {
+            "id": 16,
+            "name": "CloverLeaves",
+            "luck": 10,
+            "type": "accessory"
+        }
+    ],
+    "skills": [
+        {
+            "id": 1,
+            "name": "HealingSpell"
+        },
+        {
+            "id": 2,
+            "name": "ThunderBolt"
+        },
+        {
+            "id": 3,
+            "name": "FireBall"
+        },
+        {
+            "id": 4,
+            "name": "ManaRegenaration"
+        }
+    ],
+    "players": [
+        {
+            "name": "75",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+              5
+            ],
+            "potions": [
+              1,
+              2
+            ],
+            "id": 75
+          },
+        {
+            "name": "74",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+              5
+            ],
+            "potions": [
+              1,
+              2
+            ],
+            "id": 74
+          },
+        {
+            "name": "73",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+              5
+            ],
+            "potions": [
+              1,
+              2
+            ],
+            "id": 73
+          },
+        {
+            "name": "72",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 72
+        },
+        {
+            "name": "71",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 71
+        },
+        {
+            "name": "70",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 70
+        },
+        {
+            "name": "r",
+            "password": "123456789",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 2
+        },
+        {
+            "name": "PAWARIS PONGRAT",
+            "character": 2,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 99,
+            "crit": 3,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 3
+        },
+        {
+            "name": "POOH PIN",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 4
+        },
+        {
+            "name": "BASKEEHEE",
+            "character": 0,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 3,
+            "crit": 99,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 5
+        },
+        {
+            "name": "POOH PIN1",
+            "character": 2,
+            "coin": 10000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 99,
+            "crit": 3,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 6
+        },
+        {
+            "name": "a",
+            "character": 1,
+            "coin": 10000,
+            "level": 1,
+            "health": 1,
+            "damage": 0,
+            "luck": 1,
+            "crit": 1,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5
+            ],
+            "potions": [
+                1,
+                2
+            ],
+            "id": 7
+        },
+        {
+            "name": "polpolKung",
+            "password": "17141215",
+            "character": 2,
+            "coin": 9999999,
+            "level": 999,
+            "health": 99999,
+            "damage": 0,
+            "luck": 99999,
+            "crit": 99999,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                99,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+            ],
+            "potions": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+            ],
+            "id": 88
+        },
+        {
+            "name": "PSTUPID",
+            "character": 2,
+            "coin": 9000,
+            "level": 1,
+            "health": 250,
+            "damage": 0,
+            "luck": 99,
+            "crit": 3,
+            "weapon": "",
+            "armor": "",
+            "accessory": "",
+            "inventory": [
+                5,
+                16,
+                11,
+                3,
+                8,
+                15,
+                13,
+                13,
+                11,
+                13
+            ],
+            "potions": [
+                1,
+                1,
+                1,
+                1,
+                2
+            ],
+            "id": 8
+        }
+    ]
+}

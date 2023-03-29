@@ -1,30 +1,27 @@
 <script setup>
 import { show } from "../main.js"
 import { player } from "../assets/game/gameplay.js"
-
+import ErrorAlert from "./ErrorAlert.vue";
 const props = defineProps({
-    textErrorSize: { type: String, default: "xs" },
-    textHeaderSize: { type: String, default: "4xl" },
-    textLabelSize: { type: String, default: "2xl" },
     paddingNameX: { type: Number, default: 0 },
     paddingNameY: { type: Number, default: 0 }
 })
 const paddingRemX = `${props.paddingNameX / 4}rem`
 const paddingRemY = `${props.paddingNameY / 4}rem`
+const errorText = () => {
+    if (show.value.nameEmptyAlert) return "Enter Your Name"
+    else if (show.value.passwordEmptyAlert) return "Enter Your Password"
+    else if (show.value.existsAlert) return "Account Exists"
+    else return undefined
+}
 </script>
 <template>
-    <div class="flex flex-col items-center space-y-4">
-        <div class="text-center text-black m04b absolute z-10 top-8" v-show="show.nameEmptyAlert || show.existsAlert">
-            <div class="p-2 bg-red-600 items-center text-white leading-none rounded-full flex" role="alert">
-                <span
-                    :class="`text-${textErrorSize} flex rounded-full bg-white uppercase px-2 font-bold mr-3 text-black`">Error!</span>
-                <span class="font-semibold mr-2 text-left flex-auto">{{ show.nameEmptyAlert ? 'Enter Your Name' : 'Account Exists' }}</span>
-            </div>
-        </div>
-        <h1 class="justify-center flex text-center m04b choose-character text-black" :class="`text-${textHeaderSize}`">
+    <div class="flex flex-col items-center space-y-4">      
+        <ErrorAlert v-show="errorText()" :error-text="errorText()"/>
+        <h1 class="justify-center flex text-center m04b choose-character text-black" :class="`text-4xl`">
             Choose Character
         </h1>
-        <label class="text-white shadow-table m04b" for="YOURNAME" :class="`text-${textLabelSize}`">Your Name</label>
+        <label class="text-white shadow-table m04b" for="YOURNAME" :class="`text-2xl`">Your Name</label>
         <input v-model="player.name"
             class="`bg-white border-4 border-slate-600 text-slate-900 bg-white text-center m04b paddingX paddingY`" type="text"
             placeholder="ENTER YOUR NAME" maxlength="18">

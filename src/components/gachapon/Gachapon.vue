@@ -4,11 +4,10 @@ import RandomGachapon from "./RandomGachapon.vue";
 import { ref } from "vue";
 import GachaponModal from "./GachaponModal.vue";
 
-
 const outputItem = ref('')
 const outputSkill = ref('')
 const randomItem = (output) => { outputItem.value = output }
-const randomSkill = (output) => {outputSkill.value = output}
+const randomSkill = (output) => { outputSkill.value = output }
 
 const itemModal = "item-modal"
 const skillModal = "skill-modal"

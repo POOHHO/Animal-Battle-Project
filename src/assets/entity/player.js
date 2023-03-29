@@ -1,4 +1,4 @@
-import { popup,characters } from "../../main.js"
+import { popup, characters } from "../../main.js"
 import { monster } from "../game/gameplay.js"
 import Currency from "../game/currency.js"
 
@@ -6,55 +6,34 @@ class Player {
 
     constructor() {
         this.name = ""
-        this.character = "" 
+        this.character = ""
         this.health = 0
         this.maxHealth = 0
         this.damage = 0
         this.luck = 0
         this.crit = 0
-        this.weapon = ""
-        this.armor = ""
-        this.accessory = ""
+        this.password = ""
+        this.weapon = undefined
+        this.armor = undefined
+        this.accessory = undefined
         this.coin = new Currency()
         this.cardName = ""
         this.cardDamage = 0
-        this.inventory = [ {
-                "id": 5,
-                "name": "NigirinSword",
-                "crit": 30,
-                "type": "weapon",
-                "imgPath": "images/item/DiamondSword.png"
-              }
-            ]
-        this.potions = [
-            {
-                "id": 1,
-                "name": "HealthPotion",
-                "price": 50,
-                "type": "potion",
-                "imgPath": "images/item/potion-2.png"
-              },
-              {
-                "id": 2,
-                "name": "ManaPotion",
-                "price": 50,
-                "type": "potion",
-                "imgPath": "images/item/potion-1.png"
-              },
-        ]    
+        this.inventory = [5]
+        this.potions = [1, 1, 1, 1, 1, 1, 2]
         this.level = 1
-    }  
-    
+    }
+
     isMaxInventory() { return this.inventory.length >= 24 }
     maxHeal() { this.health = this.maxHealth }
     playerAttack() {
         this.randomCritical()
         monster.value.health -= this.damage
         monster.value.dead()
-        popup("playerAttack",1500)
+        popup("playerAttack", 1500)
 
     }
-   
+
     getEquipment(type) { return this[type] }
     getWeapon() { return this.weapon }
     getArmor() { return this.armor }
@@ -69,8 +48,40 @@ class Player {
         return this.cardName
     }
     getPercentHealth() {
-        const health = (this.health/this.maxHealth)*100 
+        const health = (this.health / this.maxHealth) * 100
         return health <= 0 ? 0 : health
+    }
+    duplicateHealth() {
+        let health = 0
+        for (let i = 0; i < this.potions.length; i++) {
+            if (this.potions[i] === 1) {
+                health++
+            }
+        }
+        return health
+    }
+    duplicateMana() {
+        let mana = 0
+        for (let i = 0; i < this.potions.length; i++) {
+            if (this.potions[i].name === "ManaPotion") {
+                mana++
+            }
+        }
+        return mana
+    }
+    usePotion() {
+        if (this.health < this.maxHealth) {
+            if (this.potions.length > 1) {
+                if (this.health + 50 > this.maxHealth) {
+                    this.health = this.maxHealth
+                    this.potions.splice(0, 1)
+                } else {
+                    this.health += 50
+                    this.potions.splice(0, 1)
+                }
+            }
+
+        }
     }
     selectCharacter(characterIndex = 0) {
         const character = characters?.[characterIndex]
@@ -82,25 +93,24 @@ class Player {
         this.crit = character["crit"]
         return character
     }
-    removeItem(item){
-        console.log(item);
+    removeItem(item) {
         this[item.type] = undefined
         this.crit -= (!item.crit ? 0 : item.crit)
         this.maxHealth -= (!item.health ? 0 : item.health)
         this.health = this.maxHealth
         this.luck -= (!item.luck ? 0 : item.luck)
-        this.inventory.push(item)
+        this.inventory.push(item.id)
     }
     useItem(item) {
-        this[item.type] = item
+        this[item.type] = item.id
         this.crit += (!item.crit ? 0 : item.crit)
         this.maxHealth += (!item.health ? 0 : item.health)
         this.health = this.maxHealth
         this.luck += (!item.luck ? 0 : item.luck)
 
     }
-    removeItemFromIndex(index){
-        this.inventory.splice(index-1,1)
+    removeItemFromIndex(index) {
+        this.inventory.splice(index - 1, 1)
     }
     getInventory(index) {
         return this.inventory[index]
@@ -111,11 +121,12 @@ class Player {
         this.damage = this.cardDamage
         if (this.crit > percentage) this.damage *= CRIT_DAMAGE
     }
+
     dead() {
-        if ( this.health <= 0) {
-          this.health = 0
-          popup("playerDead")
+        if (this.health <= 0) {
+            this.health = 0
+            popup("playerDead")
         }
-    }  
+    }
 }
 export { Player }

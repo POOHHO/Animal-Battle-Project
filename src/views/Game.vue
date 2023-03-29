@@ -5,7 +5,12 @@ import { player, monster, level, turn, turns } from "../assets/game/gameplay.js"
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
-import { computed } from "vue";
+import { computed,onBeforeMount } from "vue";
+import router from "../router";
+import { auth } from "../main";
+onBeforeMount(() => {
+    if (!auth.value) router.push("/")
+})
 
 const computedPlayerDamaged = computed(() => {
     if (show.value.monsterAttack) return 'on-damage'

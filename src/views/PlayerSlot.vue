@@ -2,46 +2,60 @@
 import { ref, onMounted, computed } from 'vue';
 import Background from '../components/Background.vue';
 import path from "../assets/path_data.json"
-import { getPlayer } from "../assets/game/data-handler.js"
-import { players } from '../assets/game/gameplay';
 import { player } from '../assets/game/gameplay';
+import { characters } from '../main';
+import { usePlayers } from "../assets/game/players"
+import router from "../router/index.js";
+import BinVue from "../components/icon/Bin.vue";
+import PasswordModal from '../components/authentication/PasswordModal.vue';
+import ErrorAlert from '../components/ErrorAlert.vue';
+import { popup,show,auth } from '../main';
 
-
-onMounted(async () => {
-    players.value = await getPlayer()
-})
+const myPlayers = usePlayers()
+onMounted(async () => { await myPlayers.fetchPlayers() })
 
 const searchKeyword = ref('')
 const filterPlayers = computed(() => {
-    return players.value.filter((player) =>
+    return myPlayers.getPlayers().filter((player) =>
         player.name?.toLowerCase().includes(searchKeyword.value.toLowerCase())
     )
 })
 
-const enterAccount = (account) => {
-    player.value.name = account.name
-    player.value.maxHealth = account.maxHealth
-    player.value.health = account.health
-    player.value.luck = account.luck
-    player.value.crit = account.crit
-    player.value.weapon = account.weapon
-    player.value.armor = account.armor
-    player.value.accessory = account.accessory
-    player.value.coin.coin = account.coin.coin
-    player.value.inventory = account.inventory
-    player.value.potions = account.potions
-    player.value.level = account.level
+const selectedPlayer = ref('')
 
-    player.value.selectCharacter(account.character.id)
+const enterAccount = (account) => {
+    if (!checkPassword(account)) return
+    for (const key in account) {
+        if (key === "coin") player.value.coin.coin = account.coin
+        else if (key === "character") continue
+        else player.value[key] = account[key]
+    }
+    auth.value = true
+    player.value.maxHealth = account.health
+    player.value.selectCharacter(account.character)
+    router.push({ name: 'Camp' })
 }
 
+const removeAccount = (account) => {
+    if (!checkPassword(account)) return
+    myPlayers.removePlayer(account.id)
+}
+const checkPassword = (account) => {
+    if (!account) {
+        popup("wrongPassword",3000)
+        return false
+    }
+    return true
+}
+const setPlayer = (player) => selectedPlayer.value = player
 </script>
  
 <template>
-    <Background :background-image="path.mainimages" :center="true">
-        <div class="w-full h-full flex flex-col items-center justify-center space-y-4 screen">
-            <div class="justify-center items-center flex w-full h-1/6 text-center">
-                <h1 class="text-5xl text-slate-900">Choose your account</h1>
+    <Background :background-image="path.mainimages" :center="true" class="screen">
+        <ErrorAlert v-show="show.wrongPassword" error-text="Wrong Password!"/>
+        <div class="w-full h-full flex flex-col items-center justify-center space-y-4">
+            <div class="justify-center items-center flex w-full h-1/6 text-center ">
+                <h1 class="text-5xl  text-slate-900">Choose your account</h1>
             </div>
             <div class="w-3/4">
                 <input type="text" placeholder="search name..."
@@ -57,13 +71,11 @@ const enterAccount = (account) => {
                     </div>
                 </router-link>
                 <div class="overflow-scroll flex-1 h-full space-y-2">
-                    <div class="p-2 text-2xl w-full bg-slate-600 hover:bg-emerald-400 cursor-pointer" v-for="player of filterPlayers" @click="enterAccount(player)">
-                        <router-link to="/camp">
-                            <div class="modal">
-
-                            </div>
+                    <div class="p-2 text-2xl w-full bg-slate-600 hover:bg-emerald-400 relative "
+                        v-for="player of filterPlayers" @click="setPlayer(player)">
+                        <label for="loginModal" class="cursor-pointer">
                             <div class="flex gap-x-4">
-                                <img :src="player.character.icon" alt="" class="w-24 h-24">
+                                <img :src="characters[player.character].icon" alt="" class="w-24 h-24">
                                 <div class="flex-row text-slate-200">
                                     <p class="">HP {{ player.health }}</p>
                                     <p class="">LUCK {{ player.luck }}</p>
@@ -74,16 +86,21 @@ const enterAccount = (account) => {
                                 <h1 class="text-emerald-100">{{ player.name }}</h1>&nbsp;
                                 <p class="">LEVEL {{ player.level }}</p>
                             </div>
-                        </router-link>
+                        </label>
+                        <label for="removeModal" class="cursor-pointer">
+                            <BinVue class="absolute top-3 right-3 text-white hover:text-red-500"/>
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
+        <PasswordModal modal-id="loginModal" :player="selectedPlayer" @login="enterAccount"/>
+        <PasswordModal modal-id="removeModal" :player="selectedPlayer" @login="removeAccount"/>
     </Background>
+    
 </template>
 
 <style scoped>
 ::-webkit-scrollbar {
     display: none;
-}
-</style>
+}</style>

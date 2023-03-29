@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { player } from "../../assets/game/gameplay.js"
-import { getItems, getSkill } from "../../assets/game/data-handler.js"
+import { useItems } from "../../assets/game/items"
 const props = defineProps({
     randomSkill: { type: Boolean, default: false },
     randomItem: { type: Boolean, default: false },
@@ -10,31 +10,22 @@ const props = defineProps({
 })
 
 defineEmits(['random'])
-
-const itemsArr = ref([])
+const myItems = useItems()
 const skillArr = ref([])
 
-onMounted(async () => {
-    itemsArr.value = await getItems()
-    skillArr.value = await getSkill()
-})
 
 const random = () => {
-    if (player.value.coin.hasCoin(100)) {
-        player.value.coin.substract(100)
-    //     console.log(player.value.inventory.length);
-    //     console.log(player.value.coin.hasCoin(100))
-    //    console.log(player.value.inventory[0].type);
+    const currency = player.value.coin
+    if (currency.hasCoin(100)) {
+        const items = myItems.getItems()
+        currency.substract(100)
         if (props.randomItem) {
-            const randomIndex = Math.floor(Math.random() * itemsArr.value.length)
-            const items = itemsArr.value[randomIndex]
-            console.log(items.type);
-            if (items.type === "potion") {
-                player.value.potions.push(items)
-            } else {
-                player.value.inventory.push(items)
-            }
-            return items
+            const randomIndex = Math.floor(Math.random() * items.length)
+            const item = items[randomIndex]
+            if (item.type === "potion") player.value.potions.push(item.id)
+            else player.value.inventory.push(item.id)
+
+            return item
         } else if (props.randomSkill) {
             const randomIndex = Math.floor(Math.random() * skillArr.value.length)
             return skillArr.value[randomIndex]

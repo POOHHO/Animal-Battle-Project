@@ -6,6 +6,7 @@ import path from "./assets/path_data.json"
 let monsters = []
 let characters = []
 
+const auth = ref(false)
 const show = ref({
     //ELEMENT
     cardAttack: false,
@@ -52,5 +53,5 @@ function randomMonster() {
 }
 
 export { 
-    unpopup, popup, init, characters, monsters, show, randomMonster
+    unpopup, popup, init, characters, monsters, show,auth, randomMonster
 }

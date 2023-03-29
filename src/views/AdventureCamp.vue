@@ -5,10 +5,22 @@ import Gachapon from "../components/gachapon/Gachapon.vue";
 import Inventory from "../components/inventory/Inventory.vue";
 import { RouterLink } from "vue-router";
 
+import { onMounted,onBeforeMount } from "vue";
+import { useItems } from "../assets/game/items";
+
+import router from "../router";
+import { auth } from "../main";
+onBeforeMount(() => {
+    if (!auth.value) router.push("/")
+})
+
 const monsterReset = () => monster.value.setMaxHealth()
+const myItems = useItems()
+onMounted(async () => {
+    await myItems.fetchItems()
+})
 
 </script>
- 
 <template>
     <div class="screen h-screen w-screen bg-cover" :style="`background-image: url('${path.adventure}');`">
         <p class="p-5 text-center font-bold text-4xl absolute text-white bg-zinc-900 w-full flex justify-between">
@@ -26,6 +38,5 @@ const monsterReset = () => monster.value.setMaxHealth()
         </div>
     </div>
 </template>
- 
 <style scoped>
 </style>

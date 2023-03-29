@@ -1,30 +1,44 @@
 <script setup>
-
 import InventorySlot from "./InventorySlot.vue";
 import BinVue from "../icon/Bin.vue";
 import ItemAction from "../button/ItemAction.vue";
 import { player } from "../../assets/game/gameplay";
+import { useItems } from "../../assets/game/items"
+import { computed } from "vue";
+const myItems = useItems()
+
+const itemById = (id) => myItems.getItemById(id)
 const props = defineProps({
     player: { type: Object }
 })
 
 const getInventory = (itemIndex) => player.value.getInventory(itemIndex-1)
+const getInventoryById = (itemIndex) => {
+    const itemId = getInventory(itemIndex)
+    if (itemId) return itemById(itemId)
+    else return undefined
+}
 const getEquipment = (type) => player.value.getEquipment(type)
+const getEquipmentById = (type) => {
+    const equipmentId = getEquipment(type)
+    if (equipmentId) return itemById(equipmentId)
+    else return undefined
+}
 
-const hasItem = (itemIndex) => itemIndex <= props.player.inventory.length
 const itemTypes = ["weapon","armor","accessory"]
 
+const hasEquipment = (item) => player.value[item.type]
+
 const useItem = (item,index) => {
-    player.value.useItem(item)
+    player.value.useItem(itemById(item))
     player.value.removeItemFromIndex(index)
 }
-const removeItem = (item) => player.value.removeItem(item)
+const removeItem = (item) => player.value.removeItem(itemById(item))
 </script>
  
 <template>
     <!-- The button to open modal -->
     <label for="my-modal-6" class="btn">Inventory</label>
-
     <!-- Put this part before </body> tag -->
     <input type="checkbox" id="my-modal-6" class="modal-toggle" />
     <div class="modal">
@@ -38,10 +52,10 @@ const removeItem = (item) => player.value.removeItem(item)
                     <img class="w-2/3" :src="player.getImage()" alt="PLAYER">
                     <div class="flex flex-wrap justify-evenly w-full gap-y-2 ">
                         <InventorySlot v-for="itemType in itemTypes"  :key="itemType" :width="16" :height="16">
-                            <template v-if="player[itemType]">
-                                <img :src="player[itemType].imgPath"
-                                    class="w-1/2" alt="W">
-                                <ItemAction :item="getEquipment(itemType)" :right="false" @action="removeItem($event.item)" class="bg-red-500">
+                            <template v-if="getEquipmentById(itemType)">
+                                <img :src="getEquipmentById(itemType).imgPath"
+                                    class=" w-1/2" alt="W">
+                                <ItemAction :disabled="player.isMaxInventory()" :item-id="getEquipment(itemType)" :right="false" @action="removeItem($event.item)" class="bg-red-500 disabled:bg-slate-500">
                                     REMOVE
                                 </ItemAction>
                             </template>
@@ -50,14 +64,13 @@ const removeItem = (item) => player.value.removeItem(item)
                 </div>
                 <div class="grid grid-cols-4 place-items-center gap-1 py-1 border border-white rounded-md w-2/3 " >
                     <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" class="relative">
-                        <template v-if="hasItem(itemIndex)">
+                        <template v-if="getInventoryById(itemIndex)">
                             <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(index)" />
-                            <img :src="getInventory(itemIndex).imgPath" class="w-1/2" :alt="itemIndex">
-                            <ItemAction :item="getInventory(itemIndex)" @action="useItem($event.item,itemIndex)" class="bg-emerald-400">
+                            <img :src="getInventoryById(itemIndex).imgPath" class="w-1/2" :alt="itemIndex">
+                            <ItemAction :disabled="hasEquipment(getInventoryById(itemIndex))" :item-id="getInventory(itemIndex)" @action="useItem($event.item,itemIndex)" class="bg-emerald-400 disabled:bg-slate-500">
                                 EQUIP
                             </ItemAction>
                         </template>
-
 
                     </InventorySlot>
                 </div>

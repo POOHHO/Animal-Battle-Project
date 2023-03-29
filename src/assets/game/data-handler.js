@@ -3,33 +3,14 @@ const API_PLAYERS = `${API_HOST}/players`
 const API_ITEMS = `${API_HOST}/items`
 const API_SKILLS = `${API_HOST}/skills`
 
-async function getItemById(itemId) {
-    try {
-        const res = await fetch(`${API_ITEMS}/${itemId}`)
-        if (res.ok) return res.json()
-        else throw new Error('Error, data is error!')
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-async function getItems() {
+async function getItem() {
     try {
         const res = await fetch(`${API_ITEMS}`)
         if (res.ok) {
             const items = res.json()
             return items
         }
-        else throw new Error('Error, data is error!')
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-async function getSkillById(skillId) {
-    try {
-        const res = await fetch(`${API_SKILLS}/${skillId}`)
-        if (res.ok) return res.json()
         else throw new Error('Error, data is error!')
     } catch (error) {
         console.log(error)
@@ -74,9 +55,24 @@ async function createPlayer(newPlayer)  {
             console.log("Add Successfully")
         } else throw new Error('cannot add!')
     } catch (err) {
-        console.log("test")
         console.log(err)
     }
 }
 
-export { getItemById, getItems, getSkillById, getSkill, getPlayer, createPlayer }
+async function deletePlayer(currentPlayer) {
+    try {
+        const res = await fetch(`${API_PLAYERS}/${currentPlayer}`, {
+            method: 'DELETE'
+        })
+        if (res.ok) {
+            console.log("Delete Successfully")
+        } else throw new Error('cannot delete!')
+    } catch (err) {
+        console.log(err)
+    }
+
+}
+
+
+
+export { getItem, getSkill, getPlayer, createPlayer, deletePlayer }
