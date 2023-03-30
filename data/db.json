@@ -4,6 +4,7 @@
       "id": 1,
       "name": "HealthPotion",
       "price": 50,
+      "health": 50,
       "type": "potion",
       "imgPath": "images/item/potion-1.png"
     },
@@ -11,6 +12,7 @@
       "id": 2,
       "name": "ManaPotion",
       "price": 50,
+      "health": 50,
       "type": "potion",
       "imgPath": "images/item/potion-1.png"
     },
@@ -394,15 +396,18 @@
     {
       "name": "123",
       "character": 0,
-      "coin": 10000,
+      "coin": 9600,
       "level": 1,
       "password": "123",
       "health": 250,
-      "damage": 0,
+      "damage": 16.5,
       "luck": 3,
       "crit": 99,
       "inventory": [
-        5
+        3,
+        10,
+        5,
+        12
       ],
       "potions": [
         1,
@@ -411,6 +416,7 @@
         1,
         1,
         1,
+        2,
         2
       ],
       "id": 94
@@ -510,6 +516,54 @@
         2
       ],
       "id": 99
+    },
+    {
+      "name": "POOH PIN1",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 100
+    },
+    {
+      "name": "123123",
+      "character": 0,
+      "coin": 10000,
+      "level": 1,
+      "password": "123",
+      "health": 250,
+      "damage": 0,
+      "luck": 3,
+      "crit": 99,
+      "inventory": [
+        5
+      ],
+      "potions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "id": 101
     }
   ]
 }

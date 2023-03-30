@@ -4,9 +4,10 @@ import BinVue from "../icon/Bin.vue";
 import ItemAction from "../button/ItemAction.vue";
 import { player } from "../../assets/game/gameplay";
 import { useItems } from "../../assets/game/items"
-import { computed } from "vue";
-const myItems = useItems()
+import { usePlayers } from "../../assets/game/players";
 
+const myItems = useItems()
+const myPlayers = usePlayers()
 const itemById = (id) => myItems.getItemById(id)
 const props = defineProps({
     player: { type: Object }
@@ -32,8 +33,12 @@ const hasEquipment = (item) => player.value[item.type]
 const useItem = (item,index) => {
     player.value.useItem(itemById(item))
     player.value.removeItemFromIndex(index)
+    myPlayers.updatePlayer(player.value)
 }
-const removeItem = (item) => player.value.removeItem(itemById(item))
+const removeItem = (item) => {
+    player.value.removeItem(itemById(item))
+    myPlayers.updatePlayer(player.value)
+}
 </script>
  
 <template>
@@ -51,6 +56,11 @@ const removeItem = (item) => player.value.removeItem(itemById(item))
                     </div>
                     <img class="w-2/3" :src="player.getImage()" alt="PLAYER">
                     <div class="flex flex-wrap justify-evenly w-full gap-y-2 ">
+                        <!-- <InventorySlot v-for="types in itemTypes" :key="types" :width="16" :height="16" :has-action="true" :find-item="types" :is-equipment="true">
+                            <template #default>
+                                REMOVE
+                            </template>
+                        </InventorySlot> -->
                         <InventorySlot v-for="itemType in itemTypes"  :key="itemType" :width="16" :height="16">
                             <template v-if="getEquipmentById(itemType)">
                                 <img :src="getEquipmentById(itemType).imgPath"
@@ -63,6 +73,14 @@ const removeItem = (item) => player.value.removeItem(itemById(item))
                     </div>
                 </div>
                 <div class="grid grid-cols-4 place-items-center gap-1 py-1 border border-white rounded-md w-2/3 " >
+                    <!-- <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" :has-action="true" :find-item="itemIndex">
+                            <template #header>
+                                <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(itemIndex)" />
+                            </template>
+                            <template #default>
+                                EQUIP
+                            </template>
+                    </InventorySlot> -->
                     <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" class="relative">
                         <template v-if="getInventoryById(itemIndex)">
                             <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(index)" />

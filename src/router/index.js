@@ -16,6 +16,11 @@ const router = createRouter({
             component: MainMenu     
         },
         {
+            path: '/character-selector',
+            name: 'CharacterSelector',
+            component: CharacterSelector        
+        },        
+        {
             path: '/:notfoundpath(.*)',
             name: 'PageNotFound',
             component: PageNotFound        
@@ -29,11 +34,6 @@ const router = createRouter({
             path: '/how-to-play',
             name: 'HowToPlay',
             component: HowToPlay        
-        },
-        {
-            path: '/character-selector',
-            name: 'CharacterSelector',
-            component: CharacterSelector        
         },
         {
             path: '/camp',

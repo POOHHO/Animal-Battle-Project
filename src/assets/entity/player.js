@@ -70,18 +70,17 @@ class Player {
         return mana
     }
     usePotion() {
-        if (this.health < this.maxHealth) {
-            if (this.potions.length > 1) {
-                if (this.health + 50 > this.maxHealth) {
-                    this.health = this.maxHealth
-                    this.potions.splice(0, 1)
-                } else {
-                    this.health += 50
-                    this.potions.splice(0, 1)
-                }
-            }
+        if (this.health === this.maxHealth) return
+        if (this.potions.length === 0) return
 
+        if (this.health + 50 > this.maxHealth) {
+            this.health = this.maxHealth
+            this.potions.splice(0, 1)
+        } else {
+            this.health += 50
+            this.potions.splice(0, 1)
         }
+        
     }
     selectCharacter(characterIndex = 0) {
         const character = characters?.[characterIndex]

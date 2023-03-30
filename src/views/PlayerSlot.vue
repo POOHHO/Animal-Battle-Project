@@ -8,6 +8,7 @@ import { usePlayers } from "../assets/game/players"
 import router from "../router/index.js";
 import BinVue from "../components/icon/Bin.vue";
 import PasswordModal from '../components/authentication/PasswordModal.vue';
+import InventorySlot from '../components/inventory/InventorySlot.vue';
 import ErrorAlert from '../components/ErrorAlert.vue';
 import { popup,show,auth } from '../main';
 
@@ -18,7 +19,7 @@ const searchKeyword = ref('')
 const filterPlayers = computed(() => {
     return myPlayers.getPlayers().filter((player) =>
         player.name?.toLowerCase().includes(searchKeyword.value.toLowerCase())
-    )
+    ).sort((a,b) => b.level - a.level)
 })
 
 const selectedPlayer = ref('')
@@ -76,11 +77,14 @@ const setPlayer = (player) => selectedPlayer.value = player
                         <label for="loginModal" class="cursor-pointer">
                             <div class="flex gap-x-4">
                                 <img :src="characters[player.character].icon" alt="" class="w-24 h-24">
-                                <div class="flex-row text-slate-200">
+                                <div class="flex-row text-slate-200 w-full">
                                     <p class="">HP {{ player.health }}</p>
                                     <p class="">LUCK {{ player.luck }}</p>
                                     <p class="">CRIT {{ player.crit }}</p>
                                 </div>
+                                <!-- <div class="max-lg:hidden flex w-full gap-x-3 justify-center items-center text-white">
+                                    <div>EQUIP</div>
+                                </div>                                 -->
                             </div>
                             <div class="flex">
                                 <h1 class="text-emerald-100">{{ player.name }}</h1>&nbsp;

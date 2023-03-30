@@ -1,7 +1,7 @@
 import { popup, unpopup, randomMonster } from "../../main.js"
 import path from "../path_data.json"
 import { player, level } from "../game/gameplay.js"
-
+import { usePlayers } from "../../assets/game/players"
 
 class Monster {
     constructor(name,health,image = "",coin = 0) {
@@ -41,6 +41,7 @@ class Monster {
         popup("dropCoin",1500)
         unpopup("monsterImg", 2000)
         player.value.coin.add(this.coin)
+        usePlayers().updatePlayer(player.value)
       }
     }
 

@@ -1,4 +1,4 @@
-const API_HOST = "http://localhost:5000"
+const API_HOST = "http://25.37.204.87:5000"
 const API_PLAYERS = `${API_HOST}/players`
 const API_ITEMS = `${API_HOST}/items`
 const API_SKILLS = `${API_HOST}/skills`
@@ -52,8 +52,24 @@ async function createPlayer(newPlayer)  {
             body: JSON.stringify(newPlayer)
         })
         if (res.status === 201) {
-            console.log("Add Successfully")
+            // console.log("Add Successfully")
         } else throw new Error('cannot add!')
+    } catch (err) {
+        console.log(err)
+    }
+}
+async function putPlayer(playerData)  {
+    try {
+        const res = await fetch(`${API_PLAYERS}/${playerData.id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(playerData)
+        })
+        if (res.ok) {}
+        // console.log("Update Successfully")
+        else throw new Error('cannot add!')
     } catch (err) {
         console.log(err)
     }
@@ -65,7 +81,7 @@ async function deletePlayer(currentPlayer) {
             method: 'DELETE'
         })
         if (res.ok) {
-            console.log("Delete Successfully")
+            // console.log("Delete Successfully")
         } else throw new Error('cannot delete!')
     } catch (err) {
         console.log(err)
@@ -75,4 +91,4 @@ async function deletePlayer(currentPlayer) {
 
 
 
-export { getItem, getSkill, getPlayer, createPlayer, deletePlayer }
+export { getItem, getSkill, getPlayer, createPlayer, deletePlayer,putPlayer }

@@ -11,8 +11,7 @@ import GamblingCard from "./GamblingCard.vue";
         <!-- ACTION BTN -->
         <div class="flex flex-1">
             <Action :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"  >ATTACK</Action>
-            <Action disabled>SKILL</Action>
-            <Action><ItemVue/></Action>
+           <Action><ItemVue/></Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-    backgroundImage: { type: String},
+    backgroundImage: { type: String , default:''},
     center: { type: Boolean, default: false}
 })
 </script>

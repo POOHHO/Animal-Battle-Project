@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { player } from "../../assets/game/gameplay.js"
 import { useItems } from "../../assets/game/items"
+import { usePlayers } from "../../assets/game/players";
 const props = defineProps({
     randomSkill: { type: Boolean, default: false },
     randomItem: { type: Boolean, default: false },
@@ -11,6 +12,7 @@ const props = defineProps({
 
 defineEmits(['random'])
 const myItems = useItems()
+const myPlayers = usePlayers()
 const skillArr = ref([])
 
 
@@ -24,7 +26,7 @@ const random = () => {
             const item = items[randomIndex]
             if (item.type === "potion") player.value.potions.push(item.id)
             else player.value.inventory.push(item.id)
-
+            myPlayers.updatePlayer(player.value)
             return item
         } else if (props.randomSkill) {
             const randomIndex = Math.floor(Math.random() * skillArr.value.length)

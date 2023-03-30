@@ -6,7 +6,7 @@ import { usePlayers } from "../assets/game/players"
 import { auth } from "../main.js";
 import PasswordModal from "./authentication/PasswordModal.vue";
 
-const props = defineProps({ charId: Number, name: String })
+const props = defineProps({ charId: Number })
 const myPlayers = usePlayers()
 
 const camp = (characterId, password) => {
