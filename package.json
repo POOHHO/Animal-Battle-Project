@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host 25.37.204.87",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "backend": "json-server --watch ./data/db.json --port 5000 --host 25.37.204.87"
+    "backend": "json-server --watch ./data/db.json --port 5000 --host "
   },
   "dependencies": {
     "backend": "^0.0.0",
