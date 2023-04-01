@@ -1,10 +1,12 @@
 import { popup, characters } from "../../main.js"
 import { monster } from "../game/gameplay.js"
 import Currency from "../game/currency.js"
+import { usePlayers } from "../../assets/game/players"
 
 class Player {
 
     constructor() {
+        this.id = ""
         this.name = ""
         this.character = ""
         this.health = 0
@@ -109,6 +111,8 @@ class Player {
         if (this.health <= 0) {
             this.health = 0
             popup("playerDead")
+            const myPlayers = usePlayers()
+            myPlayers.updatePlayer(this)
         }
     }
 }

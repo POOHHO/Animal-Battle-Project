@@ -5,8 +5,7 @@ import { ref } from 'vue'
 //DEFAULT DYNAMIC VALUE
 const player = ref(new Player()) 
 const monster = ref("")
-// const coin = ref(new Currency())
-const level = ref(player.value.level)
+// const coin = ref(new Currency())sf
 const turn = ref(0) //0 = PLAYER, 1 = MONSTER, 2 = SUMMARY
 const win = ref(0)  //0 = PLAYER, 1 = MONSTER, 2 = DRAW
 const players = ref([])
@@ -94,7 +93,7 @@ function randomPlayerCard(){
 }
 
 export { 
-    monster,player,level,turn,turns,cards,wins,win,players,
+    monster,player,turn,turns,cards,wins,win,players,
     monsterTurn,playerTurn,getCard
     ,nextTurn,getLoserCard,getLoser
 }

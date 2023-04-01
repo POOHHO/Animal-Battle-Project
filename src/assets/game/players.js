@@ -10,6 +10,7 @@ export const usePlayers = defineStore("players",() => {
         level: player.level,
         password: player.password,
         health: player.health,
+        maxHealth: player.maxHealth,
         damage: player.damage,
         luck: player.luck,
         crit: player.crit,
@@ -26,7 +27,7 @@ export const usePlayers = defineStore("players",() => {
     const addPlayer = (newPlayer) => {
         const player = playerDTO(newPlayer)
         players.value.push(player)
-        createPlayer(player)
+        return createPlayer(player)
     }
     const updatePlayer = (currentPlayer) => {
         let existPlayer = players.value.find(player => player.id === currentPlayer.id);

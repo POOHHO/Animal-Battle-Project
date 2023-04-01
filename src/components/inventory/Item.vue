@@ -26,7 +26,7 @@ const getPotions = () => {
       <div class="flex justify-between items-center space-y-4" v-for="(potion, index) in getPotions()" :key="index">
         <img :src="potion.item.imgPath" class="w-16 h-16 " />
         <p class="flex flex-col">{{ potion.item.name }}<span>{{ `[+HP ${potion.item.health}]` }}</span></p>
-        <button @click="player.usePotion(potion.item.item)"
+        <button @click="player.usePotion(potion.item)"
           class="btn text-xl text-white hover:bg-emerald-500 border-0 w-16">X{{
             potion.amount }}</button>
       </div>

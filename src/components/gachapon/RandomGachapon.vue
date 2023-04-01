@@ -24,7 +24,6 @@ const random = () => {
         return item
     } else if (props.randomPotion) {
         const potion = randomItem(myItems.getPotions(),POTION_PRICE)
-        console.log(potion);
         player.value.potions.push(potion.id)
         myPlayers.updatePlayer(player.value)
         return potion

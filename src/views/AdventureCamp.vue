@@ -14,7 +14,10 @@ onBeforeMount(() => {
     if (!auth.value) router.push("/")
 })
 
-const monsterReset = () => monster.value.setMaxHealth()
+const monsterReset = () => {
+    monster.value.setMaxHealth()
+    player.value.maxHeal()
+}
 const myItems = useItems()
 onMounted(async () => {
     await myItems.fetchItems()

@@ -223,6 +223,7 @@
       "password": "123",
       "level": 1,
       "health": 250,
+      "maxHealth": 250,
       "damage": 0,
       "luck": 3,
       "crit": 99,
@@ -235,19 +236,24 @@
     },
     {
       "name": "polpolKung",
-      "password": "17141215",
       "character": 2,
-      "coin": 9999999,
+      "coin": 9999674,
       "level": 999,
-      "health": 99999,
-      "damage": 0,
-      "luck": 99999,
-      "crit": 99999,
-      "weapon": "",
-      "armor": "",
+      "password": "17141215",
+      "health": 260,
+      "maxHealth": 260,
+      "damage": 104,
+      "luck": 20,
+      "crit": 104,
+      "weapon": 5,
+      "armor": 13,
       "accessory": "",
-      "inventory": [],
-      "potions": [],
+      "inventory": [
+        3
+      ],
+      "potions": [
+        1
+      ],
       "id": 88
     },
     {
@@ -257,6 +263,7 @@
       "password": 123,
       "level": 1,
       "health": 250,
+      "maxHealth": 250,
       "damage": 0,
       "luck": 99,
       "crit": 3,
@@ -270,17 +277,60 @@
     {
       "name": "REWLEGENDARY",
       "character": 0,
-      "coin": 25,
-      "level": 1,
+      "coin": 20,
+      "level": 18,
       "password": "123",
-      "health": 224,
-      "damage": 10,
+      "health": 20,
+      "maxHealth": 20,
+      "damage": 1,
       "luck": 5,
-      "crit": 30,
-      "weapon": 8,
+      "crit": 15,
+      "weapon": 1,
+      "armor": 11,
+      "accessory": "",
+      "inventory": [
+        8
+      ],
+      "potions": [
+        2,
+        1,
+        3,
+        3,
+        3
+      ],
+      "id": 89
+    },
+    {
+      "name": "asd",
+      "character": 0,
+      "coin": 0,
+      "level": 1,
+      "password": "asd",
+      "health": 250,
+      "maxHealth": 250,
+      "damage": 99,
+      "luck": 5,
+      "crit": 129,
+      "weapon": 5,
       "inventory": [],
       "potions": [],
-      "id": 89
+      "id": 90
+    },
+    {
+      "name": "dsa",
+      "character": 0,
+      "coin": 0,
+      "level": 1,
+      "password": "dsa",
+      "health": 250,
+      "maxHealth": 250,
+      "damage": 4,
+      "luck": 5,
+      "crit": 45,
+      "weapon": 4,
+      "inventory": [],
+      "potions": [],
+      "id": 91
     }
   ]
 }

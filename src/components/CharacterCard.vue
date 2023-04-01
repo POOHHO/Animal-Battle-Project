@@ -9,14 +9,17 @@ import PasswordModal from "./authentication/PasswordModal.vue";
 const props = defineProps({ charId: Number })
 const myPlayers = usePlayers()
 
-const camp = (characterId, password) => {
+const camp = async (characterId, password) => {
     auth.value = true
     player.value.selectCharacter(characterId)
     player.value.password = password
     monster.value.setMaxHealth()
-    myPlayers.addPlayer(player.value)
-    player.value.name = ""
-    router.push({ name: 'Camp' })
+    const playerId = await myPlayers.addPlayer(player.value)
+    const name = player.value.name
+    player.value.name = ''
+    player.value.id = playerId.id
+    router.push("/camp")
+    player.value.name = name
 
 }
 

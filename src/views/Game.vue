@@ -1,7 +1,7 @@
 <script setup>
 import { show } from "../main.js"
 import path from "../assets/path_data.json"
-import { player, monster, level, turn, turns } from "../assets/game/gameplay.js"
+import { player, monster, turn, turns } from "../assets/game/gameplay.js"
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
@@ -35,7 +35,7 @@ const pause = () => show.value.pause = true
         <!-- HEADER TAB -->
         <div class="flex-none flex justify-between text-2xl px-8 bg-zinc-900 shadow-md z-10 items-center">
             <div class="flex flex-col">
-                <p>LEVEL: {{ level }}</p>
+                <p>LEVEL: {{ player.level }}</p>
                 <p>TURN: {{ turns[turn] }}</p>
                 <p>COIN: {{ player.coin.getCoin() }}</p>
             </div>

@@ -49,9 +49,8 @@ async function createPlayer(newPlayer)  {
             },
             body: JSON.stringify(newPlayer)
         })
-        if (res.status === 201) {
-            // console.log("Add Successfully")
-        } else throw new Error('cannot add!')
+        if (res.status === 201) return res.json()
+        else throw new Error('cannot add!')
     } catch (err) {
         console.log(err)
     }

@@ -35,7 +35,9 @@ function init() {
     monsters = [
         new Monster("Rapter",50,"rapter",10),
         new Monster("Amadilo",50,"amadilo",15),
-        new Monster("Lionking",50,"lionKing",20) 
+        new Monster("Lionking",50,"lionKing",20),
+        new Monster("dewstupid",50,"dewstupid",20),
+        new Monster("newtonnoob",50,"newtonnoob",20)
 
     ]
     characters = [

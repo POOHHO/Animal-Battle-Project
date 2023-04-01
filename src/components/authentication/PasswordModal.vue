@@ -22,9 +22,9 @@ const btnClass = "btn border-0 w-full bg-emerald-500 hover:bg-teal-600 text-whit
         <div class="modal-box bg-slate-700">
             <p class="text-3xl font-bold mb-4 text-white">Enter Password</p>
             <input v-if="player != null" :class="inputClass"
-                placeholder="PASSWORD" @keydown.enter="$emit('login', validation())" type="password" v-model="password">
+                placeholder="PASSWORD" type="password" v-model="password">
             <input v-else :class="inputClass"
-                placeholder="PASSWORD" @keydown.enter="$emit('create', password)" type="password" v-model="password">
+                placeholder="PASSWORD" type="password" v-model="password">
             <div v-if="player != null" class="modal-action w-full">
                 <label :for="modalId" @click="$emit('login', validation()), clearPassword()" :class="btnClass">ENTER</label>
             </div>

@@ -28,7 +28,8 @@ const getEquipmentById = (type) => {
 
 const itemTypes = ["weapon","armor","accessory"]
 
-const hasEquipment = (item) => player.value[item.type]
+const hasEquipment = (item) => Boolean(player.value[item.type])
+
 
 const useItem = (item,index) => {
     player.value.useItem(itemById(item))
