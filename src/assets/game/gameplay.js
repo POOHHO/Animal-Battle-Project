@@ -1,5 +1,4 @@
 import { Player } from "../entity/player.js"
-import Currency from "../game/currency.js"
 import { popup, unpopup } from "../../main.js"
 import { ref } from 'vue'
 
