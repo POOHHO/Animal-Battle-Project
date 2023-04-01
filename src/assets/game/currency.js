@@ -1,6 +1,6 @@
 class Currency {
 
-    constructor(coin=10000) {
+    constructor(coin=100) {
         this.coin = coin
     }
 

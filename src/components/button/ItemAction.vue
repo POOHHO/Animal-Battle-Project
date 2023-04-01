@@ -15,9 +15,10 @@ defineEmits(["action"])
         <div class="hidden screen group-hover:block absolute z-[1000] px-1 bg-slate-600 text-white rounded text-xs"
             :class="right ? 'right-0' : 'left-0' ">
             <p class="text-sm text-emerald-500">{{ itemById.name }}</p>
-            <span v-show="itemById.crit > 0">+CRIT {{ itemById.crit }}</span>
-            <span v-show="itemById.luck > 0">+LUCK {{ itemById.luck }}</span>
-            <span v-show="itemById.health > 0">+HP {{ itemById.health }}</span>
+            <p v-show="itemById.damage > 0">+DAMAGE {{ itemById.damage }}</p>
+            <p v-show="itemById.crit > 0">+CRIT {{ itemById.crit }}</p>
+            <p v-show="itemById.luck > 0">+LUCK {{ itemById.luck }}</p>
+            <p v-show="itemById.health > 0">+HP {{ itemById.health }}</p>
         </div>
     </button>
 </template>

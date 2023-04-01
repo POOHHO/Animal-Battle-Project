@@ -13,7 +13,9 @@ import ErrorAlert from '../components/ErrorAlert.vue';
 import { popup,show,auth } from '../main';
 
 const myPlayers = usePlayers()
-onMounted(async () => { await myPlayers.fetchPlayers() })
+onMounted(async () => { 
+    await myPlayers.fetchPlayers()  
+})
 
 const searchKeyword = ref('')
 const filterPlayers = computed(() => {
@@ -82,8 +84,10 @@ const setPlayer = (player) => selectedPlayer.value = player
                                     <p class="">LUCK {{ player.luck }}</p>
                                     <p class="">CRIT {{ player.crit }}</p>
                                 </div>
-                                <!-- <div class="max-lg:hidden flex w-full gap-x-3 justify-center items-center text-white">
-                                    <div>EQUIP</div>
+                                <!-- <div class="max-lg:hidden flex flex-col w-full gap-x-3 justify-center items-center text-white">
+                                    <p>WEAPON: {{ player.weapon }}</p>
+                                    <p>ARMOR: {{ player.armor }}</p>
+                                    <p>ACCESSORY: {{ player.accessory }}</p>
                                 </div>                                 -->
                             </div>
                             <div class="flex">

@@ -56,11 +56,6 @@ const removeItem = (item) => {
                     </div>
                     <img class="w-2/3" :src="player.getImage()" alt="PLAYER">
                     <div class="flex flex-wrap justify-evenly w-full gap-y-2 ">
-                        <!-- <InventorySlot v-for="types in itemTypes" :key="types" :width="16" :height="16" :has-action="true" :find-item="types" :is-equipment="true">
-                            <template #default>
-                                REMOVE
-                            </template>
-                        </InventorySlot> -->
                         <InventorySlot v-for="itemType in itemTypes"  :key="itemType" :width="16" :height="16">
                             <template v-if="getEquipmentById(itemType)">
                                 <img :src="getEquipmentById(itemType).imgPath"
@@ -73,14 +68,6 @@ const removeItem = (item) => {
                     </div>
                 </div>
                 <div class="grid grid-cols-4 place-items-center gap-1 py-1 border border-white rounded-md w-2/3 " >
-                    <!-- <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" :has-action="true" :find-item="itemIndex">
-                            <template #header>
-                                <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(itemIndex)" />
-                            </template>
-                            <template #default>
-                                EQUIP
-                            </template>
-                    </InventorySlot> -->
                     <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" class="relative">
                         <template v-if="getInventoryById(itemIndex)">
                             <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(index)" />
@@ -94,10 +81,11 @@ const removeItem = (item) => {
                 </div>
              
             </div>
-            <div class="modal-action mt-3 space-x-6 text-white">
-                <p>HP {{ player.maxHealth }}</p>
-                <p>CRIT {{ player.crit }}</p>
-                <p>LUCK {{ player.luck }}</p>
+            <div class="modal-action mt-3 text-white">
+                <p>HP {{ player.maxHealth }} </p>
+                <p>DAMAGE +{{ player.damage }} </p>
+                <p>CRIT {{ player.crit >= 100 ? 100 : player.crit }}% </p>
+                <p>LUCK {{ player.luck >= 100 ? 100 : player.luck }}%</p>
                 <label for="my-modal-6" class="btn hover:bg-red-500">BACK</label>
             </div>
         </div>

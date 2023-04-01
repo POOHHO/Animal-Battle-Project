@@ -1,28 +1,42 @@
 <script setup>
 import { player } from "../../assets/game/gameplay"
-import path from '../../assets/path_data.json'
+import { useItems } from "../../assets/game/items";
 
+const myItems = useItems()
 const modalId = "potionModal"
+const getPotions = () => {
+  const potions = player.value.potions
+  let count = {}
+  potions.forEach((key) => {
+    if (!count.hasOwnProperty(key)) count[key] = { item: myItems.getPotionById(key), amount: 0 }
+    count[key].amount = count[key].amount + 1
+  })
+  return count
+}   
 </script>
  
 <template>
-  <label :for="modalId" class="w-full h-full flex justify-center items-center cursor-pointer">ITEM</label>
+  <label :for="modalId" class="w-full h-full flex justify-center items-center cursor-pointer">POTION</label>
 
   <input type="checkbox" :id="modalId" class="modal-toggle" />
   <div class="modal">
     <div class="modal-box">
-      <div class="flex">
-      <img :src="path.potionHealth" class="w-24 h-24 justify-center items-center" />
-      <p class="mt-6">Increase Player Health</p>
-      <button @click="player.usePotion()" class="btn mt-8 w-100 text-xl text-white hover:bg-emerald-500 border-0">X{{ player.duplicateHealth() }}</button>
-    </div>
+
+      <div class="text-red-500" v-show="getPotions().length <= 0">YOUR POTION IS EMPTY</div>
+      <div class="flex justify-between items-center space-y-4" v-for="(potion, index) in getPotions()" :key="index">
+        <img :src="potion.item.imgPath" class="w-16 h-16 " />
+        <p class="flex flex-col">{{ potion.item.name }}<span>{{ `[+HP ${potion.item.health}]` }}</span></p>
+        <button @click="player.usePotion(potion.item.item)"
+          class="btn text-xl text-white hover:bg-emerald-500 border-0 w-16">X{{
+            potion.amount }}</button>
+      </div>
+
       <div class="modal-action">
         <label :for="modalId" class="btn w-full hover:bg-red-500 border-0">CLOSE</label>
       </div>
 
     </div>
   </div>
-
 </template>
  
 <style scoped></style>

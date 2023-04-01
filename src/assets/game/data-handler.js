@@ -1,12 +1,11 @@
-const API_HOST = "http://25.37.204.87:5000"
+const API_HOST = "http://localhost:5000"
 const API_PLAYERS = `${API_HOST}/players`
 const API_ITEMS = `${API_HOST}/items`
-const API_SKILLS = `${API_HOST}/skills`
+const API_POTIONS = `${API_HOST}/potions`
 
-
-async function getItem() {
+async function getPotion() {
     try {
-        const res = await fetch(`${API_ITEMS}`)
+        const res = await fetch(`${API_POTIONS}`)
         if (res.ok) {
             const items = res.json()
             return items
@@ -16,10 +15,9 @@ async function getItem() {
         console.log(error)
     }
 }
-
-async function getSkill() {
+async function getItem() {
     try {
-        const res = await fetch(`${API_SKILLS}`)
+        const res = await fetch(`${API_ITEMS}`)
         if (res.ok) {
             const items = res.json()
             return items
@@ -91,4 +89,4 @@ async function deletePlayer(currentPlayer) {
 
 
 
-export { getItem, getSkill, getPlayer, createPlayer, deletePlayer,putPlayer }
+export { getItem, getPotion, getPlayer, createPlayer, deletePlayer,putPlayer }

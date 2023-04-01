@@ -5,11 +5,16 @@ import { player, monster, level, turn, turns } from "../assets/game/gameplay.js"
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
-import { computed,onBeforeMount } from "vue";
+import { computed,onBeforeMount,onMounted } from "vue";
+import { useItems } from "../assets/game/items";
 import router from "../router";
 import { auth } from "../main";
+const myItems = useItems()
 onBeforeMount(() => {
     if (!auth.value) router.push("/")
+})
+onMounted(async () => {
+    await myItems.fetchItems()
 })
 
 const computedPlayerDamaged = computed(() => {
@@ -50,7 +55,7 @@ const pause = () => show.value.pause = true
             <div class="flex flex-col justify-center items-center h-1/3 mr-12 max-lg:h-1/5">
                 <div v-show="show.monsterImg" class="flex stroke-black-text text-white text-2xl">
                     <p class="stroke-red-text">{{ monster.name }}</p>
-                    <p class="text-red-500" v-show="show.playerAttack">&nbsp;{{ `-${player.damage}` }}</p>
+                    <p class="text-red-500" v-show="show.playerAttack">&nbsp;{{ `-${player.getFinalDamage()}` }}</p>
                 </div>
                 <div v-show="show.monsterImg" class="border-white border-[3px] rounded-sm">
                     <div class="flex items-center bg-zinc-800 h-3 w-24 border-[3.5px] border-zinc-800">

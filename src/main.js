@@ -39,9 +39,9 @@ function init() {
 
     ]
     characters = [
-        new Character(0,"Foxster",250,3,99,path.bgCard1,path.foxsterIcon,path.Foxster),
-        new Character(1,"Bearior",1,1,1,path.bgCard2,path.beariorIcon,path.Bearior),
-        new Character(2,"Raccoon",250,99,3,path.bgCard3,path.raccoonIcon,path.Raccoon)
+        new Character(0,"Foxster",250,5,30,path.bgCard1,path.foxsterIcon,path.Foxster),
+        new Character(1,"Bearior",500,10,10,path.bgCard2,path.beariorIcon,path.Bearior),
+        new Character(2,"Raccoon",250,20,5,path.bgCard3,path.raccoonIcon,path.Raccoon)
     ]
 
     randomMonster()

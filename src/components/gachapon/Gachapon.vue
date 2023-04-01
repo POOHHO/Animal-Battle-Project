@@ -5,12 +5,12 @@ import { ref } from "vue";
 import GachaponModal from "./GachaponModal.vue";
 
 const outputItem = ref('')
-const outputSkill = ref('')
+const outputPotion = ref('')
 const randomItem = (output) => { outputItem.value = output }
-const randomSkill = (output) => { outputSkill.value = output }
+const randomPotion = (output) => { outputPotion.value = output }
 
 const itemModal = "item-modal"
-const skillModal = "skill-modal"
+const potionModal = "potion-modal"
 const gachaponModal = "gachapon-modal"
 </script>
  
@@ -26,7 +26,7 @@ const gachaponModal = "gachapon-modal"
         <div class="text-white text-5xl pb-5">GACHAPON SHOP</div>
         <div class="flex">
           <RandomGachapon :modal-id="itemModal" :random-item="true" :icon-path="path.gachapon1" @random="randomItem" />
-          <RandomGachapon :modal-id="skillModal" :random-skill="true" :icon-path="path.gachapon2" @random="randomSkill" />
+          <RandomGachapon :modal-id="potionModal" :random-potion="true" :icon-path="path.gachapon2" @random="randomPotion" />
         </div>
       </div>
       <div class="flex">
@@ -35,7 +35,7 @@ const gachaponModal = "gachapon-modal"
     </div>
   </div>
   <GachaponModal :modal-id="itemModal" :output="outputItem"/>
-  <GachaponModal :modal-id="skillModal" :output="outputSkill" />
+  <GachaponModal :modal-id="potionModal" :output="outputPotion" />
 </template>
  
 <style scoped></style>

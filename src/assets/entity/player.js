@@ -19,8 +19,8 @@ class Player {
         this.coin = new Currency()
         this.cardName = ""
         this.cardDamage = 0
-        this.inventory = [5]
-        this.potions = [1, 1, 1, 1, 1, 1, 2]
+        this.inventory = []
+        this.potions = []
         this.level = 1
     }
 
@@ -28,7 +28,7 @@ class Player {
     maxHeal() { this.health = this.maxHealth }
     playerAttack() {
         this.randomCritical()
-        monster.value.health -= this.damage
+        monster.value.health -= this.finalDamage
         monster.value.dead()
         popup("playerAttack", 1500)
 
@@ -51,35 +51,14 @@ class Player {
         const health = (this.health / this.maxHealth) * 100
         return health <= 0 ? 0 : health
     }
-    duplicateHealth() {
-        let health = 0
-        for (let i = 0; i < this.potions.length; i++) {
-            if (this.potions[i] === 1) {
-                health++
-            }
-        }
-        return health
-    }
-    duplicateMana() {
-        let mana = 0
-        for (let i = 0; i < this.potions.length; i++) {
-            if (this.potions[i].name === "ManaPotion") {
-                mana++
-            }
-        }
-        return mana
-    }
-    usePotion() {
+
+    usePotion(potion) {
         if (this.health === this.maxHealth) return
         if (this.potions.length === 0) return
-
-        if (this.health + 50 > this.maxHealth) {
-            this.health = this.maxHealth
-            this.potions.splice(0, 1)
-        } else {
-            this.health += 50
-            this.potions.splice(0, 1)
-        }
+        const plusHealth = potion.health
+        if (this.health + plusHealth > this.maxHealth) this.health = this.maxHealth
+        else this.health += plusHealth
+        this.potions.splice(0, 1)
         
     }
     selectCharacter(characterIndex = 0) {
@@ -96,6 +75,7 @@ class Player {
         this[item.type] = undefined
         this.crit -= (!item.crit ? 0 : item.crit)
         this.maxHealth -= (!item.health ? 0 : item.health)
+        this.damage -= (!item.damage ? 0 : item.damage)
         this.health = this.maxHealth
         this.luck -= (!item.luck ? 0 : item.luck)
         this.inventory.push(item.id)
@@ -104,6 +84,7 @@ class Player {
         this[item.type] = item.id
         this.crit += (!item.crit ? 0 : item.crit)
         this.maxHealth += (!item.health ? 0 : item.health)
+        this.damage += (!item.damage ? 0 : item.damage)
         this.health = this.maxHealth
         this.luck += (!item.luck ? 0 : item.luck)
 
@@ -117,8 +98,11 @@ class Player {
     randomCritical() {
         const percentage = Math.floor(Math.random() * 100)
         const CRIT_DAMAGE = 1.5
-        this.damage = this.cardDamage
-        if (this.crit > percentage) this.damage *= CRIT_DAMAGE
+        this.finalDamage = this.damage + this.cardDamage
+        if (this.crit > percentage) this.finalDamage *= CRIT_DAMAGE
+    }
+    getFinalDamage() {
+      return this.finalDamage
     }
 
     dead() {
