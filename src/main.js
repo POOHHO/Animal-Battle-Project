@@ -1,10 +1,14 @@
 import { Character } from "./assets/entity/character.js"
+import { Player } from "./assets/entity/player.js"
 import { Monster } from "./assets/entity/monster.js"
-import { monster } from "./assets/game/gameplay.js"
 import { ref } from "vue"
 import path from "./assets/path_data.json"
 let monsters = []
 let characters = []
+
+//DEFAULT DYNAMIC VALUE
+const player = ref(new Player()) 
+const monster = ref("")
 
 const auth = ref(false)
 const show = ref({
@@ -55,5 +59,5 @@ function randomMonster() {
 }
 
 export { 
-    unpopup, popup, init, characters, monsters, show,auth, randomMonster
+    unpopup, popup, init, characters, monsters, show,auth, randomMonster, player,monster
 }

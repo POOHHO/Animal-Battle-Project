@@ -1,7 +1,6 @@
 <script setup>
-import { show } from "../main.js"
+import { show,unpopup,popup,player, monster } from "../main.js"
 import path from "../assets/path_data.json"
-import { player, monster, turn, turns } from "../assets/game/gameplay.js"
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
@@ -9,7 +8,16 @@ import { computed,onBeforeMount,onMounted } from "vue";
 import { useItems } from "../assets/game/items";
 import router from "../router";
 import { auth } from "../main";
+import { ref } from "vue";
+
 const myItems = useItems()
+const turn = ref(0) //0 = PLAYER, 1 = MONSTER, 2 = SUMMARY
+const win = ref(0)  //0 = PLAYER, 1 = MONSTER, 2 = DRAW
+//ARRAY
+const turns = [ "PLAYER","MONSTER", "SUMMARY" ] 
+const cards = [ "A", "2","3","4","5","6","7","8","9","10","J","Q","K"]
+const wins = [ "PLAYER","MONSTER","DRAW" ]
+
 onBeforeMount(() => {
     if (!auth.value) router.push("/")
 })
@@ -28,6 +36,53 @@ const computedMonsterDamaged = computed(() => {
     else return ''
 })
 const pause = () => show.value.pause = true
+
+
+const nextTurn = (currentTurn) => {
+    if (currentTurn === 0) {
+        monsterTurn()
+        turn.value++ //TURN 1
+    } else if (currentTurn === 1) {
+        summaryTurn()
+        turn.value++        
+    } else {
+        //CARD SHOW
+        unpopup("summaryAttack")
+        unpopup("cardAttack")
+        //ATTACK BUTTON
+        popup("attackButton")
+        if (win.value === 0) player.value.playerAttack()
+        else if (win.value === 1) monster.value.monsterAttack()    
+        turn.value = 0
+    }
+}
+
+const monsterTurn = () => {
+    randomMonsterCard()
+    popup("cardAttack")
+}
+const summaryTurn = () => {
+    const monsterDamage = monster.value.cardDamage
+    const playerDamage = player.value.cardDamage
+
+    if (playerDamage > monsterDamage) win.value = 0
+    else if (monsterDamage > playerDamage) win.value = 1
+    else win.value = 2
+   
+    popup("summaryAttack")
+}
+const randomMonsterCard = () => {
+    const randomCard = Math.floor(Math.random()*cards.length) //0-12
+    monster.value.cardName = cards[randomCard]
+    monster.value.cardDamage = randomCard+1
+}
+
+const playerAttack = (randomCard) => {
+    unpopup("attackButton")
+    player.value.cardName = cards[randomCard]
+    player.value.cardDamage = randomCard+1
+    popup("cardAttack")
+}
 
 </script>
 <template>
@@ -69,9 +124,9 @@ const pause = () => show.value.pause = true
             </div>
         </div>
         <!-- ACTIONBAR -->
-        <ActionBar />
+        <ActionBar :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :cards="cards" @attack="playerAttack"/>
         <!-- CARD -->
-        <GamblingCard />
+        <GamblingCard :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :wins="wins" @next-turn="nextTurn"/>
         <Menu />
     </div>
 </template>

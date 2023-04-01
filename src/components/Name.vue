@@ -1,6 +1,5 @@
 <script setup>
-import { show } from "../main.js"
-import { player } from "../assets/game/gameplay.js"
+import { show,player } from "../main.js"
 import ErrorAlert from "./ErrorAlert.vue";
 const props = defineProps({
     paddingNameX: { type: Number, default: 0 },

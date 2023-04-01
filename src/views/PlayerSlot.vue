@@ -1,15 +1,13 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { player } from '../assets/game/gameplay';
 import { Player } from "../assets/entity/player.js"
-import { characters } from '../main';
 import { usePlayers } from "../assets/game/players"
 import router from "../router/index.js";
 import path from "../assets/path_data.json"
 import BinVue from "../components/icon/Bin.vue";
 import PasswordModal from '../components/authentication/PasswordModal.vue';
 import ErrorAlert from '../components/ErrorAlert.vue';
-import { popup, show, auth } from '../main';
+import { popup, show, auth,player,characters } from '../main';
 
 const myPlayers = usePlayers()
 onMounted(async () => {

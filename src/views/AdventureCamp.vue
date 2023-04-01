@@ -1,6 +1,5 @@
 <script setup>
 import path from "../assets/path_data.json"
-import { player,monster } from "../assets/game/gameplay"
 import Gachapon from "../components/gachapon/Gachapon.vue";
 import Inventory from "../components/inventory/Inventory.vue";
 import { RouterLink } from "vue-router";
@@ -9,7 +8,7 @@ import { onMounted,onBeforeMount } from "vue";
 import { useItems } from "../assets/game/items";
 
 import router from "../router";
-import { auth } from "../main";
+import { auth,player,monster } from "../main.js";
 onBeforeMount(() => {
     if (!auth.value) router.push("/")
 })

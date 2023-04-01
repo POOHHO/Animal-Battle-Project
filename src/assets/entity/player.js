@@ -1,5 +1,5 @@
 import { popup, characters } from "../../main.js"
-import { monster } from "../game/gameplay.js"
+import { monster } from "../../main.js"
 import Currency from "../game/currency.js"
 import { usePlayers } from "../../assets/game/players"
 

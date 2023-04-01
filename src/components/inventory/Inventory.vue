@@ -2,7 +2,6 @@
 import InventorySlot from "./InventorySlot.vue";
 import BinVue from "../icon/Bin.vue";
 import ItemAction from "../button/ItemAction.vue";
-import { player } from "../../assets/game/gameplay";
 import { useItems } from "../../assets/game/items"
 import { usePlayers } from "../../assets/game/players";
 
@@ -13,13 +12,13 @@ const props = defineProps({
     player: { type: Object }
 })
 
-const getInventory = (itemIndex) => player.value.getInventory(itemIndex-1)
+const getInventory = (itemIndex) => props.player.getInventory(itemIndex-1)
 const getInventoryById = (itemIndex) => {
     const itemId = getInventory(itemIndex)
     if (itemId) return itemById(itemId)
     else return undefined
 }
-const getEquipment = (type) => player.value.getEquipment(type)
+const getEquipment = (type) => props.player.getEquipment(type)
 const getEquipmentById = (type) => {
     const equipmentId = getEquipment(type)
     if (equipmentId) return itemById(equipmentId)
@@ -28,17 +27,17 @@ const getEquipmentById = (type) => {
 
 const itemTypes = ["weapon","armor","accessory"]
 
-const hasEquipment = (item) => Boolean(player.value[item.type])
+const hasEquipment = (item) => Boolean(props.player[item.type])
 
 
 const useItem = (item,index) => {
-    player.value.useItem(itemById(item))
-    player.value.removeItemFromIndex(index)
-    myPlayers.updatePlayer(player.value)
+    props.player.useItem(itemById(item))
+    props.player.removeItemFromIndex(index)
+    myPlayers.updatePlayer(props.player)
 }
 const removeItem = (item) => {
-    player.value.removeItem(itemById(item))
-    myPlayers.updatePlayer(player.value)
+    props.player.removeItem(itemById(item))
+    myPlayers.updatePlayer(props.player)
 }
 </script>
  

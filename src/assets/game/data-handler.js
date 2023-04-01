@@ -1,4 +1,4 @@
-const API_HOST = "http://localhost:5000"
+const API_HOST = "http://25.37.204.87:5000"
 const API_PLAYERS = `${API_HOST}/players`
 const API_ITEMS = `${API_HOST}/items`
 const API_POTIONS = `${API_HOST}/potions`

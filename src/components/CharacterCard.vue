@@ -1,6 +1,5 @@
 <script setup>
-import { characters, popup } from "../main.js"
-import { player, monster } from "../assets/game/gameplay.js"
+import { characters, popup,player, monster } from "../main.js"
 import router from "../router/index.js";
 import { usePlayers } from "../assets/game/players"
 import { auth } from "../main.js";

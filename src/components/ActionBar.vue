@@ -1,17 +1,30 @@
 <script setup>
 import { show } from "../main.js"
-import { player, monster, playerTurn } from "../assets/game/gameplay.js"
 import Action from "./button/Action.vue";
 import ItemVue from "./inventory/Item.vue";
-import GamblingCard from "./GamblingCard.vue";
+
+const props = defineProps({ player: Object, monster: Object, cards: { type: Array, default: () => []}})
+
+function randomPlayerCard(){
+    const random = Math.floor(Math.random() * 100)
+    const luck = props.player.luck
+    const cardSize = props.cards.length
+    const breakpoint = cardSize-4
+
+    let randomCard = ""
+    if (random < luck) randomCard = Math.floor(Math.random() * 4) + breakpoint
+    else randomCard = Math.floor(Math.random() * cardSize)
+
+    return randomCard
+}
 </script>
 <template>
-    <GamblingCard />
+    <!-- <GamblingCard :turns="turns" :turn="turn" :win="win" @next-turn="nextTurn"/> -->
      <div class="flex flex-wrap justify-between p-5 bg-zinc-900 max-lg:flex-col text-2xl gap-y-2">
         <!-- ACTION BTN -->
         <div class="flex flex-1">
-            <Action :disabled="!show.attackButton || !show.monsterImg" @click="playerTurn()"  >ATTACK</Action>
-           <Action><ItemVue/></Action>
+            <Action :disabled="!show.attackButton || !show.monsterImg" @click="$emit('attack',randomPlayerCard())"  >ATTACK</Action>
+           <Action><ItemVue :player="player"/></Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">

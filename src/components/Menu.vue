@@ -1,6 +1,5 @@
 <script setup>
-import { show } from "../main.js"
-import { player } from "../assets/game/gameplay";
+import { show,player } from "../main.js"
 import path from "../assets/path_data.json"
 import router from "../router/index.js";
 

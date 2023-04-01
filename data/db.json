@@ -277,10 +277,10 @@
     {
       "name": "REWLEGENDARY",
       "character": 0,
-      "coin": 20,
-      "level": 18,
+      "coin": 40,
+      "level": 19,
       "password": "123",
-      "health": 20,
+      "health": 0,
       "maxHealth": 20,
       "damage": 1,
       "luck": 5,

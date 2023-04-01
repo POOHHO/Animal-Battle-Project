@@ -1,5 +1,5 @@
 <script setup>
-import { player } from "../../assets/game/gameplay.js"
+import { player } from "../../main.js"
 import { useItems } from "../../assets/game/items"
 import { usePlayers } from "../../assets/game/players";
 const props = defineProps({
