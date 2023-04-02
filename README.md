@@ -9,31 +9,35 @@
 64130500056 พัชรพล แปลนาค (พู) 
 
 ## Features Application
+<h5>Animal Bettle กลุ่มของเราเป็นเกมแนว Trun Based ธีม Pixcel Art</h5>
  <ul>
-   <li>setshow() การเซ็ทเปิดปิดหน้าต่างๆ</li>
-   <li>popup() ตัวคอยdelayในการแสดงหน้านั้นๆ</li>
-   <li>init() เก็บขอมูลของ character และ monter</li>
-   <li>nextTurn() เป็นตัวกำหนดTurnว่าเป็นTurnของใคร</li>
-   <li>Attack() เป็นตัวคำนวณDamage</li>
-   <li>randomCard() random การ์ดตั้งแต่ 1-12 แลพคำนวณตามค่าluckของcharacterนั้นๆ</li>
-   <li>summaryTurn() ค่อยคำนวณว่าฝ่ายไหนชนะพร้อมแสดงค่าDamage</li>
-   <li>getCard() เป็น function ที่ return การ์ดของplayerและmonterเพ่อนนำมาแสดง</li>
-   <li>dead() เมื่อผู้เล่นมีเลือดเท่ากับ 0 จะแสดงgameover</li>
-   <li>getCardSource() เปิดค้นหาการ์ดเพื่อมาแสดง</li>
+1. MainMenu เป็นหน้าแรกเพื่อที่สามารถกดเข้าสู่หน้า Login หรือ Howtoplay<br>
+2. CharacterSelector สามารถ CreateAccount , Login , RemoveAccount หรือ FilterหาAccountที่สร้างไว้ได้<br>
+3. AdventureCamp สามารถเข้าได้ 3 อย่างเป็น<br>
+<li> Gachapon เป็นการสุ่มitemและpotion </li>
+<li> Inventory จากการสุ่ม Gachapon จะถูกส่งมาที่ Inventory สามารถสวมใส่Itemเพื่อเพิ่มค่าสถาณะของตัวละคร </li>
+<li> Adventure จะพาเข้าสู่หน้าเข้าเกม </li>
 </ul>
 
 ## Manual
  <ul>
-<li>เกมแนว turnbase เป็นเกมต่อสู้สลับฝั่งกันเล่นโดยการจั่วไพ่เพื่อหาผู้ชนะมาในธีม animal pixel Art</li>
+<li>เกมแนว turnBased เป็นเกมต่อสู้สลับฝั่งกันเล่นโดยการจั่วไพ่เพื่อหาผู้ชนะมาในธีม animal pixel Art</li>
   <li>ในหน้า Howtoplay จะมีอธิบายวิธีการเล่นตัวเกม</li>
-  <li>หน้าเลือกตัวละครจะสามารถกรอกชื่อผู้เล่นและมีตัวละครให้เลือกทั้งหมด3ตัว</li>
+  <li>หน้าเลือก Slot ตัวละครที่สามารถสร้างตัวละครและลบตัวละครได้</li>
+  <li>หน้าเลือกตัวละครจะสามารถกรอกชื่อผู้เล่นและมีตัวละครให้เลือกทั้งหมด3ตัวและจะให้ตั้งรหัสผ่านเพื่อนใช้login</li>
   <li>แต่ละตัวละครจะมีค่าสถานะที่แตกต่างกันจะส่งผลต่อgameplay</li>
+ <li>หลังเลือกตัวละครจะเข้าสู่หน้าแคมป์ในหน้าแคมป์จะมี gachapon inventory และ adventureเพื่อเข้าสู่หน้าต่อสู้</li>
   <li>เข้าสู้หน้าเกมจะแสดงตัวละครของผู้เล่นที่ได้เลือกมาจะได้ต่อสู้กับมอนเตอร์</li>
   <li>การต่อสู้จะเป็นการกดปุ่มAttackเพื่อเริ่มเทิร์น ระบบจะทำการสุ่มการ์ดออกมาให้ผู้เล่นและการ์ดของมอนเตอร์</li>
   <li>หลังจากสุ่มการ์ดแล้วจะเข้าสู่ Summary Turn เพื่อหาค่าการ์ดของฝ่ายที่มากกว่ากัน </li>
-  <li>ตัวเกมจะสลับกันสู้จนกว่าจะรู้ผลแพ้ชนะ</li>
+  <li>ตัวเกมจะสลับกันสู้จนกว่าจะรู้ผลแพ้ชนะและถ้าผู้เล่นชนะจะได้รับcoinเพื่อที่จะสามารถไปสุ่มในGachaponได้</li>
 </ul>
 
+ ## Feature Video
+ https://youtu.be/2FdJ_k7E87c
+ 
+ ## Inspiration
+ สมาชิกภายในกลุ่มชอบในการเล่นเกมเลยเลือกที่จะทำ Projectนี้เกี่ยวกับเกม มีคนในกลุ่มชอบเกี่ยวกับ Pixcel เลยที่จะเลือกทำเกมที่มาในธีม pixcel และได้มาในชื่อเกม Animal Bettle เป็นเกมต่อสู้แนว TrunBased   
  ## SOURCE REFERENCES
 - https://www.dafont.com/m04fatal-fury.font (m04fatal-fury font)
 - https://www.dafont.com/upheaval.font (upheaval font)
