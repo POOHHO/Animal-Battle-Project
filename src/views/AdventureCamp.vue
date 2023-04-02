@@ -1,14 +1,15 @@
 <script setup>
+import { useItems } from "../assets/game/items";
+import { usePlayers } from "../assets/game/players";
+import { auth,player,monster } from "../main.js";
 import path from "../assets/path_data.json"
+
 import Gachapon from "../components/gachapon/Gachapon.vue";
 import Inventory from "../components/inventory/Inventory.vue";
 import { RouterLink } from "vue-router";
-
 import { onMounted,onBeforeMount } from "vue";
-import { useItems } from "../assets/game/items";
-
 import router from "../router";
-import { auth,player,monster } from "../main.js";
+
 onBeforeMount(() => {
     if (!auth.value) router.push("/")
 })
@@ -18,6 +19,7 @@ const monsterReset = () => {
     player.value.maxHeal()
 }
 const myItems = useItems()
+const myPlayers = usePlayers()
 onMounted(async () => {
     await myItems.fetchItems()
 })
@@ -30,13 +32,13 @@ onMounted(async () => {
             <router-link to="/" class="bg-emerald-500 px-3 rounded-sm hover:bg-red-500 cursor-pointer">MAIN MENU</router-link>
         </p>
         <div class="flex w-full h-full justify-around items-center">
-            <Gachapon />
+            <Gachapon :gacha-item-icon="path.gachapon1" :gacha-potion-icon="path.gachapon2" :player="player" :my-items="myItems" :my-players="myPlayers"/>
             <router-link to="/game" class="bg-blue-500 hover:bg-blue-400 text-white text-2xl font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
                 @click="monsterReset()">
                 ADVENTURE
             </router-link>
 
-            <Inventory :player="player" />
+            <Inventory :player="player" :my-items="myItems" :my-players="myPlayers"/>
         </div>
     </div>
 </template>

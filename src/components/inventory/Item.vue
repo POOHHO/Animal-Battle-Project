@@ -1,15 +1,12 @@
 <script setup>
-import { useItems } from "../../assets/game/items";
+const props = defineProps({ player: Object, myItems: { required: true} })
 
-const props = defineProps({ player: Object })
-
-const myItems = useItems()
 const modalId = "potionModal"
 const getPotions = () => {
   const potions = props.player.potions
   let count = {}
   potions.forEach((key) => {
-    if (!count.hasOwnProperty(key)) count[key] = { item: myItems.getPotionById(key), amount: 0 }
+    if (!count.hasOwnProperty(key)) count[key] = { item: props.myItems.getPotionById(key), amount: 0 }
     count[key].amount = count[key].amount + 1
   })
   return count

@@ -1,5 +1,4 @@
-import { popup, characters } from "../../main.js"
-import { monster } from "../../main.js"
+import { popup, characters,monster } from "../../main.js"
 import Currency from "../game/currency.js"
 import { usePlayers } from "../../assets/game/players"
 
@@ -93,6 +92,8 @@ class Player {
     }
     removeItemFromIndex(index) {
         this.inventory.splice(index - 1, 1)
+        const myPlayers = usePlayers()
+        myPlayers.updatePlayer(this)
     }
     getInventory(index) {
         return this.inventory[index]

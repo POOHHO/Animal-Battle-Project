@@ -1,6 +1,4 @@
 <script setup>
-import { show } from "../main.js"
-import path from "../assets/path_data.json"
 import { computed } from "vue";
 
 const props = defineProps({ 
@@ -8,10 +6,12 @@ const props = defineProps({
     monster: Object,turn: Number,
     turns: { type:Array, default: () => []} ,
     wins: { type:Array, default: () => []} ,
-    win: Number 
+    win: Number,
+    cardPath: { type: String,required: true },
+    show: { type: Object,required: true }
 })
-
-const getCardSource = (card) => path.card.replace("%card%", card)
+defineEmits(["nextTurn"])
+const getCardSource = (card) => props.cardPath.replace("%card%", card)
 const computedWin = computed(() => props.win === 1 ? 'text-red-500' : 'text-emerald-500')
 const computedLoser = computed(() => props.win === 1 ? 'text-emerald-500' : 'text-red-500')
 const computedTurn = computed(() => props.turn === 0 ? 'text-emerald-500' : 'text-red-500')

@@ -2,15 +2,13 @@
 import InventorySlot from "./InventorySlot.vue";
 import BinVue from "../icon/Bin.vue";
 import ItemAction from "../button/ItemAction.vue";
-import { useItems } from "../../assets/game/items"
-import { usePlayers } from "../../assets/game/players";
 
-const myItems = useItems()
-const myPlayers = usePlayers()
-const itemById = (id) => myItems.getItemById(id)
 const props = defineProps({
-    player: { type: Object }
+    player: { type: Object },
+    myItems: { required: true},
+    myPlayers: { required: true}
 })
+const itemById = (id) => props.myItems.getItemById(id)
 
 const getInventory = (itemIndex) => props.player.getInventory(itemIndex-1)
 const getInventoryById = (itemIndex) => {
@@ -33,11 +31,11 @@ const hasEquipment = (item) => Boolean(props.player[item.type])
 const useItem = (item,index) => {
     props.player.useItem(itemById(item))
     props.player.removeItemFromIndex(index)
-    myPlayers.updatePlayer(props.player)
+    props.myPlayers.updatePlayer(props.player)
 }
 const removeItem = (item) => {
     props.player.removeItem(itemById(item))
-    myPlayers.updatePlayer(props.player)
+    props.myPlayers.updatePlayer(props.player)
 }
 </script>
  

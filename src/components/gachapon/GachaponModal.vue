@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
     output: {require: true},
-    modalId: {type: String,require: true}
+    modalId: {type: String,required: true}
 })
 </script>
 

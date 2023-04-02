@@ -18,7 +18,7 @@ const btnClass = "btn border-0 w-full bg-emerald-500 hover:bg-teal-600 text-whit
 </script>
 <template>
     <input type="checkbox" :id="modalId" class="modal-toggle">
-    <div class="modal screen bg-opacity-0">
+    <div class="modal screen bg-opacity-0 ">
         <div class="modal-box bg-slate-700">
             <p class="text-3xl font-bold mb-4 text-white">Enter Password</p>
             <input v-if="player != null" :class="inputClass"

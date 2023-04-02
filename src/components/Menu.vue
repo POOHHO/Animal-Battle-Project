@@ -1,8 +1,8 @@
 <script setup>
 import { show,player } from "../main.js"
-import path from "../assets/path_data.json"
 import router from "../router/index.js";
 
+const props = defineProps({ gameOverIcon: { type: String,required: true } })
 const backToGame = () => {
     show.value.pause = false
 }
@@ -27,7 +27,7 @@ const backToMain = () => {
 <template>
     <!-- PLAYER DEAD -->
     <div class="flex flex-col justify-center items-center absolute inset-0 bg-zinc-700 bg-opacity-90 w-screen h-screen" v-show="show.playerDead">
-        <img :src="path.gameOver" alt="" class="w-56">
+        <img :src="gameOverIcon" alt="" class="w-56">
         <div class="flex justify-center m-8 space-x-5">
             <button class="bg-emerald-500 hover:bg-teal-600 text-white font-bold py-2 px-4 text-xl" @click="tryAgain()">
                 BACK TO CAMP

@@ -1,6 +1,5 @@
 <script setup>
 
-
 const props = defineProps({
     width: { type: Number, default: 12 },
     height: { type: Number, default: 12 }

@@ -1,10 +1,14 @@
 <script setup>
-import { show } from "../main.js"
 import Action from "./button/Action.vue";
 import ItemVue from "./inventory/Item.vue";
 
-const props = defineProps({ player: Object, monster: Object, cards: { type: Array, default: () => []}})
-
+const props = defineProps({ 
+    player: Object, monster: Object, 
+    cards: { type: Array, default: () => []}, 
+    myItems: { required: true}, 
+    show: { type:Object,required: true}
+})
+defineEmits(["attack"])
 function randomPlayerCard(){
     const random = Math.floor(Math.random() * 100)
     const luck = props.player.luck
@@ -19,12 +23,11 @@ function randomPlayerCard(){
 }
 </script>
 <template>
-    <!-- <GamblingCard :turns="turns" :turn="turn" :win="win" @next-turn="nextTurn"/> -->
      <div class="flex flex-wrap justify-between p-5 bg-zinc-900 max-lg:flex-col text-2xl gap-y-2">
         <!-- ACTION BTN -->
         <div class="flex flex-1">
             <Action :disabled="!show.attackButton || !show.monsterImg" @click="$emit('attack',randomPlayerCard())"  >ATTACK</Action>
-           <Action><ItemVue :player="player"/></Action>
+           <Action><ItemVue :player="player" :my-items="myItems"/></Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">

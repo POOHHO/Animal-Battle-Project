@@ -1,36 +1,35 @@
 <script setup>
-import { player } from "../../main.js"
-import { useItems } from "../../assets/game/items"
-import { usePlayers } from "../../assets/game/players";
+
 const props = defineProps({
     randomPotion: { type: Boolean, default: false },
     randomItem: { type: Boolean, default: false },
     iconPath: { type: String },
-    modalId: { type: String, require: true }
+    modalId: { type: String, required: true },
+    player: { type: Object, required: true},
+    myItems: { required: true},
+    myPlayers: { required: true}
 })
 
 defineEmits(['random'])
-const myItems = useItems()
-const myPlayers = usePlayers()
 
 const POTION_PRICE = 50
 const ITEM_PRICE = 100
 
 const random = () => {
     if (props.randomItem) {
-        const item = randomItem(myItems.getItems(),ITEM_PRICE)
-        player.value.inventory.push(item.id)
-        myPlayers.updatePlayer(player.value)
+        const item = randomItem(props.myItems.getItems(),ITEM_PRICE)
+        props.player.inventory.push(item.id)
+        props.myPlayers.updatePlayer(props.player)
         return item
     } else if (props.randomPotion) {
-        const potion = randomItem(myItems.getPotions(),POTION_PRICE)
-        player.value.potions.push(potion.id)
-        myPlayers.updatePlayer(player.value)
+        const potion = randomItem(props.myItems.getPotions(),POTION_PRICE)
+        props.player.potions.push(potion.id)
+        props.myPlayers.updatePlayer(props.player)
         return potion
     }
 }
 const randomItem = (items,price) => {
-    const currency = player.value.coin
+    const currency = props.player.coin
     if (!currency.hasCoin(price)) return undefined
     currency.substract(price)
     const randomIndex = Math.floor(Math.random() * items.length)

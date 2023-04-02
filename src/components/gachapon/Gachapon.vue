@@ -1,17 +1,28 @@
 <script setup>
-import path from "../../assets/path_data.json"
-import RandomGachapon from "./RandomGachapon.vue";
 import { ref } from "vue";
+import RandomGachapon from "./RandomGachapon.vue";
 import GachaponModal from "./GachaponModal.vue";
 
-const outputItem = ref('')
-const outputPotion = ref('')
-const randomItem = (output) => { outputItem.value = output }
-const randomPotion = (output) => { outputPotion.value = output }
+const props = defineProps({ 
+  gachaItemIcon: { type:String,required: true},
+  gachaPotionIcon: { type:String, required:true},
+  player: { type: Object, required: true },
+  myItems: { required: true},
+  myPlayers: { required: true}
+})
 
 const itemModal = "item-modal"
 const potionModal = "potion-modal"
 const gachaponModal = "gachapon-modal"
+
+const modalId = ref('')
+const outputItem = ref('')
+const outputPotion = ref('')
+const setModal = (id) => modalId.value = id
+const randomItem = (output) => { outputItem.value = output; setModal(itemModal) }
+const randomPotion = (output) => { outputPotion.value = output; setModal(potionModal) }
+
+
 </script>
  
 <template>
@@ -22,11 +33,14 @@ const gachaponModal = "gachapon-modal"
   <div class="modal">
     <div class="modal-box bg-neutral-focus">
       <div class="flex flex-col items-center">
-        <!-- <img class="w-5/6 pb-5" :src="path.gachaponIcon"> -->
         <div class="text-white text-5xl pb-5">GACHAPON SHOP</div>
         <div class="flex">
-          <RandomGachapon :modal-id="itemModal" :random-item="true" :icon-path="path.gachapon1" @random="randomItem" />
-          <RandomGachapon :modal-id="potionModal" :random-potion="true" :icon-path="path.gachapon2" @random="randomPotion" />
+          <RandomGachapon :modal-id="itemModal" :random-item="true" :icon-path="gachaItemIcon" @random="randomItem" 
+            :my-players="myPlayers" :my-items="myItems" :player="player"
+          />
+          <RandomGachapon :modal-id="potionModal" :random-potion="true" :icon-path="gachaPotionIcon" @random="randomPotion" 
+            :my-players="myPlayers" :my-items="myItems" :player="player"
+          />
         </div>
       </div>
       <div class="flex">
@@ -34,8 +48,7 @@ const gachaponModal = "gachapon-modal"
       </div>
     </div>
   </div>
-  <GachaponModal :modal-id="itemModal" :output="outputItem"/>
-  <GachaponModal :modal-id="potionModal" :output="outputPotion" />
+  <GachaponModal :modal-id="modalId" :output="modalId === itemModal ? outputItem : outputPotion"/>
 </template>
  
 <style scoped></style>

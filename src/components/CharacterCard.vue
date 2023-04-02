@@ -1,19 +1,16 @@
 <script setup>
-import { characters, popup,player, monster } from "../main.js"
+import { popup,player, monster,auth } from "../main.js"
 import router from "../router/index.js";
-import { usePlayers } from "../assets/game/players"
-import { auth } from "../main.js";
 import PasswordModal from "./authentication/PasswordModal.vue";
 
-const props = defineProps({ charId: Number })
-const myPlayers = usePlayers()
+const props = defineProps({ characters: { type: Array,required: true },charId: Number, myPlayers: {required: true} })
 
 const camp = async (characterId, password) => {
     auth.value = true
     player.value.selectCharacter(characterId)
     player.value.password = password
     monster.value.setMaxHealth()
-    const playerId = await myPlayers.addPlayer(player.value)
+    const playerId = await props.myPlayers.addPlayer(player.value)
     const name = player.value.name
     player.value.name = ''
     player.value.id = playerId.id
@@ -27,7 +24,7 @@ const enterCamp = (characterId, password) => {
     if (player.value.name.trim() === '') popup("nameEmptyAlert", 3000)
     else if (password.trim() === '') popup("passwordEmptyAlert", 3000)
     // PLAYER NAME EXISTS
-    else if (myPlayers.getPlayers().filter((item) => item.name.toLowerCase() === player.value.name.toLowerCase()).length > 0) popup("existsAlert", 3000)
+    else if (props.myPlayers.getPlayers().filter((item) => item.name.toLowerCase() === player.value.name.toLowerCase()).length > 0) popup("existsAlert", 3000)
     else camp(characterId, password)
 }
 

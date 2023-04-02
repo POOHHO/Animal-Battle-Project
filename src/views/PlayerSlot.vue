@@ -1,12 +1,13 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { popup, show, auth,player,characters,resetPlayer } from '../main';
 import { usePlayers } from "../assets/game/players"
-import router from "../router/index.js";
 import path from "../assets/path_data.json"
+
 import BinVue from "../components/icon/Bin.vue";
 import PasswordModal from '../components/authentication/PasswordModal.vue';
 import ErrorAlert from '../components/ErrorAlert.vue';
-import { popup, show, auth,player,characters,resetPlayer } from '../main';
+import { ref, onMounted, computed } from 'vue';
+import router from "../router/index.js";
 
 const myPlayers = usePlayers()
 onMounted(async () => {
@@ -21,6 +22,7 @@ const filterPlayers = computed(() => {
 })
 
 const selectedPlayer = ref('')
+const selectedModal = ref('')
 
 const enterAccount = (account) => {
     if (!checkPassword(account)) return
@@ -49,6 +51,7 @@ const checkPassword = (account) => {
     }
     return true
 }
+const setModal = (modalId) => selectedModal.value = modalId
 const setPlayer = (player) => selectedPlayer.value = player
 </script>
  
@@ -76,7 +79,7 @@ const setPlayer = (player) => selectedPlayer.value = player
                     <div class="overflow-scroll flex-1 h-full space-y-2">
                         <div class="p-2 text-2xl w-full bg-slate-600 hover:bg-emerald-400 relative "
                             v-for="player of filterPlayers" @click="setPlayer(player)">
-                            <label for="loginModal" class="cursor-pointer">
+                            <label for="loginModal" class="cursor-pointer" @click="setModal('loginModal')">
                                 <div class="flex gap-x-4">
                                     <img :src="characters[player.character].icon" alt="" class="w-24 h-24">
                                     <div class="flex-row text-slate-200 w-full">
@@ -85,20 +88,20 @@ const setPlayer = (player) => selectedPlayer.value = player
                                         <p class="">CRIT {{ player.crit }}</p>
                                     </div>
                                 </div>
-                                <div class="flex">
-                                    <h1 class="text-emerald-100">{{ player.name }}</h1>&nbsp;
-                                    <p class="">LEVEL {{ player.level }}</p>
+                                <div class="flex flex-wrap">
+                                    <h1 class="text-teal-100">{{ player.name }}</h1>&nbsp;
+                                    <p class="">LEVEL {{ player.level }}</p>&nbsp;
+                                    <p class="text-amber-300">COIN {{ player.coin }}</p>
                                 </div>
                             </label>
-                            <label for="removeModal" class="cursor-pointer">
+                            <label for="removeModal" class="cursor-pointer" @click="setModal('removeModal')">
                                 <BinVue class="absolute top-3 right-3 text-white hover:text-red-500" />
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
-            <PasswordModal modal-id="loginModal" :player="selectedPlayer" @login="enterAccount" />
-            <PasswordModal modal-id="removeModal" :player="selectedPlayer" @login="removeAccount" />
+            <PasswordModal :modal-id="selectedModal" :player="selectedPlayer" @login="selectedModal === 'removeModal' ? removeAccount($event) : enterAccount($event)" />
         </div>
     </div>
 </template>

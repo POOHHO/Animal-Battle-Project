@@ -1,13 +1,13 @@
 <script setup>
-import { show,unpopup,popup,player, monster } from "../main.js"
+import { show,unpopup,popup,player, monster, auth } from "../main.js"
+import { useItems } from "../assets/game/items";
 import path from "../assets/path_data.json"
+
 import ActionBar from "../components/ActionBar.vue";
 import GamblingCard from "../components/GamblingCard.vue";
 import Menu from "../components/Menu.vue";
 import { computed,onBeforeMount,onMounted } from "vue";
-import { useItems } from "../assets/game/items";
 import router from "../router";
-import { auth } from "../main";
 import { ref } from "vue";
 
 const myItems = useItems()
@@ -124,10 +124,10 @@ const playerAttack = (randomCard) => {
             </div>
         </div>
         <!-- ACTIONBAR -->
-        <ActionBar :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :cards="cards" @attack="playerAttack"/>
+        <ActionBar :player="player" :monster="monster" :cards="cards" :my-items="myItems" :show="show" @attack="playerAttack"/>
         <!-- CARD -->
-        <GamblingCard :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :wins="wins" @next-turn="nextTurn"/>
-        <Menu />
+        <GamblingCard :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :wins="wins" :show="show" :card-path="path.card" @next-turn="nextTurn"/>
+        <Menu :game-over-icon="path.gameOver"/>
     </div>
 </template>
 <style scoped>

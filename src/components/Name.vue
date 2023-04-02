@@ -1,16 +1,17 @@
 <script setup>
-import { show,player } from "../main.js"
 import ErrorAlert from "./ErrorAlert.vue";
 const props = defineProps({
+    show: { type: Object,required: true },
+    player: { type: Object,required: true },
     paddingNameX: { type: Number, default: 0 },
     paddingNameY: { type: Number, default: 0 }
 })
 const paddingRemX = `${props.paddingNameX / 4}rem`
 const paddingRemY = `${props.paddingNameY / 4}rem`
 const errorText = () => {
-    if (show.value.nameEmptyAlert) return "Enter Your Name"
-    else if (show.value.passwordEmptyAlert) return "Enter Your Password"
-    else if (show.value.existsAlert) return "Account Exists"
+    if (props.show.nameEmptyAlert) return "Enter Your Name"
+    else if (props.show.passwordEmptyAlert) return "Enter Your Password"
+    else if (props.show.existsAlert) return "Account Exists"
     else return undefined
 }
 </script>
