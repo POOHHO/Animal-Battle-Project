@@ -53,11 +53,15 @@ function init() {
     randomMonster()
 }
 
+function resetPlayer() {
+    player.value = new Player()
+}
+
 function randomMonster() {
     const randomIndex = Math.floor(Math.random()*monsters.length)
     monster.value = monsters[randomIndex]
 }
 
 export { 
-    unpopup, popup, init, characters, monsters, show,auth, randomMonster, player,monster
+    unpopup, popup, init, characters, monsters, show,auth, randomMonster, player,monster , resetPlayer
 }

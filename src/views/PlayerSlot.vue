@@ -1,13 +1,12 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { Player } from "../assets/entity/player.js"
 import { usePlayers } from "../assets/game/players"
 import router from "../router/index.js";
 import path from "../assets/path_data.json"
 import BinVue from "../components/icon/Bin.vue";
 import PasswordModal from '../components/authentication/PasswordModal.vue';
 import ErrorAlert from '../components/ErrorAlert.vue';
-import { popup, show, auth,player,characters } from '../main';
+import { popup, show, auth,player,characters,resetPlayer } from '../main';
 
 const myPlayers = usePlayers()
 onMounted(async () => {
@@ -25,7 +24,7 @@ const selectedPlayer = ref('')
 
 const enterAccount = (account) => {
     if (!checkPassword(account)) return
-    clearPlayer()
+    resetPlayer()
     for (const key in account) {
         if (key === "coin") player.value.coin.coin = account.coin
         else if (key === "character") continue
@@ -50,7 +49,6 @@ const checkPassword = (account) => {
     }
     return true
 }
-const clearPlayer = () => player.value = new Player()
 const setPlayer = (player) => selectedPlayer.value = player
 </script>
  
@@ -71,7 +69,7 @@ const setPlayer = (player) => selectedPlayer.value = player
                     <router-link to="/character-selector">
                         <div class="p-2 w-full text-center bg-emerald-500 hover:bg-teal-600">
 
-                            <button class="text-3xl text-white" @click="clearPlayer()">create account...</button>
+                            <button class="text-3xl text-white" @click="resetPlayer()">create account...</button>
 
                         </div>
                     </router-link>
