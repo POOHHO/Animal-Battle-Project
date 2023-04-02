@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 defineEmits(["login", "create"])
 const props = defineProps({
-    player: { require: false },
+    player: { required: false },
     modalId: { default: "passwordModal" }
 })
 
