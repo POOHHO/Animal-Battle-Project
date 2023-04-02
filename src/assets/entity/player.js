@@ -60,7 +60,8 @@ class Player {
         if (this.health + plusHealth > this.maxHealth) this.health = this.maxHealth
         else this.health += plusHealth
         this.potions.splice(0, 1)
-        
+        const myPlayers = usePlayers()
+        myPlayers.updatePlayer(this)
     }
     selectCharacter(characterIndex = 0) {
         const character = characters?.[characterIndex]
