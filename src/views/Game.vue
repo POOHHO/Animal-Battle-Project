@@ -83,7 +83,15 @@ const playerAttack = (randomCard) => {
     player.value.cardDamage = randomCard+1
     popup("cardAttack")
 }
-
+const resumeOrCamp = (actionId) => {
+    show.value[actionId] = false
+    if (actionId === "playerDead") router.push("/camp") //CAMP
+}
+const mainOrCamp = (actionId) => {
+    show.value[actionId] = false
+    if (actionId === "playerDead") router.push("/") //MAIN
+    else router.push("/camp") //CAMP
+}
 </script>
 <template>
     <div class="screen w-screen h-screen overflow-x-hidden font-semibold flex flex-col justify-between text-white">
@@ -127,7 +135,7 @@ const playerAttack = (randomCard) => {
         <ActionBar :player="player" :monster="monster" :cards="cards" :my-items="myItems" :show="show" @attack="playerAttack"/>
         <!-- CARD -->
         <GamblingCard :player="player" :monster="monster" :turns="turns" :turn="turn" :win="win" :wins="wins" :show="show" :card-path="path.card" @next-turn="nextTurn"/>
-        <Menu :game-over-icon="path.gameOver"/>
+        <Menu :game-over-icon="path.gameOver" :show="show" @camp-or-resume="resumeOrCamp" @camp-or-main="mainOrCamp"/>
     </div>
 </template>
 <style scoped>

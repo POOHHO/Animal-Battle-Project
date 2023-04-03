@@ -277,10 +277,10 @@
     {
       "name": "REWLEGENDARY",
       "character": 0,
-      "coin": 40,
-      "level": 19,
+      "coin": 80,
+      "level": 21,
       "password": "123",
-      "health": 20,
+      "health": 0,
       "maxHealth": 20,
       "damage": 1,
       "luck": 5,
@@ -347,6 +347,46 @@
       ],
       "potions": [],
       "id": 92
+    },
+    {
+      "name": "pla",
+      "character": 0,
+      "coin": 9997619,
+      "level": 11,
+      "password": "gcb",
+      "health": 9999999,
+      "maxHealth": 9999999,
+      "damage": 99999,
+      "luck": 9999,
+      "crit": 99999,
+      "weapon": 5,
+      "armor": 15,
+      "accessory": 22,
+      "inventory": [
+        21,
+        24,
+        1,
+        21,
+        20,
+        18,
+        21,
+        20,
+        23,
+        21,
+        9,
+        18,
+        5,
+        4,
+        2,
+        10,
+        3,
+        15,
+        21
+      ],
+      "potions": [
+        1
+      ],
+      "id": 93
     }
   ]
 }

@@ -32,7 +32,7 @@ const btnClass = "btn border-0 w-full bg-emerald-500 hover:bg-teal-600 text-whit
                 <label :for="modalId" @click="$emit('create', { password: password }), clearPassword()" :class="btnClass">CREATE</label>
             </div>
             <label :for="modalId" class="btn btn-sm border-0 absolute right-2 top-2 bg-neutral hover:bg-red-500"
-                @click="clearPassword">✕</label>
+                @click="clearPassword()">✕</label>
         </div>
     </div>
 </template>
