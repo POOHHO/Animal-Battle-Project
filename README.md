@@ -35,6 +35,8 @@
 
  ## Feature Video
  https://youtu.be/2FdJ_k7E87c
+ ## Canvas Component Design & UI Design
+ https://www.canva.com/design/DAFe37B0piA/Hot1GbHIXvfYbGBBOV1hVA/edit?utm_content=DAFe37B0piA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
  
  ## Inspiration
  สมาชิกภายในกลุ่มชอบในการเล่นเกมเลยเลือกที่จะทำ Projectนี้เกี่ยวกับเกม มีคนในกลุ่มชอบเกี่ยวกับ Pixcel เลยที่จะเลือกทำเกมที่มาในธีม pixcel และได้มาในชื่อเกม Animal Bettle เป็นเกมต่อสู้แนว TrunBased   
