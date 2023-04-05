@@ -2,14 +2,14 @@
 
 #### สมาชิกกลุ่ม
 
-64130500016 ฌานพล ทิพวัน (พล)<br>
-64130500024 ดวงเจริญ สิวะสุธรรม (ริว)  
-64130500040 ธีรศักดิ์ เจียระนานนท์ (ดิว)<br> 
-64130500048 ปวริศ พงษ์รัตน์ (นิวตัน)<br>
-64130500056 พัชรพล แปลนาค (พู) 
+64130500016 ฌานพล ทิพวัน (พล) 20% ทำ feature ระบบค่าเงิน, ใช้ขวดเลือด และ ทำระบบ gachapon, ทำ router ของ view<br>
+64130500024 ดวงเจริญ สิวะสุธรรม (ริว) 24% วางโครงสร้าง Project, ออกแบบ UI และ refractor โค้ด<br>
+64130500040 ธีรศักดิ์ เจียระนานนท์ (ดิว) 18% ทำ feature player slot, วางโครงสร้างข้อมูล db json, ทำ fetch ข้อมูล<br> 
+64130500048 ปวริศ พงษ์รัตน์ (นิวตัน) 20% ทำ feature ช่องเก็บของ, ใช้ขวดเลือด, ลบไอเทม และ ทำระบบ gachapon<br>
+64130500056 พัชรพล แปลนาค (พู) 18% ทำ feature login, แยก component ส่งค่า (prop, emits), ทำ fetch ข้อมูล
 
 ## Features Application
-<h5>Animal Bettle กลุ่มของเราเป็นเกมแนว Trun Based ธีม Pixcel Art</h5>
+<h5>Animal Bettle กลุ่มของเราเป็นเกมแนว Turn Based ธีม Pixcel Art</h5>
  <ul>
 1. MainMenu เป็นหน้าแรกเพื่อที่สามารถกดเข้าสู่หน้า Login หรือ Howtoplay<br>
 2. CharacterSelector สามารถ CreateAccount , Login , RemoveAccount หรือ FilterหาAccountที่สร้างไว้ได้<br>
