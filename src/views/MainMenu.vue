@@ -1,16 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import path from "../assets/path_data.json"
-// const audio = new Audio("music/Undertale_sans.mp3")
-// const isPlaying = ref(false)
-// const playPuauseSong = () => {
-//     console.log(audio);
-//     audio.volume = 0.2
-//     audio.loop = true
-//     isPlaying.value = !isPlaying.value
-//     if (isPlaying.value) audio.play()
-//     else audio.pause()
-// }
+
 </script>
 <template>
     <div class="w-screen h-screen bg-cover" :style="`background-image: url('${path.mainimages}');`">
