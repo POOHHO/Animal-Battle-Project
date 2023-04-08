@@ -1,5 +1,5 @@
 <script setup>
-import { popup, show, auth,player,characters,resetPlayer } from '../main';
+import { popup, show, auth,player,characters,resetPlayer } from '../init.js';
 import { usePlayers } from "../assets/game/players"
 import path from "../assets/path_data.json"
 

@@ -1,5 +1,5 @@
 <script setup>
-import { show,unpopup,popup,player, monster, auth } from "../main.js"
+import { show,unpopup,popup,player, monster, auth } from "../init.js"
 import { useItems } from "../assets/game/items";
 import path from "../assets/path_data.json"
 

@@ -1,4 +1,4 @@
-import { popup, characters,monster } from "../../main.js"
+import { popup, characters,monster } from "../../init.js"
 import Currency from "../game/currency.js"
 import { usePlayers } from "../../assets/game/players"
 

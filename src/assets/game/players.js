@@ -30,9 +30,9 @@ export const usePlayers = defineStore("players",() => {
         return createPlayer(player)
     }
     const updatePlayer = (currentPlayer) => {
-        let existPlayer = players.value.find(player => player.id === currentPlayer.id);
-        existPlayer = currentPlayer
-        const player = playerDTO(existPlayer)
+        // let existPlayer = players.value.find(player => player.id === currentPlayer.id);
+        // existPlayer = currentPlayer
+        const player = playerDTO(currentPlayer)
         player.id = currentPlayer.id
         putPlayer(player)
     }

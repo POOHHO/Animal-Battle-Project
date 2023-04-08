@@ -1,5 +1,5 @@
 <script setup>
-import { init } from "./main.js"
+import { init } from "./init.js"
 import { RouterView } from "vue-router";
 init()
 

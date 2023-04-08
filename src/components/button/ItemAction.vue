@@ -1,16 +1,14 @@
 <script setup>
-import { useItems } from "../../assets/game/items"
 const props = defineProps({
-    itemId: { type: Number,required: true },
+    itemById: { type: Object,required: true },
     right: { type: Boolean, default: true }
 })
-const itemById = useItems().getItemById(props.itemId)
 
 defineEmits(["action"])
 </script>
 <template>
     <button class="text-xs rounded-sm w-3/4 text-white group relative"
-        @click="$emit('action',{ item: itemId })">
+        @click="$emit('action',{ item: itemById })">
         <slot></slot>
         <div class="hidden screen group-hover:block absolute z-[1000] px-1 bg-slate-600 text-white rounded text-xs"
             :class="right ? 'right-0' : 'left-0' ">

@@ -1,8 +1,9 @@
 <script setup>
 const props = defineProps({ characters: { type: Array,required: true },charId: Number})
+defineEmits(["character"])
 </script>
 <template>
-    <label for="passwordModal">
+    <label for="passwordModal" @click="$emit('character', charId)">
         <div class="px-2 py-[3.25rem] space-y-2 items-center justify-center flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 cursor-pointer bg-center bg-contain bg-no-repeat"
             :style="`background-image: url('${characters[charId].bg}')`">
             <h2 class="m04b text-l character-name text-white">{{ characters[charId].character }}</h2>

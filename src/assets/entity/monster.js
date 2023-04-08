@@ -1,4 +1,4 @@
-import { popup, unpopup, randomMonster,player } from "../../main.js"
+import { popup, unpopup, randomMonster,player } from "../../init.js"
 import path from "../path_data.json"
 import { usePlayers } from "../../assets/game/players"
 

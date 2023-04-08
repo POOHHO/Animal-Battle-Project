@@ -29,12 +29,12 @@ const hasEquipment = (item) => Boolean(props.player[item.type])
 
 
 const useItem = (item,index) => {
-    props.player.useItem(itemById(item))
+    props.player.useItem(item)
     props.player.removeItemFromIndex(index)
     props.myPlayers.updatePlayer(props.player)
 }
 const removeItem = (item) => {
-    props.player.removeItem(itemById(item))
+    props.player.removeItem(item)
     props.myPlayers.updatePlayer(props.player)
 }
 </script>
@@ -58,7 +58,7 @@ const removeItem = (item) => {
                             <template v-if="getEquipmentById(itemType)">
                                 <img :src="getEquipmentById(itemType).imgPath"
                                     class=" w-1/2" alt="W">
-                                <ItemAction :disabled="player.isMaxInventory()" :item-id="getEquipment(itemType)" :right="false" @action="removeItem($event.item)" class="bg-red-500 disabled:bg-slate-500">
+                                <ItemAction :disabled="player.isMaxInventory()" :item-by-id="getEquipmentById(itemType)" :right="false" @action="removeItem($event.item)" class="bg-red-500 disabled:bg-slate-500">
                                     REMOVE
                                 </ItemAction>
                             </template>
@@ -68,9 +68,9 @@ const removeItem = (item) => {
                 <div class="grid grid-cols-4 place-items-center gap-1 py-1 border border-white rounded-md w-2/3 " >
                     <InventorySlot v-for="itemIndex of 24" :key="itemIndex" :width="18" :height="18" class="relative">
                         <template v-if="getInventoryById(itemIndex)">
-                            <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(index)" />
+                            <BinVue class="absolute right-1 top-1 w-4 h-4 cursor-pointer text-white hover:text-red-500" @click = "player.removeItemFromIndex(itemIndex)" />
                             <img :src="getInventoryById(itemIndex).imgPath" class="w-1/2" :alt="itemIndex">
-                            <ItemAction :disabled="hasEquipment(getInventoryById(itemIndex))" :item-id="getInventory(itemIndex)" @action="useItem($event.item,itemIndex)" class="bg-emerald-400 disabled:bg-slate-500">
+                            <ItemAction :disabled="hasEquipment(getInventoryById(itemIndex))" :item-by-id="getInventoryById(itemIndex)" @action="useItem($event.item,itemIndex)" class="bg-emerald-400 disabled:bg-slate-500">
                                 EQUIP
                             </ItemAction>
                         </template>

@@ -1,7 +1,7 @@
 <script setup>
 import { useItems } from "../assets/game/items";
 import { usePlayers } from "../assets/game/players";
-import { auth,player,monster } from "../main.js";
+import { auth,player,monster } from "../init.js";
 import path from "../assets/path_data.json"
 
 import Gachapon from "../components/gachapon/Gachapon.vue";
@@ -14,14 +14,12 @@ onBeforeMount(() => {
     if (!auth.value) router.push("/")
 })
 
-const monsterReset = () => {
-    monster.value.setMaxHealth()
-    player.value.maxHeal()
-}
 const myItems = useItems()
 const myPlayers = usePlayers()
 onMounted(async () => {
     await myItems.fetchItems()
+    player.value.maxHeal()
+    monster.value.setMaxHealth()
 })
 
 </script>
@@ -34,7 +32,7 @@ onMounted(async () => {
         <div class="flex w-full h-full justify-around items-center">
             <Gachapon :gacha-item-icon="path.gachapon1" :gacha-potion-icon="path.gachapon2" :player="player" :my-items="myItems" :my-players="myPlayers"/>
             <router-link to="/game" class="bg-blue-500 hover:bg-blue-400 text-white text-2xl font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-                @click="monsterReset()">
+               >
                 ADVENTURE
             </router-link>
 

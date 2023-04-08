@@ -1,6 +1,6 @@
 <script setup>
 import Action from "./button/Action.vue";
-import ItemVue from "./inventory/Item.vue";
+import PotionInventory from "./inventory/PotionInventory.vue";
 
 const props = defineProps({ 
     player: Object, monster: Object, 
@@ -27,7 +27,7 @@ function randomPlayerCard(){
         <!-- ACTION BTN -->
         <div class="flex flex-1">
             <Action :disabled="!show.attackButton || !show.monsterImg" @click="$emit('attack',randomPlayerCard())"  >ATTACK</Action>
-           <Action><ItemVue :player="player" :my-items="myItems"/></Action>
+            <Action><PotionInventory :player="player" :my-items="myItems"/></Action>
         </div>
         <!-- PLAYER -->
         <div class="flex lg:w-1/3 items-center">
